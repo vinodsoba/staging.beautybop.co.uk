@@ -1,0 +1,64 @@
+<script>
+(function () {
+  var sentKey = 'ga4_begin_checkout_sent_sig';
+
+  function fireWithCart() {
+    if (typeof gtag !== 'function') return setTimeout(fireWithCart, 300);
+    if (typeof require !== 'function') return setTimeout(fireWithCart, 300);
+
+    require(['Magento_Customer/js/customer-data'], function (customerData) {
+      try {
+        var cart = customerData.get('cart')();
+        if (!cart || !cart.items || !cart.items.length) {
+          return setTimeout(fireWithCart, 300);
+        }
+
+        var items = cart.items.map(function (i) {
+          var sku = (i.product_sku || i.sku || '').toString();
+          var name = (i.product_name || i.name || '').toString();
+          var qty = i.qty != null ? parseInt(i.qty, 10) : 1;
+
+          // Magento often provides product_price_value as number
+          var price = 0;
+          if (i.product_price_value != null) price = parseFloat(i.product_price_value);
+          else if (i.product_price != null) price = parseFloat(i.product_price);
+
+          if (isNaN(price)) price = 0;
+          if (isNaN(qty)) qty = 1;
+
+          return {
+            item_id: sku,
+            item_name: name,
+            price: Math.round(price * 100) / 100,
+            quantity: qty
+          };
+        });
+
+        // Signature prevents duplicate firing on refresh
+        var signature = items.map(function(x){ return x.item_id + ':' + x.quantity; }).join('|');
+        if (sessionStorage.getItem(sentKey) === signature) return;
+        sessionStorage.setItem(sentKey, signature);
+
+        var value = 0;
+        items.forEach(function (x) { value += (x.price || 0) * (x.quantity || 1); });
+        value = Math.round(value * 100) / 100;
+
+        gtag('event', 'begin_checkout', {
+          currency: 'GBP',
+          value: value,
+          items: items
+        });
+
+        console.log('GA4 (Owned) begin_checkout sent (with items):', { value: value, items: items });
+
+      } catch (e) {
+        console.log('GA4 (Owned) begin_checkout error:', e);
+      }
+    });
+  }
+
+  window.addEventListener('load', function () {
+    setTimeout(fireWithCart, 300);
+  });
+})();
+</script>

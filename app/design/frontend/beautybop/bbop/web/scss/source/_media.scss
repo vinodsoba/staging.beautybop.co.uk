@@ -1,0 +1,35 @@
+@import '_variables.scss';
+@media only screen and (max-width: 521px)
+{
+  .nav-sections-item-title {
+    font-size: $font-size-medium;
+    a {
+      color:$grey
+    }
+    color: $black;
+  }
+  .panel .header {
+    height:32px;
+  }
+  .logo{
+    margin:0 auto;
+  }
+  .panel.header .links {
+    display: inline-flex;
+  }
+  .freeshipping h5 {
+    display: none;
+  }
+  nav.navigation span{
+    font-weight: 100;
+  }
+
+  .navigation .level-top {
+    padding-top:10px !important;
+  }
+
+  .sections.nav-sections {
+    background-color: #ffffff;
+  }
+
+}

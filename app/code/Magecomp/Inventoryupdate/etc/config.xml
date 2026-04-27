@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <inventoryupdate>
+            <general>
+                <enable>0</enable>
+                <schema_location_api_url>http://www.beautyfort.com/api/wsdl/v2/wsdl.wsdl</schema_location_api_url>
+                <endpoints_api_url>http://www.beautyfort.com/api/</endpoints_api_url>
+                <testmode>1</testmode>
+            </general>
+        </inventoryupdate>
+    </default>
+</config>

@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+
+    <system>
+
+        <section id="beautyfort_v4"
+                 translate="label"
+                 sortOrder="900"
+                 showInDefault="1"
+                 showInWebsite="1"
+                 showInStore="0">
+
+            <label>BeautyFort</label>
+            <tab>general</tab>
+            <resource>BeautyFort_BeautyfortProductImport::config</resource>
+
+            <group id="api"
+                   translate="label"
+                   type="text"
+                   sortOrder="10"
+                   showInDefault="1"
+                   showInWebsite="1"
+                   showInStore="0">
+
+                <label>Product Import (v4)</label>
+
+                <field id="wsdl"
+                       translate="label"
+                       type="text"
+                       sortOrder="10"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0">
+                    <label>WSDL URL</label>
+                </field>
+
+                <field id="endpoint"
+                       translate="label"
+                       type="text"
+                       sortOrder="20"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0">
+                    <label>SOAP Endpoint</label>
+                </field>
+
+                <field id="username"
+                       translate="label"
+                       type="text"
+                       sortOrder="30"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0">
+                    <label>API Username</label>
+                </field>
+
+                <field id="password"
+                       translate="label"
+                       type="obscure"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0">
+                    <label>API Password</label>
+                </field>
+
+                <field id="test_mode"
+                       translate="label"
+                       type="select"
+                       sortOrder="50"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0">
+                    <label>Test Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+            </group>
+        </section>
+
+    </system>
+</config>

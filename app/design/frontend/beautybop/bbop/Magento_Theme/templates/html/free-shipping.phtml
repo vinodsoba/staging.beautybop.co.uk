@@ -1,0 +1,70 @@
+<div class="test">TEST 123</div>
+
+<div class="bg-white border-b">
+    
+    <div class="bg-green max-w-9xl mx-auto grid grid-cols-3 items-center py-3 px-6">
+
+        <!-- Column 1: Announcement -->
+        <div class="text-[16px] text-black">
+            Free shipping on all orders over £50
+        </div>
+
+
+        <!-- Column 2: Search -->
+        <div class="flex justify-center">
+            <form action="/catalogsearch/result/" method="get" class="w-full max-w-md relative">
+                <input
+                    type="text"
+                    name="q"
+                    placeholder="Search products..."
+                    class="w-full border-b-[1px] border-black py-2 pr-10"
+                >
+
+                <button class="absolute right-0 top-2">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
+                    </svg>
+                </button>
+            </form>
+        </div>
+
+
+        <!-- Column 3: Account -->
+        <div class="flex justify-end relative">
+
+            <div class="account-wrapper relative">
+
+                <!-- Trigger -->
+                <div class="flex items-center gap-2 cursor-pointer account-trigger">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 
+                        2.24-5 5 2.24 5 5 5Zm0 2c-3.33 0-10 1.67-10 
+                        5v3h20v-3c0-3.33-6.67-5-10-5Z"
+                        fill="currentColor"/>
+                    </svg>
+                    <span>Account</span>
+                </div>
+
+                <!-- Dropdown -->
+                <div class="account-dropdown absolute right-0 top-full w-40 bg-white shadow-lg border rounded z-50 grid gap-[2px]">
+
+                    <a href="<?= $block->getUrl('customer/account/login') ?>" 
+                       class="block px-4 py-2 text-sm bg-black text-white bb-btn">
+                        Login
+                    </a>
+
+                    <a href="<?= $block->getUrl('customer/account/create') ?>" 
+                       class="block px-4 py-2 text-sm border-solid border-[1px] border-black text-black bb-btn">
+                        Register
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

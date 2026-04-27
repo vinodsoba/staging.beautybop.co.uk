@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Ulmod. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+	    <newsletterpopup>
+            <general>
+                <is_enabled>1</is_enabled>
+            </general>
+			<display>
+                <behavior>2</behavior>				
+                <second_delay>5</second_delay>
+                <percent_delay>20</percent_delay>	
+                <cookie_lifetime>86400</cookie_lifetime>	
+                <popup_title>Newsletter</popup_title>	
+                <show_terms_condition>0</show_terms_condition>					
+                <terms_condition>I agree with the terms and conditions</terms_condition>	
+                <subscribe_btntext>Subscribe</subscribe_btntext>					
+			</display>			
+			<buttons>		
+				<enable_social_buttons>0</enable_social_buttons>				
+				<facebooktitle>Follow via Facebook</facebooktitle>			
+				<linkedintitle>Follow via Linkedin</linkedintitle>
+				<twittertitle>Follow via Twitter</twittertitle>
+				<youtubetitle>Follow via Youtube</youtubetitle>
+				<googleplustitle>Follow via Google +</googleplustitle>
+				<pinteresttitle>Follow via Pinterest</pinteresttitle>
+			   <instagramtitle>Follow via Instagram</instagramtitle>
+			   <flickrtitle>Follow via Flickr</flickrtitle>
+			</buttons>
+	    </newsletterpopup>			
+	</default>
+</config>

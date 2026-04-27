@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "Kohinoor Bangla";
+  src: url("../fonts/Kohinoor Bangla/KohinoorBangla.ttc");
+}
+
+@font-face {
+  font-family: "Falling Sky";
+  src: url("../fonts/Falling-Sky-Condensed/FallingSkyOu.otf");
+}
+
+@font-face {
+  font-family: "Futura";
+  src: url("../fonts/Futura/futura medium bt.ttf");
+}
+
+$beige: #ffe4c4;
+$lilac: #ffc4fd;
+$red: #bb1414;
+$bbop-purple: #a93e78;
+$white: #fff;
+$black: #000;
+$grey: #888383;
+$fcgrey: #666666;
+$lightgrey: #f1f0f0;
+$greyish: #f0f0f0;
+$darkgrey: #797575;
+$green: #80f204;
+$arrow-lightpink: #ec7fb5;
+
+$font-size-xlarge: 40px;
+$font-size-large: 29px;
+$font-size-medium: 22px;
+$font-size-small: 18px;
+$font-size-xsmall: 13px;
+$font-size-breadcrumb: 11px;
+$nav-font-size: 12pt;
+$nav-title: 22px;
+$product-listing-title: 15px;
+$standard-font-size: 12px;
+$blog-font-size: 26px;
+$blog-font-size-p: 14px;
+$footer-links: 16px;
+$freeship-text: 1.6rem;
+$font-size-xxsmall: 10px;
+$font-family: "Lato", sans-serif, futura, helvetica;
+$h2: 16px;
+$social-icons: 35px;
+
+@mixin hme-button {
+  padding: 8px 12px 12px 8px;
+  background-color: $black;
+}
+
+@mixin hp-product-listing {
+  font-family: $font-family;
+  font-size: $font-size-xxsmall;
+  width: 94.3%;
+  padding: 12px 80px;
+  background-color: $white;
+  border: 1px solid $arrow-lightpink !important;
+  color: $black;
+}
+
+@mixin product-listing-btn {
+  font-family: $font-family;
+  background-color: $black;
+  padding: 12px 80px;
+  border-color: $black;
+  width: 94.3%;
+}
+
+@mixin product-listing-btn-hover {
+  font-family: $font-family;
+  background-color: $arrow-lightpink;
+  border-color: $arrow-lightpink;
+  color: $black;
+  width: 94.3%;
+  padding: 12px 80px;
+}
+
+@mixin blog-button {
+  font-family: "Kohinoor Bangla", Falling Sky, helvetica;
+  font-weight: lighter;
+  padding: 11px 70px 11px 70px;
+  background-color: #a93e78;
+  color: #fff;
+  border: none;
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+}

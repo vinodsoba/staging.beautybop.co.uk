@@ -1,0 +1,70 @@
+@import "_variables.scss";
+
+.message.success {
+  width: auto;
+  max-width: 1247px;
+  margin: 0 auto;
+}
+
+// newsletter popup
+.modal-inner-wrap {
+  background-image: url("pub/media/banners/newsletter_bg.png");
+  background-position-y: 68px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.modal-popup._inner-scroll .modal-content {
+  background-color: $black;
+  height: auto;
+  padding: 40px;
+}
+
+.modal-popup .modal-header {
+  background-color: $black;
+  h1 {
+    color: $white;
+    font-size: $font-size-medium;
+  }
+}
+
+.um-popup-newsletter .modal-title {
+  font-size: $font-size-small;
+  border-bottom: none;
+}
+
+.um-newsletter-p .block.newsletter .actions {
+  text-align: left;
+}
+
+#newsletter-validate-detail button.subscribe {
+  padding: 10px 69px;
+}
+
+.um-newsletter-popup .newsl-social .block-btn a {
+  width: 35px;
+  height: 35px;
+  padding: 2px 0px 0px 5px;
+  background-color: $white !important;
+  .fa {
+    font-size: $font-size-small;
+    color: $black;
+  }
+}
+
+.um-newsletter-popup .newsl-social .block-title p {
+  color: $white;
+}
+
+.um-newslp-content .content {
+  h1 {
+    color: $white;
+  }
+}
+
+.um-newslp-msg {
+  padding: 15px 0px;
+  text-align: left;
+  font-size: $font-size-small;
+  color: $white;
+}

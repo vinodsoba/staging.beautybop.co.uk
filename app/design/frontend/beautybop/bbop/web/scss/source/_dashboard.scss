@@ -1,0 +1,28 @@
+@import "_variables.scss";
+
+td {
+  font-size: $font-size-xsmall;
+}
+
+table#my-orders-table {
+  width: 600px;
+  td {
+    font-size: $blog-font-size-p;
+    width: 80px;
+  }
+  th {
+    font-size: $font-size-xsmall;
+    width: 80px;
+  }
+}
+
+.block-dashboard-info,
+.block-dashboard-addresses {
+  font-size: $footer-links;
+  font-family: inherit;
+  .box-actions span {
+    font-size: $font-size-xsmall;
+    color: $black;
+    text-decoration: underline;
+  }
+}

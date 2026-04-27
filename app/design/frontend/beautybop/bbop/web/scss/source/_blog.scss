@@ -1,0 +1,131 @@
+@import "_variables.scss";
+
+.blog-section {
+  h3 {
+    font-size: $blog-font-size;
+    color: $white;
+    margin: 0 auto;
+    text-transform: uppercase;
+  }
+}
+
+.blog-cont-1 {
+  height: 100%;
+  background-color: $bbop-purple;
+  padding: 81px;
+  position: relative;
+  h2 {
+    color: $white;
+  }
+  p {
+    color: $white;
+  }
+  a {
+    color: $white;
+  }
+  button {
+    padding:10px 40px;
+    border: solid 1px #000;
+  }
+}
+
+.time-for {
+  background-color: #ffae2b;
+  background-image: url(../images/lipstick-tfl.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 26%;
+  font-size: $font-size-medium;
+  padding: 40px;
+  p {
+    font-family: "futura", falling sky;
+    color: $white;
+    padding: 50px 0px 10px 20px;
+    font-size: $font-size-xlarge;
+    max-width: 304px;
+  }
+  h5 {
+    color: $white;
+    padding: 50px 0px 10px 20px;
+    font-size: $font-size-xlarge;
+  }
+}
+
+.blog-art {
+  a {
+    @include blog-button;
+    padding: 13px 29px;
+    margin: 50px 0px 0px 70px;
+    position: absolute;
+    bottom: 35px;
+    left: 0;
+    width: 200px;
+  }
+  h5 {
+    font-size: $font-size-large;
+    color: $white;
+    position: absolute;
+    top: 0px;
+    padding: 20px;
+    margin: 50px;
+  }
+  p {
+    font-size: $font-size-medium;
+    position: absolute;
+    top: 65px;
+    color: $white;
+    padding: 0px;
+    margin: 59px 72px;
+  }
+  .b-a {
+    position: relative;
+  }
+}
+
+.fragrance-f-w {
+  height: auto;
+  min-height: 240px !important;
+  background-image: url(../images/ffw-banner.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position-y: center;
+  h5 {
+    color: $white;
+    font-size: $font-size-large;
+    margin: 26px 52px;
+  }
+  p {
+    color: $white;
+    font-size: $font-size-medium;
+    padding: 23px 0 24px 3px;
+    position: absolute;
+    top: 26px;
+    margin: 45px 68px;
+  }
+  a {
+    @include blog-button;
+    width: 200px;
+    margin: 1px 59px 19px 16%;
+  }
+  a.ffw-btn {
+    margin: 54px 0px 0px 89px;
+  }
+}
+
+// wordpress
+.post-list-item {
+  h2 {
+    font-size: $font-size-medium;
+    padding:10px 0px 10px;
+  }
+  a {
+    text-decoration: none;
+    color: $grey;
+  }
+}
+
+.post-content {
+  font-size: $blog-font-size-p;
+  font-family: $font-family;
+  color: $black;
+}

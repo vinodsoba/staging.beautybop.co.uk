@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/config.xsd">
+    <default>
+        <beautyfort_v4>
+            <api>
+                <wsdl>https://www.beautyfort.com/api/wsdl/v4/wsdl.wsdl</wsdl>
+                <endpoint>https://www.beautyfort.com/api/soap/v4</endpoint>
+                <test_mode>0</test_mode>
+            </api>
+        </beautyfort_v4>
+    </default>
+</config>

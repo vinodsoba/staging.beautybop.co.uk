@@ -1,0 +1,14 @@
+{
+  "name": "beautybop/module-footer-block",
+  "description": "BeautyBop Footer Block for Magento 2 by BBOP",
+  "type": "magento2-module",
+  "version": "0.0.1",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "BeautyBop\\FooterBlock\\": ""
+    }
+  }
+}

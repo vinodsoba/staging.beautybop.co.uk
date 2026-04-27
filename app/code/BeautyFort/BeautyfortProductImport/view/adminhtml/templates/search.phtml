@@ -1,0 +1,82 @@
+<?php
+
+file_put_contents(
+    BP . '/var/log/beautyfort_template.log',
+    "[" . date('c') . "] search.phtml LOADED" . PHP_EOL,
+    FILE_APPEND
+);
+
+/** @var $block \BeautyFort\BeautyfortProductImport\Block\Adminhtml\Search */
+$products = $block->getProducts();
+$sku = $block->getSku();
+
+?>
+
+<form method="get" action="<?= $block->getFormAction() ?>">
+    <label for="sku"><strong>Search SKU</strong></label><br><br>
+    <input type="text" name="sku" id="sku" value="<?= $block->escapeHtml($sku) ?>" />
+    <button type="submit" class="action-primary">Search</button>
+</form>
+
+<hr>
+<?php if (!empty($products)): ?>
+    <pre><?= print_r($products[0], true); ?></pre>
+<?php endif; ?>
+<?php if ($sku && empty($products)): ?>
+    <p><strong>No products found for SKU:</strong> <?= $block->escapeHtml($sku) ?></p>
+<?php endif; ?>
+
+<?php if (!empty($products)): ?>
+    <h2>Results</h2>
+
+    <table class="data-grid">
+        <thead>
+            <tr>
+                <th>SKU</th>
+                <th>Name</th>
+                <th>Brand</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Image</th>
+                <th>Import Product</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($products as $product): ?>
+                <tr>
+                    <td><?= $block->escapeHtml($product->StockCode ?? '') ?></td>
+                    <td><?= $block->escapeHtml($product->Name ?? '') ?></td>
+                    <td><?= $block->escapeHtml($product->Brand ?? '') ?></td>
+                    <td><?= $block->escapeHtml($product->UnitPrice->Amount ?? '') ?></td>
+                    <td><?= $block->escapeHtml($product->QuantityAvailable ?? '') ?></td>
+                    <td>
+                         <?php if (!empty($product->ThumbnailImageUrl)): ?>
+                        <img
+                            src="<?= $block->escapeUrl($product->ThumbnailImageUrl) ?>"
+                            alt="<?= $block->escapeHtml($product->Name) ?>"
+                            width="60"
+                        />
+                        <?php else: ?>
+                            —
+                        <?php endif; ?>
+                    </td>
+
+                     <!-- ACTION -->
+                    <td>
+                        <form method="post"
+                          action="<?= $block->getUrl('beautyfort/import/product') ?>">
+                        <?= $block->getBlockHtml('formkey') ?>
+                        <input type="hidden" name="sku" value="<?= $product->StockCode ?>" />
+                        <button type="submit" class="action-primary">
+                            Add to website
+                        </button>
+                    </form>
+
+
+                    </td>
+
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php endif; ?>

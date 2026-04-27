@@ -1,0 +1,16 @@
+@import "_variables.scss";
+
+button.action.primary {
+  background-color: $bbop-purple;
+  border-color: $bbop-purple;
+  /*@include blog-button;*/
+}
+
+button.action-login {
+  background-color: $white;
+}
+
+a:visited,
+.alink:visited {
+  color: $black;
+}

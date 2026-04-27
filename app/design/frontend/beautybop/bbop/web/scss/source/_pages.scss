@@ -1,0 +1,35 @@
+@import "_variables.scss";
+
+.pages {
+  a.page {
+    color: $black
+  }
+}
+
+ul.store-times {
+  border-right: solid 1.9px #ddd;
+  li {
+    list-style: none;
+    padding-right: 12px;
+    line-height: 1.4;
+  }
+  li::before {
+    font-family: FontAwesome;
+    content: "\f101";
+    color: $arrow-lightpink;
+    padding-right: 10px;
+    font-size: $font-size-medium;
+  }
+}
+
+.fa-envelope:before {
+  padding-right: 17px;
+}
+
+.contact-method {
+  font-size: $h2;
+  a {
+    color: $black;
+    text-decoration: underline;
+  }
+}

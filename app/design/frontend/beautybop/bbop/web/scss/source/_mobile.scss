@@ -1,0 +1,89 @@
+@import "_variables.scss";
+
+@media only screen and (min-width: 1500px) and (max-width: 1920px) {
+  .fotorama__stage {
+    height: 685px !important;
+  }
+
+  .page-layout-1column .product.media {
+    width: 50% !important;
+  }
+
+  .fotorama__img {
+    left: 64% !important;
+  }
+
+  .page-layout-1column .product-info-main {
+    width: 35%;
+    margin-left: 119px;
+    padding: 49px 190px 0 0;
+  }
+  .product.details.product-item-details a.product-item-link {
+    font-size: $product-listing-title !important;
+  }
+}
+
+@media screen and (min-width: 1025) and (max-width: 1440px) {
+  .container {
+    max-width: 1274px !important;
+  }
+  
+  .section-item-content-bottom {
+    display: none;
+  }
+  // set columns for product listings
+  .page-products .products-grid .product-item {
+    width: calc((100% - 6%) / 3);
+    margin-left: 0px;
+  }
+}
+
+@media only screen and (min-width: 1001px) and (max-width: 1280px) {
+  .wordpress-homepage-view .page-main {
+    max-width: 1184px;
+    margin: 0 auto;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .block.account-nav {
+    padding-left: 20px;
+  }
+
+  .sidebar-additional {
+    padding-left: 20px;
+  }
+
+  .col {
+    width: 200px !important;
+  }
+
+  td.actions {
+    span {
+      color: $black;
+    }
+  }
+
+  .blog-cont-1 {
+    max-height: 272px;
+    height: 100%;
+  }
+
+  .blog-sect-1 {
+    img {
+      width: 100%;
+      max-height: 272px;
+      height: 100%;
+    }
+  }
+
+  .blog-sect-2 {
+    img {
+      width: 100%;
+      max-height: 272px;
+      height: 100%;
+    }
+  }
+}

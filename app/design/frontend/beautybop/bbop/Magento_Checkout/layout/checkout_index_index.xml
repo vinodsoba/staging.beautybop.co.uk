@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <move element="logo" destination="header-wrapper" before="-" />
+        <move element="navigation.sections" destination="header-wrapper"/>
+        <referenceBlock name="minicart" remove="false" />
+        <referenceContainer name="header.panel" remove="false" />
+        <referenceBlock name="top.search" remove="false" />
+        <referenceBlock name="catalog.compare.link" remove="false" />
+        <referenceBlock name="catalog.topnav" remove="false"/>
+        <referenceContainer name="footer-container"  remove="false"/>
+
+        <!-- GA4 (Owned) begin_checkout -->
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="ga4.owned.begin.checkout"
+                   template="Magento_Checkout::ga4_begin_checkout.phtml"/>
+        </referenceContainer>
+        
+    </body>
+</page>

@@ -1,0 +1,30 @@
+<form action="<?= $block->getUrl('beautyfort/bulk/import') ?>" method="post">
+    <?= $block->getBlockHtml('formkey') ?>
+
+    <div>
+        <label><strong>Import by Brand</strong></label><br/>
+        <input type="text" name="brand" placeholder="Example: Calvin Klein" style="width:300px;">
+        <p style="color:#777;">Leave empty if importing by SKU.</p>
+    </div>
+
+    <hr/>
+
+    <div>
+        <label>SKUs (one per line)</label><br/>
+        <textarea name="skus" rows="10" cols="60"></textarea>
+    </div>
+
+    <div>
+        <label>Select Categories</label><br/>
+        <select name="category_ids[]" multiple size="10">
+            <?php foreach ($block->getCategories() as $category): ?>
+                <option value="<?= $category->getId() ?>">
+                    <?= str_repeat('--', $category->getLevel()) . ' ' . $category->getName() ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+
+    <br/>
+    <button type="submit">Import</button>
+</form>

@@ -1,0 +1,64 @@
+@import "_variables.scss";
+
+.sidebar-main {
+  strong {
+    font-size: $font-size-small;
+  }
+}
+
+.sidebar {
+  font-family: $font-family;
+  li.item {
+    list-style: none;
+  }
+  a {
+    font-size: $font-size-xsmall;
+    color: $black;
+  }
+  base {
+    display: none;
+  }
+}
+
+.filter-content {
+  li {
+    padding: 3px 0px 3px;
+  }
+  a {
+    color: $fcgrey;
+    font-size: $font-size-xsmall;
+  }
+}
+
+dd.filter-options-content {
+  display: none;
+}
+
+.toolbar-products {
+  background-color: $lightgrey;
+}
+
+.modes-mode {
+  border: none !important;
+}
+
+.sidebar-main {
+  .filter-title {
+    display: none;
+  }
+  .filter-subtitle {
+    display: none;
+  }
+  .filter-options-title {
+    font-family: $font-family;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 10px 0px 10px;
+    border-top: solid 1px #ddd;
+  }
+  dt.filter-options-title::after {
+    content: "\f0d7";
+    font-family: fontawesome;
+    float: right;
+  }
+}

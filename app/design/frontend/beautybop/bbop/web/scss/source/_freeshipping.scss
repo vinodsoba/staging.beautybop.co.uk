@@ -1,0 +1,19 @@
+@import "_variables.scss";
+
+.freeshipping {
+  height: 18px;
+  padding-top: 7px;
+  h5 {
+    font-family: $font-family;
+    margin: 2px;
+    font-size: $standard-font-size;
+  }
+}
+
+.fa-truck {
+  float: left;
+  padding: 0px 12px;
+  font-size: $freeship-text;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}

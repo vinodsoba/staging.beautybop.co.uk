@@ -1,0 +1,20 @@
+@import "_variables.scss";
+
+.login-container {
+  margin: 0 auto;
+  max-width: 1209px;
+}
+
+.block.block-new-customer,
+.block.block-customer-login {
+  height: 389px;
+  background-color: $white;
+  padding: 20px;
+  border: 1px solid $greyish;
+}
+
+.fieldset > .field:not(.choice) > .label {
+  text-align: left !important;
+  font-size: $font-size-xsmall;
+  font-family: $font-family;
+}

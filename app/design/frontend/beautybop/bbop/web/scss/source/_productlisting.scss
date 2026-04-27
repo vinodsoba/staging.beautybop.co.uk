@@ -1,0 +1,93 @@
+@import "_variables.scss";
+.products {
+  .wrapper-custom {
+    ol.product-items {
+      li.product-item {
+        .product-item-name {
+          .product {
+            @media screen and (max-width: 767px) {
+              .name a {
+                text-align: center;
+              }
+            }
+            
+          }
+        }
+        .product-item-details {
+          a.product-item-link {
+            @media screen and (max-width: 767px) {
+              font-size: $font-size-breadcrumb;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.page-title-wrapper {
+  display: block;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+
+.toolbar-products .pages {
+  position: absolute;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.product-info-main .custom23 .field.qty {
+  display: inline-block;
+  width: 100%;
+  min-width: 414px;
+    
+        @media screen and (max-width: 1000px) {
+          width: 100%;
+          min-width: 225px;
+        }
+
+        .label {
+          float: left !important;
+          padding: 10px 50px 10px 50px;
+          
+          @media screen and (max-width: 1000px) {
+              padding: 10px 19px 10px 18px
+          }
+    }
+}
+
+.product-info-main .custom23 .actions {
+  float: left;
+  width: 100%;
+}
+
+// product listing button
+
+.product-item-details {
+  button.action.tocart.primary:hover {
+    @include product-listing-btn-hover;
+  }
+  button.action.primary {
+    @include hp-product-listing;
+  }
+  button a {
+    color: $white;
+  }
+}
+
+button#product-addtocart-button {
+  width: 100%;
+
+  @include hp-product-listing;
+
+    @media screen and (max-width: 1240px) {
+      padding: 5px 20px;
+      width: 100%;
+  }
+}

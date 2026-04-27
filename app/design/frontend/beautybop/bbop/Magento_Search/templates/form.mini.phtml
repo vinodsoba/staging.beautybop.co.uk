@@ -1,0 +1,69 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $helper \Magento\Search\Helper\Data */
+$helper = $this->helper(\Magento\Search\Helper\Data::class);
+?>
+
+<div class="block block-search">
+    <div class="block block-title">
+        <strong><?= __('Search') ?></strong>
+    </div>
+
+    <div class="block block-content">
+
+        <form class="form minisearch"
+              id="search_mini_form"
+              action="<?= $helper->getResultUrl() ?>"
+              method="get">
+
+            <div class="field search">
+
+                <label class="label" for="search" data-role="minisearch-label">
+                    <span><?= __('Search') ?></span>
+                </label>
+
+                <div class="control-2">
+
+                    <input id="search"
+                           data-mage-init='{"quickSearch":{
+                                "formSelector":"#search_mini_form",
+                                "url":"<?= $helper->getSuggestUrl()?>",
+                                "destinationSelector":"#search_autocomplete"
+                           }}'
+                           type="text"
+                           name="<?= $helper->getQueryParamName() ?>"
+                           value="<?= $helper->getEscapedQueryText() ?>"
+                           placeholder="<?= __('Search entire store here...') ?>"
+                           class="input-text"
+                           maxlength="<?= $helper->getMaxQueryLength() ?>"
+                           role="combobox"
+                           aria-haspopup="false"
+                           aria-autocomplete="both"
+                           autocomplete="off"/>
+
+                    <div id="search_autocomplete" class="search-autocomplete"></div>
+
+                    <?= $block->getChildHtml() ?>
+
+                </div>
+
+            </div>
+
+            <div class="actions">
+                <button type="submit"
+                        title="<?= $block->escapeHtml(__('Search')) ?>"
+                        class="action search">
+                    <span><?= __('Search') ?></span>
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>

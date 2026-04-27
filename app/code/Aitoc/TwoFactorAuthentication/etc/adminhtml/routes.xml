@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/framework/App/etc/routes.xsd">
+    <router id="admin">
+        <route id="aitauth" frontName="aitauth">
+            <module name="Aitoc_TwoFactorAuthentication" before="Magento_Backend" />
+        </route>
+    </router>
+</config>

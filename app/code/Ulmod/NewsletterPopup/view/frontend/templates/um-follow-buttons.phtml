@@ -1,0 +1,117 @@
+<?php
+/**
+ * Copyright © Ulmod. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php
+$modelConfig = $block->getConfigModel();
+?>	
+<?php if ($modelConfig->isSocialButtonsEnabled()) : ?>
+<div class="um-newslp-social">
+	<div class="newsl-social">			
+		<div class="block-title">
+			<h3><?php /* @noEscape */ echo __("Stay connected"); ?></h3>
+			<p><?php /* @noEscape */ echo __("Join Us on social media to stay in touch with."); ?></p>
+		</div>
+		<div class="block-btn">
+			<?php if ($modelConfig->getFacebookStatus()) : ?>
+			<a class="social-link facebook-btn"  href="<?php /* @noEscape */ echo $modelConfig->getFacebookUrl(); ?>" 
+				title="<?php echo $block->escapeHtml($modelConfig->getFacebookTitle()) ?>"  target="_blank">
+			  <i class="fa fa-facebook"></i>
+			</a>
+			<?php endif; ?>
+			<?php if ($modelConfig->getYoutubeStatus()) : ?>
+			<a class="social-link youtube-btn"  href="<?php /* @noEscape */ echo $modelConfig->getYoutubeUrl(); ?>"
+				title="<?php echo $block->escapeHtml($modelConfig->getYoutubeTitle()) ?>"  target="_blank">
+			  <i class="fa fa-youtube"></i>
+			</a>
+			<?php endif; ?>         
+			<?php if ($modelConfig->getTwitterStatus()) : ?>
+			<a class="social-link twitter-btn"  href="<?php /* @noEscape */ echo $modelConfig->getTwitterUrl(); ?>"
+				title="<?php echo $block->escapeHtml($modelConfig->getTwitterTitle()) ?>"  target="_blank">
+			  <i class="fa fa-twitter"></i>
+			</a>
+			<?php endif; ?>     
+			<?php if ($modelConfig->getLinkedinStatus()) : ?>
+			<a class="social-link linkedin-btn"  href="<?php /* @noEscape */ echo $modelConfig->getLinkedinUrl(); ?>" 
+				title="<?php echo $block->escapeHtml($modelConfig->getLinkedinTitle()) ?>"  target="_blank">
+			  <i class="fa fa-linkedin"></i>
+			</a>
+			<?php endif; ?>
+			<?php if ($modelConfig->getPinterestStatus()) : ?>
+			<a class="social-link pintrest-btn"  href="<?php /* @noEscape */ echo $modelConfig->getPinterestUrl(); ?>"
+				title="<?php echo $block->escapeHtml($modelConfig->getPinterestTitle()) ?>"  target="_blank">
+			 <i class="fa fa-pinterest-p"></i>
+			</a>
+			<?php endif; ?>     
+			<?php if ($modelConfig->getGoogleStatus()) : ?>
+			<a class="social-link googleplus-btn"  href="<?php /* @noEscape */ echo $modelConfig->getGoogleUrl(); ?>"
+				title="<?php echo $block->escapeHtml($modelConfig->getGoogleTitle()) ?>"  target="_blank">
+			  <i class="fa fa-google-plus"></i>
+			</a>
+			<?php endif; ?> 
+			<?php if ($modelConfig->getTumblrStatus()) : ?>
+			<a class="social-link tumblr-btn"  href="<?php /* @noEscape */ echo $modelConfig->getTumblrUrl(); ?>"
+				title="<?php echo $block->escapeHtml($modelConfig->getTumblrTitle()) ?>"  target="_blank">
+			<i class="fa fa-tumblr"></i>
+			</a>
+			<?php endif; ?>                 
+			<?php if ($modelConfig->getInstagramStatus()) : ?>
+			<a class="social-link instagram-btn"  href="<?php /* @noEscape */ echo $modelConfig->getInstagramUrl(); ?>" 
+				title="<?php /* @noEscape */ echo $modelConfig->getInstagramTitle() ?>"  target="_blank">
+			 <i class="fa fa-instagram"></i>
+			</a>
+			<?php endif; ?> 
+			<?php if ($modelConfig->getRedditStatus()) : ?>
+			<a class="social-link reddit-btn"  href="<?php /* @noEscape */ echo $modelConfig->getRedditUrl(); ?>"
+				title="<?php echo $block->escapeHtml($modelConfig->getRedditTitle()) ?>"  target="_blank">
+			<i class="fa fa-reddit-alien"></i>
+			</a>
+			<?php endif; ?>         
+			<?php if ($modelConfig->getVkStatus()) : ?>
+			<a class="social-link vk-btn"  href="<?php /* @noEscape */ echo $modelConfig->getVkUrl(); ?>"
+				title="<?php echo $block->escapeHtml($modelConfig->getVkTitle()) ?>"  target="_blank">
+			<i class="fa fa-vk"></i>
+			</a>
+			<?php endif; ?> 
+			<?php if ($modelConfig->getFlickrStatus()) : ?>
+			<a class="social-link flickr-btn"  href="<?php /* @noEscape */ echo $modelConfig->getFlickrUrl(); ?>" 
+				title="<?php echo $block->escapeHtml($modelConfig->getFlickrTitle()) ?>"  target="_blank">
+			<i class="fa fa-flickr"></i>
+			</a>
+			<?php endif; ?> 
+			<?php if ($modelConfig->getVineStatus()) : ?>
+			<a class="social-link vine-btn"  href="<?php /* @noEscape */ echo $modelConfig->getVineUrl(); ?>"
+				title="<?php echo $block->escapeHtml($modelConfig->getVineTitle()) ?>"  target="_blank">
+			<i class="fa fa-vine"></i>
+			</a>
+			<?php endif; ?> 
+			<?php if ($modelConfig->getVimeoStatus()) : ?>
+			<a class="social-link vimeo-btn"  href="<?php /* @noEscape */ echo $modelConfig->getVimeoUrl(); ?>"
+				title="<?php echo $block->escapeHtml($modelConfig->getVimeoTitle()) ?>"  target="_blank">
+			<i class="fa fa-vimeo"></i>
+			</a>
+			<?php endif; ?> 
+			<?php if ($modelConfig->getFoursquareStatus()) : ?>
+			<a class="social-link foursquare-btn"  href="<?php /* @noEscape */ echo $modelConfig->getFoursquareUrl(); ?>"
+				title="<?php echo $block->escapeHtml($modelConfig->getFoursquareTitle()) ?>"  target="_blank">
+			<i class="fa fa-foursquare"></i>
+			</a>
+			<?php endif; ?> 
+			<?php if ($modelConfig->getRssStatus()) : ?>
+			<a class="social-link rss-btn"  href="<?php /* @noEscape */ echo $modelConfig->getRssUrl(); ?>" 
+				title="<?php echo $block->escapeHtml($modelConfig->getRssTitle()) ?>"  target="_blank">
+			<i class="fa fa-rss"></i>
+			</a>
+			<?php endif; ?>             
+			<?php if ($modelConfig->getMailStatus()) : ?>
+			<a class="social-link mail-btn"  href="<?php /* @noEscape */ echo $modelConfig->getMailUrl(); ?>" 
+				title="<?php echo $block->escapeHtml($modelConfig->getMailTitle()) ?>"  target="_blank">
+			<i class="fa fa-envelope"></i>
+			</a>
+			<?php endif; ?> 
+		</div> 
+	</div> 
+	</div>
+<?php endif; ?> 

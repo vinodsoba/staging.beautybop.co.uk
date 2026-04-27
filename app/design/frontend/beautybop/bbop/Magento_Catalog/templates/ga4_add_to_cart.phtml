@@ -1,0 +1,42 @@
+<?php
+$_product = $block->getLayout()->getBlock('product.info')->getProduct();
+if (!$_product) return;
+$price = (float) $_product->getFinalPrice();
+?>
+
+<script>
+(function () {
+  function sendAddToCart() {
+    if (typeof gtag !== 'function') return;
+
+    var sku = "<?= $block->escapeJs($_product->getSku()); ?>";
+    var name = "<?= $block->escapeJs($_product->getName()); ?>";
+    var price = <?= number_format($price, 2, '.', '') ?>;
+
+    gtag('event', 'add_to_cart', {
+      currency: "GBP",
+      value: price,
+      items: [{
+        item_id: sku,
+        item_name: name,
+        price: price,
+        quantity: 1
+      }]
+    });
+
+    console.log('GA4 (Owned) add_to_cart sent:', sku);
+  }
+
+  // Bind to Magento's standard add-to-cart button on PDP
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('#product-addtocart-button, button.tocart');
+    if (!btn) return;
+
+    // avoid double-fire if button clicked multiple times quickly
+    if (btn.dataset.ga4AtcSent === '1') return;
+    btn.dataset.ga4AtcSent = '1';
+
+    sendAddToCart();
+  }, true);
+})();
+</script>

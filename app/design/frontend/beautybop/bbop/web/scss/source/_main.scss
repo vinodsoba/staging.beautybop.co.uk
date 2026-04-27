@@ -1,0 +1,401 @@
+@import "_variables.scss";
+body {
+  font-family: "Lato", sans-serif, helvetica !important;
+}
+
+// button
+button.action.primary,
+.action.primary {
+  border: solid 1px $black !important;
+  background-color: $black;
+}
+
+button {
+  @include hme-button;
+  color: $white;
+}
+
+.layer-standard {
+  margin: 0 auto;
+  max-width: 1280px;
+  p {
+    font-size: $blog-font-size-p;
+    text-align: left;
+    padding-bottom:20px;
+  }
+  h4 {
+    font-weight: bold;
+    font-size: $font-size-small;
+    padding-top:7px;
+    padding-bottom:5px;
+  }
+  a {
+    text-decoration: none;
+    color: $black;
+  }
+  .col-md-2 {
+    margin-right: 37px;
+  }
+
+  @media screen and (max-width: 767px) {
+    img, h4, p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+    }
+  }
+}
+
+.page-main {
+  max-width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 0px;
+
+    @media screen and (max-width: 1200px) {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 5px;
+    }
+}
+
+.products-grid .grid {
+  width: 100%;
+  min-width: 1200px;
+}
+
+.page-footer {
+  background-color: $white;
+}
+
+ul.footer {
+  li {
+  }
+  a {
+    font-size: $footer-links;
+    color: $black;
+    font-weight: 300;
+    letter-spacing: 0.04rem;
+  }
+}
+
+.block.widget .pager .toolbar-amount {
+  padding: 0px 0px 0px 104px;
+}
+
+.page-layout-2columns-left .columns {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.block-static-block.widget,
+.block-cms-link.widget {
+  margin-top: -13px;
+}
+
+.cont-h5 {
+  h5{
+    font-size: $font-size-large;
+    font-family: $font-family;
+    text-align: center;
+    padding: 19px 0px 19px;
+    margin: 0 auto;
+  }
+  h2 {
+    text-transform: uppercase;
+    font-size: $font-size-large;
+    font-family: $font-family;
+    text-align: center;
+    padding: 19px 0px 19px;
+    margin: 0 auto;
+  }
+ 
+}
+
+button {
+  @include hme-button;
+  a {
+    color: $white;
+  }
+}
+
+.time-for {
+  a {
+    @include blog-button;
+    font-size: $font-size-xsmall;
+    text-align: center;
+    margin-left: 20px;
+  }
+}
+
+/* Homepage  */
+.block.widget .products-grid .product-items {
+  margin-left: auto !important;
+  max-width: 1280px;
+  margin-right: auto !important;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.block-products-list .block-title {
+  strong {
+    font-size: $font-size-large;
+    font-family: $font-family;
+  }
+  text-align: center;
+  padding: 19px 0px 19px;
+  margin: 0 auto;
+}
+
+.image_container {
+  padding: 50px;
+}
+
+.image_with_text {
+  height: 475px;
+  background-image: url("/pub/media/banners/lipsticks-assortment-with-dark-background.jpg");
+  background-attachment: fixed;
+  background-position: initial;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: $black;
+  background-blend-mode: hard-light;
+  background-color: #9c8b8b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    font-size: $font-size-xlarge;
+    color: $white;
+    text-align: center;
+    width: 100%;
+    z-index: 99;
+  }
+  p {
+    font-size: $font-size-small;
+    color: $white;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto !important;
+    z-index: 99;
+  }
+  button {
+    background: none;
+    border: 1px solid $bbop-purple;
+    color: $white;
+    padding: 4px 30px;
+    margin: 22px 0px;
+  }
+  button:hover{
+    background-color: $arrow-lightpink;
+    border: 1px solid $arrow-lightpink;
+    color: $black; 
+    padding: 4px 30px;
+    margin: 22px 0px;
+  }
+
+  @media screen and ( max-width: 400px) {
+    .row {
+      margin: 0;
+      width: 98%;
+    } 
+  }
+}
+
+.latest_trends {
+  padding-top: 9%;
+  h1 {
+    font-family: $font-family;
+    font-size: $font-size-large;
+    padding-bottom: 23px;
+    text-transform: uppercase;
+  }
+  h3 {
+    font-family: $font-family;
+    font-size: $font-size-medium;
+    padding-bottom: 23px;
+    line-height: 1.6;
+  }
+  button {
+    @include hp-product-listing;
+
+     @media screen and (max-width: 1000px) {
+        width: 100%;
+     }
+  }
+  button:hover {
+    @include product-listing-btn-hover;
+
+    @media screen and (max-width: 1000px) {
+      width: 100%;
+   }
+  }
+}
+
+.box1 {
+  padding: 0;
+  @media screen and (max-width: 1023px) {
+    margin-bottom: 13px;
+    padding: 0px;
+  }
+  h2 {
+    color: $black;
+    padding: 20px 0 0px;
+  }
+  p {
+    color: $black;
+    font-size: 16px;
+    padding: 20px 0px;
+    
+    @media screen and (max-width: 1023px) {
+      padding: 20px 0px 50px;
+    }  
+  }
+}
+
+.box2 {
+  padding: 0px;
+    @media screen and (max-width: 1023px) {
+      margin-bottom: 13px;
+      padding: 0px;
+    }
+  h2 {
+    color: $black;
+    padding: 20px 0 0px;
+  }
+  p {
+    color: $black;
+    font-size: 16px;
+    padding: 20px 0px;
+
+    @media screen and (max-width: 1023px) {
+      padding: 20px 0px 50px;
+    }   
+  }
+}
+
+.box3 {
+  padding: 0px;
+  @media screen and (max-width: 1023px) {
+    margin-bottom: 13px;
+    padding: 0px;
+  }
+  h2 {
+    color: $black;
+    padding: 20px 0 0px;
+  }
+  p {
+    color: $black;
+    font-size: 16px;
+
+    @media screen and (max-width: 1023px) {
+      padding: 20px 0px 50px;
+    }   
+  }
+}
+
+.esteelauder-img {
+  background-image: url("pub/media/banners/eteelauder-cinnabar50ml.png");
+  background-repeat: no-repeat;
+  background-size: 251px 251px;
+  position: relative;
+  width: 251px;
+  height: 251px;
+  background-position-y: -7px;
+  top: -123px;
+  z-index: 99;
+  left: -145px;
+}
+
+a.fw-btn {
+  background-color: $black;
+  padding: 8px 40px 12px 39px !important;
+  color: #fff !important;
+  position: absolute;
+  bottom: -20px;
+  left: 16px;
+
+    @media screen and (max-width: 1023px) {
+      margin-bottom: 21px;
+    }
+
+}
+
+.luxury-makeup {
+  padding: 50px 0px 50px;
+}
+
+.bloggers-section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.about-section {
+  font-size: $font-size-small;
+  padding: 10px 0px 10px 10px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+:root {
+  --animate-duration: 1s;
+  --animate-delay: 1s;
+  --animate-repeat: 1;
+}
+.animate__animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-duration: var(--animate-duration);
+  animation-duration: var(--animate-duration);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes bounce {
+  from,
+  20%,
+  53%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  40%,
+  43% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -30px, 0) scaleY(1.1);
+    transform: translate3d(0, -30px, 0) scaleY(1.1);
+  }
+
+  70% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -15px, 0) scaleY(1.05);
+    transform: translate3d(0, -15px, 0) scaleY(1.05);
+  }
+
+  80% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0) scaleY(0.95);
+    transform: translate3d(0, 0, 0) scaleY(0.95);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, -4px, 0) scaleY(1.02);
+    transform: translate3d(0, -4px, 0) scaleY(1.02);
+  }
+}
+.animate__bounce {
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
+  -webkit-transform-origin: center bottom;
+  transform-origin: center bottom;
+}

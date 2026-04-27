@@ -1,0 +1,83 @@
+<?php
+/**
+ * Copyright © Ulmod. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var \Ulmod\NewsletterPopup\Block\Subscribe $block
+ */
+?>
+
+<?php
+$modelConfig = $block->getConfigModel();
+?>
+<div id="this-here">
+<div class="um-newsletter-popup block newsletter um-newsletter-p custom" id="um-popup-newsletter">
+    <div class="messages">
+        <div class="message message-error error">
+            <div></div>
+        </div>
+    </div>
+    <div class="um-newslp-content content">
+      <h2><span style="color:#fff; padding: 2px 24px 0px 0px;">Welcome to</span> <img src="/pub/media/logo/stores/1/logo-new-white-newsletter.png" width="166" height="35" /></h2>
+        <form class="form subscribe"
+            novalidate	action="<?= $block->escapeUrl($block->getFormActionUrl()) ?>"
+            method="post" data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+            id="newsletter-validate-detail">
+            <div class="field newsletter">
+				<div class="um-newslp-msg"><?php  echo $modelConfig->getContentMsg(); ?></div>
+                <div class="um-newslp-input control">
+					<div class="um-newslp-email">
+						<input name="email" type="email" id="newsletter"
+							 placeholder="<?= $block->escapeHtml(__('Enter your email address')) ?>"
+							 data-validate="{required:true, 'validate-email':true}"/>
+					</div>
+					<?php if ($modelConfig->isShowTermCondition()) : ?>
+						<div class="um-newslp-terms">
+							<input class="input required-entry"
+								type="checkbox" id="newsl-term" name="check" value="1"
+								data-validate="{required:true, 'validate-one-required-by-name':true}" />
+							<?php  echo $modelConfig->getTermConditionMsg(); ?>
+						</div>
+					<?php endif; ?>
+                </div>
+            </div>
+            <div class="um-newslp-actions actions">
+                <button class="action subscribe primary"
+					title="<?php echo $block->escapeHtml($modelConfig->getSubscribeBtnText()); ?>"
+					type="submit">
+                    <span><?php echo $block->escapeHtml($modelConfig->getSubscribeBtnText()); ?></span>
+                </button>
+            </div>
+        </form>
+
+    </div>
+	<?php echo $this->getLayout()->createBlock("Ulmod\NewsletterPopup\Block\SocialFollow")
+		->setTemplate("Ulmod_NewsletterPopup::um-follow-buttons.phtml")
+		->toHtml(); ?>
+</div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "#um-popup-newsletter": {
+            "Ulmod_NewsletterPopup/js/um-newsletter-popup": {
+                "popupTitle": "<?= /** @noEscape */ $modelConfig->getPopupTitle() ?>",
+				"behaviorData": "<?= /** @noEscape */ $modelConfig->getDisplayBehavior() ?>",
+				"delaySecData": "<?= /** @noEscape */ $modelConfig->getDelaySecond() ?>",
+				"delayPerData": "<?= /** @noEscape */ $modelConfig->getDelayPercent() ?>",
+				"cookieLtData": "<?= /** @noEscape */ $modelConfig->getCookieLifetime() ?>"
+            }
+        }
+    }
+</script>
+<style type="text/css">
+    
+.um-popup-newsletter .modal-title {
+    
+    color: #fff;
+}
+
+</style>

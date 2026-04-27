@@ -1,0 +1,43 @@
+@import '_variables.scss';
+
+.cart-container {
+  max-width: 1247px;
+  margin: 0 auto;
+  padding-top:60px;
+}
+
+.minicart-wrapper .action.showcart:before{
+  content: "\f290" !important;
+  color: $white;
+  font-size: $font-size-medium;
+  padding-right: 5px;
+  font-family: "fontawesome" !important;
+
+
+}
+
+.minicart-wrapper {
+  position: absolute;
+  right: 67px;
+  top: 9px;
+  z-index: 11;
+
+  @media screen and (max-width: 1024px) {
+    top: -47px;
+  }
+}
+
+.minicart-wrapper .action.showcart  {
+    z-index: 111;
+  .counter.qty {
+    background-color: $bbop-purple;
+    border-radius: 11px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 7px -11px 0px 0px;
+  }
+  span.counter-number {
+    color: $white !important;
+  }
+}

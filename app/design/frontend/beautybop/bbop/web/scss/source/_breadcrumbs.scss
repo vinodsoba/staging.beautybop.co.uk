@@ -1,0 +1,12 @@
+@import '_variables.scss';
+
+.breadcrumbs {
+  padding-top:36px;
+
+  @media screen and (max-width: 767px){
+    li {
+      font-size: $font-size-breadcrumb;
+    }
+  }
+  
+}

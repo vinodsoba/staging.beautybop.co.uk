@@ -1,0 +1,12 @@
+{
+    "name": "ulmod/module-newsletter-popup",
+    "description": "Newsletter Popup for Magento 2 by Ulmod",
+    "type": "magento2-module",
+    "version": "2.2.0",
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Ulmod\\NewsletterPopup\\": ""
+        }
+    }
+}

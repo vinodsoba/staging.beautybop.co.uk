@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Target Magento menu structure */
+.test {
+  @apply bg-red-500 text-white p-4;
+}
+
+/* Parent item */
+.navigation .level0.parent {
+    position: relative;
+}
+
+/* Submenu (your actual class) */
+.navigation .level0.parent > ul.level0.level-top {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transform: translateX(-46%);
+    width: 100vw;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    background: white;
+    color: black;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 999;
+}
+
+/* SHOW ON HOVER */
+.navigation .level0.parent:hover > ul.level0.level-top {
+    opacity: 1;
+    visibility: visible;
+}
+
+.account-menu {
+    position: relative;
+}
+
+.account-menu > div:last-child {
+    pointer-events: none;
+}
+
+.account-menu:hover > div:last-child {
+    pointer-events: auto;
+}
+
+.account-wrapper {
+    position: relative;
+}
+
+.account-dropdown {
+    /*display: none;*/
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    width: 260px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    padding: 16px;
+    margin-bottom: 20px
+    
+}
+
+.account-dropdown .bb-btn {
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+
+}
+
+
+/* Side bar filtering */
+
+/* Sidebar container */
+.products-grid {
+    display: block;
+    width: 100%;
+}
+
+.block.filter {
+    max-height: calc(100vh - 120px);
+    height: auto;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+
+.breadcrumbs ul.items {
+    display: flex;
+}
+
+
+.breadcrumbs ul.items li.item {
+    @apply mr-2 py-4
+}
+
+/* Section title */
+.filter-options-title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Each filter group */
+.filter-options-item {
+    margin-bottom: 20px;
+}
+
+/* List */
+.filter-options-content .items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Individual item */
+.filter-options-content .item a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Hover */
+.filter-options-content .item a:hover {
+    color: #ec4899; /* pink */
+}
+
+/* fake checkbox */
+.filter-options-content .item a::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+
+/* SHOW ON HOVER */
+.account-wrapper:hover .account-dropdown {
+    /*display: block;*/
+    opacity: 1;
+    visibility: visible;
+}
+
+@media only screen and (min-width: 850px) {
+    body {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+.action.skip,
+.header.links {
+    display: none !important;
+}
+
+.um-popup-newsletter,
+.popup-authentication {
+    display: none !important;
+}
+
+/* slick track responsiveness */
+.slick-list {
+    overflow: hidden;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.columns {
+    display: flex;
+    align-items: flex-start;
+}
+
+.page-main {
+    overflow: visible !important;
+}
+
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slick-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .slick-track {
+        display: flex !important;
+    }
+}
+
+/* Listing for Mens Perfume on Homepage */
+.product-items {
+     @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6;
+}
+
+.product-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+}
+
+.products-grid {
+    overflow: hidden;
+    margin-bottom: 60px;
+}
+
+
+
+.product-item .product-item-info .product-item-details {
+    @apply grid gap-[6px];
+}
+
+.product-item .product-item-info .product-item-details .product-item-inner .product-item-actions .actions-primary form button.tocart {
+    background-color: black;
+    border-radius: 6px;
+    color: white;
+    padding: 3px 20px;
+}
+
+.product-item .product-item-info .product-item-details .product-item-name a.product-item-link {
+    @apply font-semibold !important
+}
+
+.product-item .product-item-info .product-item-details .price-box .price-container .price {
+    @apply text-xl font-bold;
+
+}
+
+@media (min-width: 1024px) {
+    .product-items {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .product-items {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .product-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+

@@ -1,0 +1,441 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Ulmod. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/system_file.xsd">
+    <system>
+        <tab id="ulmod_extensions" translate="label" sortOrder="8888888">
+            <label>Ulmod Extensions</label>
+        </tab>		
+        <section id="newsletterpopup" translate="label" type="text" sortOrder="230" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Newsletter Popup</label>
+            <tab>ulmod_extensions</tab>
+            <resource>Ulmod_NewsletterPopup::config_newsletterpopup</resource>
+               <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+				  <label>General</label>		  
+				   <field id="is_enabled" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+						<label>Enable</label>
+						<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+						<comment>If Yes, the extension will be enable in storefront</comment>
+					</field>
+               </group>				
+			   <group id="display" translate="label" sortOrder="20" showInDefault="15" showInWebsite="1" showInStore="1">
+					<label>Display</label>	
+				   <field id="behavior" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+						<label>When To Display The Popup?</label>
+						<source_model>Ulmod\NewsletterPopup\Model\Config\Source\Behavior</source_model>
+						<comment>select</comment>
+					</field>
+					<field id="second_delay" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+						<label>Delay (in second)</label>
+						<comment>Eg. if "6" the popup will show 6 second after the page fully loaded</comment>	
+						<validate>validate-digits</validate>						
+						    <depends>
+							   <field id="behavior">2</field>
+                             </depends>						
+					</field>	
+					<field id="percent_delay" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+						<label>Page Scrolled Size (in %)</label>
+						<comment>Eg. if "30" the popup will show after user scrolle 30% of the page</comment>						
+						<validate>validate-digits</validate>						
+						    <depends>
+							   <field id="behavior">3</field>
+                             </depends>						
+					</field>
+					<field id="cookie_lifetime" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+						<label>Cookie lifetime (in second)</label>
+						<validate>required-entry validate-digits</validate>
+						<comment>Set the popup lifetime in second, eg. "86400". The Popup will show again after the cookie expire</comment>
+					</field>
+					<field id="popup_title" translate="label comment" type="text" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+						<label>Popup Title</label>	
+						<comment>eg. "Newsletter"</comment>						
+					</field>
+					<field id="content_msg" translate="label comment" type="editor" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+						<label>Content Message</label>
+						<frontend_model>Ulmod\NewsletterPopup\Block\Backend\Editor</frontend_model>
+						   <comment>Define the content message to display</comment>						
+					</field>
+					<field id="show_terms_condition" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+						<label>Show Terms and Condition</label>
+						<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+						 <comment>If "Yes", the team and condition checkbox appear after content message block. Usefull for GDPR comliance</comment>	
+					</field>					
+					<field id="terms_condition" translate="label comment" type="editor" sortOrder="65" showInDefault="1" showInWebsite="1" showInStore="1">
+						<label>Terms and Condition Message</label>
+						<frontend_model>Ulmod\NewsletterPopup\Block\Backend\Editor</frontend_model>		
+						    <depends>
+							   <field id="show_terms_condition">1</field>
+                             </depends>							
+					</field>					
+					<field id="subscribe_btntext" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+						<label>Subsribe Button Text</label>
+					</field>						
+                </group>		
+			    <group id="buttons" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">	 
+			      <label>Follow Buttons</label>
+					   <field id="enable_social_buttons" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+							<label>Show Social Follow Buttons</label>
+							<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+						</field>				 
+                       <field id="enable_facebook" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                          <label>Show Facebook Button? </label>
+                           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                          <depends>
+						    <field id="enable_social_buttons">1</field>
+                          </depends>							   
+                       </field>
+					   <field id="facebookurl" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+				         	<label>Facebook URL</label>
+                            <validate>validate-url</validate>
+                            <comment>Enter Facebook URL like https://www.facebook.com</comment>
+						    <depends>
+							   <field id="enable_facebook">1</field>
+                             </depends>
+				        </field> 
+			         	<field id="facebooktitle" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+				            <label>Facebook Title</label>
+                             <comment>Enter Facebook Title</comment>
+						    <depends>
+							   <field id="enable_facebook">1</field>
+                             </depends>							 
+				        </field>
+                       <field id="enable_youtube" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                          <label>Show Youtube Button? </label>
+                           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                          <depends>
+						    <field id="enable_social_buttons">1</field>
+                          </depends>							   
+                       </field>
+					   <field id="youtubeurl" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+				         	<label>Youtube URL</label>
+                            <validate>validate-url</validate>
+                            <comment>Enter Youtube URL like https://www.youtube.com</comment>
+						    <depends>
+							   <field id="enable_youtube">1</field>
+                             </depends>
+				        </field> 
+			         	<field id="youtubetitle" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+				            <label>Youtube Title</label>
+                             <comment>Enter Youtube Title</comment>
+						    <depends>
+							   <field id="enable_youtube">1</field>
+                             </depends>							 
+				        </field>
+                       <field id="enable_twitter" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                          <label>Show Twitter Button? </label>
+                           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                          <depends>
+						    <field id="enable_social_buttons">1</field>
+                          </depends>							   
+                       </field>
+					   <field id="twitterurl" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+				         	<label>Twitter URL</label>
+                            <validate>validate-url</validate>
+                            <comment>Enter Twitter URL like https://www.twitter.com</comment>
+						    <depends>
+							   <field id="enable_twitter">1</field>
+                             </depends>
+				        </field> 
+			         	<field id="twittertitle" translate="label comment" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+				            <label>Twitter Title</label>
+						    <depends>
+							   <field id="enable_twitter">1</field>
+                             </depends>							
+                             <comment>Enter Twitter Title</comment>
+				        </field>
+                       <field id="enable_linkedin" translate="label comment" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                          <label>Show Linkedin Button? </label>
+                           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                          <depends>
+						    <field id="enable_social_buttons">1</field>
+                          </depends>							   
+                       </field>
+					   <field id="linkedinurl" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+				         	<label>Linkedin URL</label>
+                            <validate>validate-url</validate>
+                            <comment>Enter Linkedin URL like https://www.linkedin.com</comment>
+						    <depends>
+							   <field id="enable_linkedin">1</field>
+                             </depends>
+				        </field> 
+			         	<field id="linkedintitle" translate="label comment" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+				            <label>Linkedin Title</label>
+                             <comment>Enter Linkedin Title</comment>
+						    <depends>
+							   <field id="enable_linkedin">1</field>
+                             </depends>							 
+				        </field>
+                       <field id="enable_googleplus" translate="label comment" type="select" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                          <label>Show Google Plus Button? </label>
+                           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                          <depends>
+						    <field id="enable_social_buttons">1</field>
+                          </depends>							   
+                       </field>
+					   <field id="googleplusurl" translate="label comment" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+				         	<label>Google Plus URL</label>
+                            <validate>validate-url</validate>
+                            <comment>Enter Google plus URL like https://www.plus.google.com</comment>
+						    <depends>
+							   <field id="enable_googleplus">1</field>
+                             </depends>
+				        </field> 
+			         	<field id="googleplustitle" translate="label comment" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+				            <label>Google Plus Title</label>
+                             <comment>Enter Google Plus Title</comment>
+						    <depends>
+							   <field id="enable_googleplus">1</field>
+                             </depends>							 
+				        </field>	
+                       <field id="enable_tumblr" translate="label comment" type="select" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+                          <label>Show Tumblr Button? </label>
+                           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                           <depends>
+						     <field id="enable_social_buttons">1</field>
+                           </depends>							   
+                       </field>
+					   <field id="tumblrurl" translate="label comment" type="text" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1">
+				         	<label>Tumblr URL</label>
+                            <validate>validate-url</validate>
+                            <comment>Enter Tumblr URL like https://www.tumblr.com</comment>
+						    <depends>
+							   <field id="enable_tumblr">1</field>
+                             </depends>
+				        </field> 
+			         	<field id="tumblrtitle" translate="label comment" type="text" sortOrder="180" showInDefault="1" showInWebsite="1" showInStore="1">
+				            <label>Tumblr Title</label>
+                             <comment>Enter Tumblr Title</comment>
+						    <depends>
+							   <field id="enable_tumblr">1</field>
+                             </depends>							 
+				        </field>
+                       <field id="enable_instagram" translate="label comment" type="select" sortOrder="190" showInDefault="1" showInWebsite="1" showInStore="1">
+                          <label>Show Instagram  Button? </label>
+                           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                          <depends>
+						    <field id="enable_social_buttons">1</field>
+                          </depends>							   
+                       </field>
+					   <field id="instagramurl" translate="label comment" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+				         	<label>Instagram URL</label>
+                            <validate>validate-url</validate>
+                            <comment>Enter Instagram URL like https://www.instagram.com</comment>
+						    <depends>
+							   <field id="enable_instagram">1</field>
+                             </depends>
+				        </field> 
+			         	<field id="instagramtitle" translate="label comment" type="text" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
+				            <label>Instagram Title</label>
+                             <comment>Enter Instagram Title</comment>
+						    <depends>
+							   <field id="enable_instagram">1</field>
+                             </depends>							 
+				        </field>
+                       <field id="enable_reddit" translate="label comment" type="select" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                          <label>Show Reddit Button? </label>
+                           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                          <depends>
+						    <field id="enable_social_buttons">1</field>
+                          </depends>							   
+                       </field>
+					   <field id="redditurl" translate="label comment" type="text" sortOrder="230" showInDefault="1" showInWebsite="1" showInStore="1">
+				         	<label>Reddit URL</label>
+                            <validate>validate-url</validate>
+                            <comment>Enter Reddit URL like https://www.reddit.com</comment>
+						    <depends>
+							   <field id="enable_reddit">1</field>
+                             </depends>
+				        </field> 
+			         	<field id="reddittitle" translate="label comment" type="text" sortOrder="240" showInDefault="1" showInWebsite="1" showInStore="1">
+				            <label>Reddit Title</label>
+                             <comment>Enter Reddit Title</comment>
+						    <depends>
+							   <field id="enable_reddit">1</field>
+                             </depends>							 
+				        </field>				
+                       <field id="enable_vk" translate="label comment" type="select" sortOrder="250" showInDefault="1" showInWebsite="1" showInStore="1">
+                          <label>Show VK Button? </label>
+                           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                          <depends>
+						    <field id="enable_social_buttons">1</field>
+                          </depends>							   
+                       </field>
+					   <field id="vkurl" translate="label comment" type="text" sortOrder="260" showInDefault="1" showInWebsite="1" showInStore="1">
+				         	<label>VK URL</label>
+                            <validate>validate-url</validate>
+                            <comment>Enter VK URL like https://www.vk.com</comment>
+						    <depends>
+							   <field id="enable_vk">1</field>
+                             </depends>
+				        </field> 
+			         	<field id="vktitle" translate="label comment" type="text" sortOrder="270" showInDefault="1" showInWebsite="1" showInStore="1">
+				            <label>VK Title</label>
+                             <comment>Enter VK Title</comment>
+						    <depends>
+							   <field id="enable_vk">1</field>
+                             </depends>							 
+				        </field>
+                       <field id="enable_flickr" translate="label comment" type="select" sortOrder="280" showInDefault="1" showInWebsite="1" showInStore="1">
+                          <label>Show Flickr Button? </label>
+                           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                          <depends>
+						    <field id="enable_social_buttons">1</field>
+                          </depends>							   
+                       </field>
+					   <field id="flickrurl" translate="label comment" type="text" sortOrder="290" showInDefault="1" showInWebsite="1" showInStore="1">
+				         	<label>Flickr URL</label>
+                            <validate>validate-url</validate>
+                            <comment>Enter Flickr URL like https://www.flickr.com</comment>
+						    <depends>
+							   <field id="enable_flickr">1</field>
+                             </depends>
+				        </field> 
+			         	<field id="flickrtitle" translate="label comment" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+				            <label>Flickr Title</label>
+                             <comment>Enter Flickr Title</comment>
+						    <depends>
+							   <field id="enable_flickr">1</field>
+                             </depends>							 
+				        </field>
+                       <field id="enable_vine" translate="label comment" type="select" sortOrder="310" showInDefault="1" showInWebsite="1" showInStore="1">
+                          <label>Show Vine Button? </label>
+                           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                          <depends>
+						    <field id="enable_social_buttons">1</field>
+                          </depends>							   
+                       </field>
+					   <field id="vineurl" translate="label comment" type="text" sortOrder="320" showInDefault="1" showInWebsite="1" showInStore="1">
+				         	<label>Vine URL</label>
+                            <validate>validate-url</validate>
+                            <comment>Enter Vine URL like https://www.vine.com</comment>
+						    <depends>
+							   <field id="enable_vine">1</field>
+                             </depends>
+				        </field> 
+			         	<field id="vinetitle" translate="label comment" type="text" sortOrder="330" showInDefault="1" showInWebsite="1" showInStore="1">
+				            <label>Vine Title</label>
+                             <comment>Enter Vine Title</comment>
+						    <depends>
+							   <field id="enable_vine">1</field>
+                             </depends>							 
+				        </field>
+                       <field id="enable_vimeo" translate="label comment" type="select" sortOrder="340" showInDefault="1" showInWebsite="1" showInStore="1">
+                          <label>Show Vimeo Button? </label>
+                           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                          <depends>
+						    <field id="enable_social_buttons">1</field>
+                          </depends>							   
+                       </field>
+					   <field id="vimeourl" translate="label comment" type="text" sortOrder="350" showInDefault="1" showInWebsite="1" showInStore="1">
+				         	<label>Vimeo URL</label>
+                            <validate>validate-url</validate>
+                            <comment>Enter Vimeo URL like https://www.vimeo.com</comment>
+						    <depends>
+							   <field id="enable_vimeo">1</field>
+                             </depends>
+				        </field> 
+			         	<field id="vimeotitle" translate="label comment" type="text" sortOrder="360" showInDefault="1" showInWebsite="1" showInStore="1">
+				            <label>Vimeo Title</label>
+                             <comment>Enter Vimeo Title</comment>
+						    <depends>
+							   <field id="enable_vimeo">1</field>
+                             </depends>							 
+				        </field>
+                       <field id="enable_foursquare" translate="label comment" type="select" sortOrder="370" showInDefault="1" showInWebsite="1" showInStore="1">
+                          <label>Show Foursquare Button? </label>
+                           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                          <depends>
+						    <field id="enable_social_buttons">1</field>
+                          </depends>							   
+                       </field>
+					   <field id="foursquareurl" translate="label comment" type="text" sortOrder="380" showInDefault="1" showInWebsite="1" showInStore="1">
+				         	<label>Foursquare URL</label>
+                            <validate>validate-url</validate>
+                            <comment>Enter Foursquare URL like https://www.foursquare.com</comment>
+						    <depends>
+							   <field id="enable_foursquare">1</field>
+                             </depends>
+				        </field> 
+			         	<field id="foursquaretitle" translate="label comment" type="text" sortOrder="390" showInDefault="1" showInWebsite="1" showInStore="1">
+				            <label>Foursquare Title</label>
+                             <comment>Enter Foursquare Title</comment>
+						    <depends>
+							   <field id="enable_foursquare">1</field>
+                             </depends>							 
+				        </field>						
+                       <field id="enable_rss" translate="label comment" type="select" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+                          <label>Show Rss Button? </label>
+                           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                          <depends>
+						    <field id="enable_social_buttons">1</field>
+                          </depends>							   
+                       </field>
+					   <field id="rssurl" translate="label comment" type="text" sortOrder="410" showInDefault="1" showInWebsite="1" showInStore="1">
+				         	<label>Rss URL</label>
+                            <validate>validate-url</validate>
+                            <comment>Enter Rss  URL like https://www.rss.com</comment>
+						    <depends>
+							   <field id="enable_rss">1</field>
+                             </depends>
+				        </field> 
+			         	<field id="rsstitle" translate="label comment" type="text" sortOrder="420" showInDefault="1" showInWebsite="1" showInStore="1">
+				            <label>Rss Title</label>
+                             <comment>Enter Rss Title</comment>
+						    <depends>
+							   <field id="enable_rss">1</field>
+                             </depends>							 
+				        </field>
+                       <field id="enable_pinterest" translate="label comment" type="select" sortOrder="460" showInDefault="1" showInWebsite="1" showInStore="1">
+                          <label>Show Pinterest Button? </label>
+                           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                          <depends>
+						    <field id="enable_social_buttons">1</field>
+                          </depends>							   
+                       </field>
+					   <field id="pinteresturl" translate="label comment" type="text" sortOrder="470" showInDefault="1" showInWebsite="1" showInStore="1">
+				         	<label>Pinterest URL</label>
+                            <validate>validate-url</validate>
+                            <comment>Enter pinterest URL like https://www.pinterest.com</comment>
+						    <depends>
+							   <field id="enable_pinterest">1</field>
+                             </depends>
+				        </field> 
+			         	<field id="pinteresttitle" translate="label comment" type="text" sortOrder="480" showInDefault="1" showInWebsite="1" showInStore="1">
+				            <label>Pinterest Title</label>
+                             <comment>Enter Pinterest Title</comment>
+						    <depends>
+							   <field id="enable_pinterest">1</field>
+                             </depends>							 
+				        </field>
+
+                       <field id="enable_mail" translate="label comment" type="select" sortOrder="490" showInDefault="1" showInWebsite="1" showInStore="1">
+                          <label>Show Mail Button? </label>
+                           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                          <depends>
+						    <field id="enable_social_buttons">1</field>
+                          </depends>							   
+                       </field>
+					   <field id="mailurl" translate="label comment" type="text" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="1">
+				         	<label>Mail URL</label>
+                            <comment>Enter Mail Like mailto:info@yourdomain.com</comment>
+						    <depends>
+							   <field id="enable_mail">1</field>
+                             </depends>
+				        </field> 
+			         	<field id="mailtitle" translate="label comment" type="text" sortOrder="510" showInDefault="1" showInWebsite="1" showInStore="1">
+				            <label>Mail Title</label>
+                             <comment>Enter Mail Title</comment>
+						    <depends>
+							   <field id="enable_mail">1</field>
+                             </depends>							 
+				        </field>						
+			      </group>	
+		  
+        </section>
+    </system>
+</config>

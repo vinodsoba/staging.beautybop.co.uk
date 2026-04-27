@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Menu/etc/menu.xsd">
+
+    <menu>
+
+        <!-- Main BeautyFort Menu -->
+        <add id="BeautyFort_BeautyfortProductImport::root"
+             title="BeautyFort"
+             module="BeautyFort_BeautyfortProductImport"
+             sortOrder="90"
+             resource="BeautyFort_BeautyfortProductImport::root"/>
+
+        <!-- Product Search -->
+        <add id="BeautyFort_BeautyfortProductImport::search"
+             title="Product Import"
+             module="BeautyFort_BeautyfortProductImport"
+             sortOrder="10"
+             parent="BeautyFort_BeautyfortProductImport::root"
+             action="beautyfort/search/index"
+             resource="BeautyFort_BeautyfortProductImport::search"/>
+
+        <!-- Bulk Import -->
+        <add id="BeautyFort_BeautyfortProductImport::bulk"
+             title="Bulk Import"
+             module="BeautyFort_BeautyfortProductImport"
+             sortOrder="20"
+             parent="BeautyFort_BeautyfortProductImport::root"
+             action="beautyfort/bulk/index"
+             resource="BeautyFort_BeautyfortProductImport::bulk"/>
+
+    </menu>
+</config>

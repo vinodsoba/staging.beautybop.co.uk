@@ -1,0 +1,143 @@
+@import "_variables.scss";
+
+.value {
+  font-size: 1.4rem !important;
+  font-weight: inherit;
+  font-family: $font-family;
+}
+
+.product-info-main .product.attribute.sku {
+  display: block;
+  padding: 10px 0px 10px;
+  border-bottom: solid 1px #ddd;
+  border-top: solid 1px #ddd;
+  margin-top: 18px;
+  .type {
+    font-size: $freeship-text;
+    color: $black;
+    text-transform: lowercase;
+  }
+  > .value {
+    font-size: $freeship-text;
+    color: $black;
+    vertical-align: baseline;
+  }
+  h1 {
+    font-family: $font-family;
+  }
+}
+
+// produt info detail section
+
+.product.info.detailed {
+  display: block;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  .additional-attributes > tbody > tr > th {
+    padding: 4px 103px 10px 0;
+    width: 72%;
+    font-size: $font-size-small;
+  }
+}
+
+.product.data.items > .item.content {
+  border: 1px solid $grey !important;
+}
+
+.product-reviews-summary .reviews-actions {
+  a {
+    color: $black;
+  }
+  a:hover {
+    color: $grey;
+  }
+}
+
+.page-layout-1column .product-info-main {
+  padding: 49px 54px 0px 0px;
+
+      @media  screen and (max-width: 1000px ) {
+        padding: 50px;
+      }
+}
+
+.fotorama__stage__frame .fotorama__img {
+  top: 48% !important;
+}
+
+.related {
+  clear: both;
+  padding: 0px 0px 0px 20px;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+.qty {
+  width: 23%;
+}
+
+.paypal-button-container {
+  padding: 50px;
+}
+
+.action.mailto.friend {
+  span {
+    display: none;
+  }
+}
+
+.stock.available {
+  span {
+    color: $black;
+    font-size: $freeship-text;
+    font-family: $font-family;
+    background-color: $green;
+    padding: 5px 20px;
+  }
+}
+
+.toolbar-products .pages {
+  display: block;
+}
+
+.action.mailto.friend:before {
+  font-size: $font-size-xlarge;
+  color: $bbop-purple;
+  .action.mailto.friend:before:hover {
+    color: $black;
+  }
+  .action.mailto.friend span {
+    display: none;
+  }
+}
+
+#product-addtocart-button {
+  span:before {
+    content: "\f290";
+    font-family: fontawesome;
+    padding: 0px 15px 0px 6px;
+  }
+}
+
+.box-tocart-custom {
+  .tocart {
+    width: 293px;
+    border-radius: 9px;
+    max-width: 100%;
+  }
+  span {
+    font-family: inherit;
+    font-size: 18px;
+  }
+  button:hover {
+    background-color: $black;
+  }
+}
+
+.product-social-links {
+  text-align: left;
+  span {
+    display: none;
+  }
+}

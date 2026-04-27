@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+  <system>
+    <tab id="magecomp" translate="label" sortOrder="100">
+            <label><![CDATA[<img src="https://www.magecomp.com/media/images/magecomp--extension.png" alt="MAGECOMP" height="25" style="vertical-align:middle;"/>]]></label>
+    </tab>
+    <section id="inventoryupdate" sortOrder="10" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+      <label>Inventory Update</label>
+      <tab>magecomp</tab>
+      <resource>Magecomp_Inventoryupdate::inventoryupdateconfig</resource>
+      <group id="general" translate="label" sortOrder="1" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Beauty Fort API Configuration</label>
+        <field id="enable" translate="label" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Inventory Update</label>
+          <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+        </field>
+        <field id="username" translate="label" sortOrder="20" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>User Name</label>
+          <depends><field id="enable">1</field></depends>
+          <validate>required-entry</validate>
+        </field>
+        <field id="password" translate="label" sortOrder="30" type="password" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Password</label>
+          <depends><field id="enable">1</field></depends>
+          <validate>required-entry</validate>
+        </field>
+        <field id="schema_location_api_url" translate="label" sortOrder="40" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Schema Location API Url</label>
+          <depends><field id="enable">1</field></depends>
+          <validate>required-entry validate-url</validate>
+        </field>
+        <field id="endpoints_api_url" translate="label" sortOrder="50" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Endpoints API Url</label>
+          <depends><field id="enable">1</field></depends>
+          <validate>required-entry validate-url</validate>
+        </field>
+        <field id="testmode" translate="label" sortOrder="60" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Set TestMode</label>
+          <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+          <comment><![CDATA[Specifies if the response was generated against the TestMode for (yes) or LiveMode for(no) system.]]></comment>
+          <depends><field id="enable">1</field></depends>
+        </field>
+      </group>
+    </section>
+  </system>
+</config>
