@@ -1,0 +1,72 @@
+# Magento core generated
+/vendor/
+/node_modules/
+/pub/media/
+/app/design/frontend/beautybop/bbop/node_modules/
+/pub/static/
+/var/
+/generated/
+/setup/
+/lib/
+/phpserver/
+/pub/
+/dev/
+notes
+
+
+# Media (optional - usually excluded)
+pub/media/catalog/product/cache/
+
+# System files
+.env
+.DS_Store
+.user.ini
+.php-cs-fixer.dist.php
+.vscode/
+.editorconfig
+
+# Logs
+*.log
+
+# Tailwind build output (optional)
+pub/static/frontend/*/css/tailwind.css
+
+
+.htaccess
+.htaccess.sample
+
+staging-backup-2026-04-27.tar.gz
+staging-db-backup-clean.sql
+
+app/BeautyBop_Smtp_DISABLED/
+app/FishPig_DISABLED/
+app/KiwiCommerce_EnhancedSMTP_DISABLED/
+app/StripeIntegration_DISABLED/
+bin/
+app/etc/env.php
+
+app/design/frontend/beautybop-theme.tar.gz
+
+# Magento core distribution files
+CHANGELOG.md
+COPYING.txt
+LICENSE.txt
+LICENSE_AFL.txt
+SECURITY.md
+
+app/autoload.php
+app/bootstrap.php
+
+auth.json.sample
+grunt-config.json.sample
+Gruntfile.js.sample
+nginx.conf.sample
+package.json.sample
+
+/app/etc/NonComposerComponentRegistration.php
+/app/etc/db_schema.xml
+/app/etc/di.xml
+/app/etc/registration_globlist.php
+/app/etc/vendor_path.php
+
+app/etc/env.php

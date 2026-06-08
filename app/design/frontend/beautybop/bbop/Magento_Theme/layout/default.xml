@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-
     <body>
 
         <!-- Free Shipping Bar -->
@@ -21,27 +20,38 @@
             </action>
         </referenceBlock>
 
+      
         <!-- Create header row block (NOT container) -->
         <referenceContainer name="header.panel">
             <block class="Magento\Framework\View\Element\Template"
                    name="header.row.two"
                    template="Magento_Theme::html/header-row.phtml"
-                   after="-"/>
+                   />
         </referenceContainer>
+
+    
+        <referenceContainer name="page.wrapper">
+            <container name="page.flex.wrapper"
+                    htmlTag="div"
+                    htmlClass="min-h-screen flex flex-col"
+                    before="-"/>
+        </referenceContainer>
+
+        
 
         <referenceContainer name="before.body.end">
             <block class="Magento\Framework\View\Element\Template"
                 name="custom.footer"
                 template="Magento_Theme::html/footer.phtml"/>
         </referenceContainer>
+
         <referenceContainer name="footer-container" remove="true"/>
         <referenceContainer name="footer" remove="true"/>
         
         <!-- Move Magento blocks INTO this block -->
         <move element="logo" destination="header.row.two" as="logo"/>
-        <move element="catalog.topnav" destination="header.row.two" as="catalog.topnav"/>
         <move element="minicart" destination="header.row.two" as="minicart"/>
-        
+        <move element="catalog.topnav" destination="header.row.two" after="-"/>
     </body>
 
 </page>

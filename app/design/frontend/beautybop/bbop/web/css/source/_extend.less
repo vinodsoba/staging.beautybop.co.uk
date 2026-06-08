@@ -1,0 +1,106 @@
+/* Header layout */
+.bb-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background: #fff;
+}
+
+.bb-logo {
+  flex: 1;
+}
+
+.logo {
+  max-width: 50%;
+}
+
+.bb-nav-desktop {
+  flex: 2;
+  text-align: center;
+}
+
+.bb-minicart {
+  flex: 1;
+  text-align: right;
+}
+
+/* Mobile */
+.bb-mobile-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+}
+
+.bb-mobile-menu {
+  display: none;
+  background: #fff;
+  border-top: 1px solid #eee;
+  padding: 15px;
+}
+
+.bb-mobile-menu.active {
+  display: block;
+}
+
+@media (max-width: 768px) {
+
+  .bb-nav-desktop {
+    display: none;
+  }
+
+  .bb-mobile-toggle {
+    display: block;
+  }
+
+}
+
+.product.media img {
+    display: inline-block !important;
+}
+
+.fotorama__stage img {
+    max-width: none !important;
+}
+
+.product-info-main {
+    display: block;
+}
+
+/* 3 Column Product Grid */
+.products-grid .product-item {
+    width: 33.3333%;
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.products-grid .product-item:nth-child(3n+1) {
+    clear: left;
+}
+
+/* Fix grid spacing */
+.products-grid {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+/* Fix product images */
+.product-item-photo img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .products-grid .product-item {
+        width: 50%;
+    }
+}
+
+@media (max-width: 640px) {
+    .products-grid .product-item {
+        width: 100%;
+    }
+}

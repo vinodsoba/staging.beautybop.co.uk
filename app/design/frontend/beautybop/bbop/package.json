@@ -4,7 +4,8 @@
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-     "build": "tailwindcss -i ./web/tailwind/input.css -o ../../../../../pub/static/frontend/beautybop/bbop/en_GB/css/tailwind.css --watch"
+    "build": "tailwindcss -i ./web/tailwind/input.css -o ../../../../../pub/static/frontend/beautybop/bbop/en_GB/css/tailwind.css --minify",
+    "watch": "tailwindcss -i ./web/tailwind/input.css -o ../../../../../pub/static/frontend/beautybop/bbop/en_GB/css/tailwind.css --watch"
   },
   "keywords": [],
   "author": "",

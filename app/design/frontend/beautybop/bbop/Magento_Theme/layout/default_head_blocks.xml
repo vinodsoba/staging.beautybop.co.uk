@@ -7,19 +7,10 @@ xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_config
 <css src="css/styles-l.css" media="screen and (min-width: 1024px)"/>
 <css src="css/print.css" media="print"/>
 
-<css src="css/bootstrap.css"/>
-<css src="css/font-awesome.min.css"/>
-<css src="css/styles.min.css"/>
-
-<remove src="css/styles.css"/>
-<remove src="css/styles-m.css"/>
-<remove src="css/styles.min.css" />
-
 <css src="css/tailwind.css" />
 
 <meta name="robots" content="NOINDEX,NOFOLLOW"/>
 <meta name="format-detection" content="telephone=no"/>
-
 </head>
 
 </page>

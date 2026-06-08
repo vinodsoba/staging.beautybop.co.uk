@@ -3,7 +3,7 @@ use Magento\Framework\App\Action\Action;
 // @codingStandardsIgnoreFile
 ?>
 
-<div class="container">
+<div class="custom-category-wrapper">
 
 <?php
 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
@@ -14,7 +14,7 @@ $subcats = $category->getChildrenCategories();
 $_helper = $this->helper('Magento\Catalog\Helper\Output');
 ?>
 
-<ul style="padding:0;float:left;width:100%">
+<ul class="subcat-grid">
 <?php
 foreach ($subcats as $subcat) {
 if ($subcat->getIsActive()) {
@@ -30,7 +30,7 @@ if ($_imgUrl = $_category->getImageUrl()) {
 $_imgHtml = '<img src="' . $_imgUrl . '" />';
 $_imgHtml = $_outputhelper->categoryAttribute($_category, $_imgHtml, 'image');
 
-echo '<li style="list-style-type:none;margin-right:1%;float:left">
+echo '<li class="subcat-item">
 <a href="' . $subcaturl . '" class="block-promo" title="' . $subcat->getName() . '">' . $_imgHtml . '</a>
 </li>';
 
@@ -75,7 +75,7 @@ $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::FULL_VIE
 $pos = (string)$block->getPositioned(); // FIXED for PHP 8+
 ?>
 
-<div class="products wrapper-custom <?= $viewMode ?> products-<?= $viewMode ?> w-[100%]">
+<div class="products wrapper products-grid">
 <ol class="products list items product-items">
 
 <?php foreach ($_productCollection as $_product): ?>
