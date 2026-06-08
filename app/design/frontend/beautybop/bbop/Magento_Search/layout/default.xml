@@ -18,5 +18,7 @@
                 </arguments>
             </block>
         </referenceBlock>
+
+        <referenceBlock name="top.search" remove="true"/>
     </body>
 </page>

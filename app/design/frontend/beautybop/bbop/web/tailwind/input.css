@@ -2,9 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Scope Tailwind ONLY inside .bb */
+.bb {
+  @apply font-sans;
+}
+
+
 /* Target Magento menu structure */
 .test {
   @apply bg-red-500 text-white p-4;
+}
+
+html, body {
+  overflow-x: hidden;
 }
 
 /* Parent item */
@@ -16,15 +26,19 @@
 .navigation .level0.parent > ul.level0.level-top {
     position: absolute;
     top: 100%;
-    left: 0;
-    transform: translateX(-46%);
-    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    min-width: 1200px;
+
     display: grid !important;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 2rem;
-    padding: 2rem;
+    grid-template-columns: repeat(8, 1fr);
+
+    gap: 20px;
+    padding: 20px;
     background: white;
     color: black;
+    
     opacity: 0;
     visibility: hidden;
     transition: all 0.2s ease;
@@ -62,7 +76,7 @@
     width: 260px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
     padding: 16px;
-    margin-bottom: 20px
+    margin-bottom: 5px
     
 }
 
@@ -72,6 +86,7 @@
     border-radius: 4px;
     font-weight: 600;
     text-decoration: none;
+    margin-bottom: 5px;
 
 }
 
@@ -175,10 +190,6 @@ body {
     overflow-x: hidden;
 }
 
-.columns {
-    display: flex;
-    align-items: flex-start;
-}
 
 .page-main {
     overflow: visible !important;
@@ -203,18 +214,14 @@ body {
 
 /* Listing for Mens Perfume on Homepage */
 .product-items {
-     @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
 }
-
 .product-item {
     width: 100% !important;
     max-width: 100% !important;
     float: none !important;
-}
-
-.products-grid {
-    overflow: hidden;
-    margin-bottom: 60px;
 }
 
 
@@ -239,21 +246,98 @@ body {
 
 }
 
+.catalog-category-view .product-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .catalog-category-view .product-items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (min-width: 1024px) {
-    .product-items {
-        grid-template-columns: repeat(4, 1fr);
-    }
+  .catalog-category-view .product-items {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-    .product-items {
-        grid-template-columns: repeat(3, 1fr);
-    }
+.catalog-category-view .product-item {
+  width: 100% !important;
+  float: none !important;
 }
 
-@media (max-width: 767px) {
-    .product-items {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.product-item {
+  width: 100% !important;
+  float: none !important;
 }
+
+
+.subcat-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.subcat-item {
+  list-style: none;
+  width: 120px;
+}
+
+
+.category-custom-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.catalog-category-view .columns::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.catalog-category-view .column.main {
+  float: right;
+  width: 75%;
+}
+
+.catalog-category-view .sidebar-main {
+  float: left;
+  width: 25%;
+}
+
+.columns,
+.column.main,
+.products.wrapper,
+.products.list.items {
+  height: auto !important;
+  min-height: auto !important;
+}
+
+.column.main {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+
+/* header search form */
+.page-header .search-input {
+    @apply w-full py-2 pr-10 border-b border-black;
+    border-radius: 0;
+    background: transparent;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+
+.page-header nav ul {
+    @apply bg-white
+}
+
+
 
