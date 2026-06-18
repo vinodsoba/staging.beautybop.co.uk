@@ -1,0 +1,120 @@
+/* Side bar filtering */
+
+/* Sidebar container */
+.products-grid {
+    display: block;
+    width: 100%;
+}
+
+.block.filter {
+    max-height: calc(100vh - 120px);
+    height: auto;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Section title */
+.filter-options-title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Each filter group */
+.filter-options-item {
+    margin-bottom: 20px;
+}
+
+/* List */
+.filter-options-content .items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Individual item */
+.filter-options-content .item a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Hover */
+.filter-options-content .item a:hover {
+    color: #ec4899; /* pink */
+}
+
+/* fake checkbox */
+.filter-options-content .item a::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Listing for Mens Perfume on Homepage */
+.product-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+.product-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+}
+
+
+
+.product-item .product-item-info .product-item-details {
+    @apply grid gap-[6px];
+}
+
+.product-item .product-item-info .product-item-details .product-item-inner .product-item-actions .actions-primary form button.tocart {
+    background-color: black;
+    border-radius: 6px;
+    color: white;
+    padding: 3px 20px;
+}
+
+.product-item .product-item-info .product-item-details .product-item-name a.product-item-link {
+    @apply font-semibold !important
+}
+
+.product-item .product-item-info .product-item-details .price-box .price-container .price {
+    @apply text-xl font-bold;
+
+}
+
+.product-item {
+  width: 100% !important;
+  float: none !important;
+}
+
+
+.subcat-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.subcat-item {
+  list-style: none;
+  width: 120px;
+}
+
+.columns,
+.column.main,
+.products.wrapper,
+.products.list.items {
+  height: auto !important;
+  min-height: auto !important;
+}
+
+.column.main {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}

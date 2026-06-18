@@ -1,0 +1,27 @@
+/* Target Magento menu structure */
+.announcement {
+  @apply bg-[#1e1240] text-white p-4;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* Parent item */
+.widget.block-static-block {
+    display:none !important;
+}
+
+.page-main {
+    overflow: visible !important;
+}
+
+
+@media only screen and (min-width: 850px) {
+    body {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+

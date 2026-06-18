@@ -1,0 +1,52 @@
+.bb-header-account {
+    @apply mx-4;
+}
+
+.account-menu {
+    position: relative;
+}
+
+.account-menu > div:last-child {
+    pointer-events: none;
+}
+
+.account-menu:hover > div:last-child {
+    pointer-events: auto;
+}
+
+.account-wrapper {
+    position: relative;
+}
+
+.account-dropdown {
+    /*display: none;*/
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    width: 260px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    padding: 16px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 2;
+    
+}
+
+.account-dropdown .bb-btn {
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 5px;
+
+}
+
+/* SHOW ON HOVER */
+.account-wrapper:hover .account-dropdown {
+    /*display: block;*/
+    opacity: 1;
+    visibility: visible;
+}

@@ -1,0 +1,44 @@
+.bb-header-search {
+    @apply w-[260px] mx-6;
+}
+
+.bb-header-search .block-search {
+    @apply m-0;
+}
+
+.bb-header-search input {
+    @apply w-full rounded-lg border border-gray-200 px-4 py-3;
+}
+
+.bb-header-search button {
+    @apply right-3;
+}
+
+/* New style search form */
+
+.bb-search-panel {
+    @apply bg-white border-t border-gray-200 px-6 py-4;
+}
+
+.bb-search-input {
+    @apply w-full
+           border
+           border-gray-200
+           rounded-lg
+           px-4
+           py-3;
+}
+
+.bb-header-search-icon button {
+    @apply text-slate-700 hover:text-black border-none;
+}
+
+/* header search form */
+.page-header .search-input {
+    @apply w-full py-2 pr-10 border-b border-black;
+    border-radius: 0;
+    background: transparent;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}

@@ -11,8 +11,6 @@
                    before="-"/>
         </referenceContainer>
 
-        <!-- Remove default search -->
-        <referenceBlock name="top.search" remove="true"/>
 
         <referenceBlock name="catalog.topnav">
             <action method="setTemplate">
@@ -27,6 +25,10 @@
                    name="header.row.two"
                    template="Magento_Theme::html/header-row.phtml"
                    />
+             <block class="Magento\Framework\View\Element\Template"
+                    name="bb.mobile.menu"
+                    template="Magento_Theme::html/mobile-menu.phtml"
+                    />
         </referenceContainer>
 
     

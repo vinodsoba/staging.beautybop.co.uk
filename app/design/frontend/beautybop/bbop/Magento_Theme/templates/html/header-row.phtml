@@ -1,20 +1,191 @@
-<div class="bb w-full">
-    <div class="flex items-center justify-between py-3 px-4 md:px-6">
+<div class="md:hidden">
+
+    <div class="flex items-center justify-between px-4 h-16">
+
+        <!-- Burger -->
+        <button 
+        id="mobile-menu-toggle"
+        class="flex flex-col gap-1">
+
+            <span class="w-6 h-0.5 bg-black"></span>
+            <span class="w-6 h-0.5 bg-black"></span>
+            <span class="w-6 h-0.5 bg-black"></span>
+
+        </button>
 
         <!-- Logo -->
-        <div class="flex-shrink-0">
+        <div class="flex justify-center">
             <?= $block->getChildHtml('logo') ?>
         </div>
 
-        <!-- Menu -->
-        <div class="hidden md:block flex-grow text-center">
-            <?= $block->getChildHtml('catalog.topnav') ?>
+        <!-- Search -->
+        <div class="bb-header-search-icon">
+
+            <button
+                id="mobile-search-toggle"
+                type="button"
+                aria-label="Search">
+
+                <svg class="h-10 w-10"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z"/>
+
+                </svg>
+
+            </button>
+
         </div>
 
         <!-- Cart -->
-        <div class="flex-shrink-0">
-            <?= $block->getChildHtml('minicart') ?>
+        <div>
+            <a href="<?= $block->getUrl('checkout/cart') ?>"
+            class="mobile-cart-link">
+
+            <svg xmlns="http://www.w3.org/2000/svg"
+            class="w-7 h-7"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24">
+
+            <path
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5 8h14l-1 12H6L5 8zm4-3a3 3 0 016 0v3H9V5z"/>
+
+            </svg>
+
+            </a>
         </div>
 
     </div>
+
+    <div id="mobile-search-panel"
+     class="bb-search-panel max-h-0 overflow-hidden transition-all duration-300">
+
+    <form action="/catalogsearch/result/" method="get">
+
+        <input
+            type="text"
+            name="q"
+            placeholder="Search fragrances, brands and products..."
+            class="bb-search-input">
+
+    </form>
+
+    </div>
+
+</div>
+
+
+<!-- Desktop Header -->
+<div class="hidden md:block">
+
+<div class="grid grid-cols-[250px_1fr_220px] items-center h-24">
+
+    <!-- Logo -->
+    <div class="bb-header-logo">
+        <?= $block->getChildHtml('logo') ?>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-center">
+        <div class="bb-header-nav">
+            <?= $block->getChildHtml('catalog.topnav') ?>
+        </div>
+    </div>
+
+    <!-- Actions -->
+
+    <div class="flex justify-end items-center gap-6">
+
+        <!-- Search -->
+        <div class="bb-header-search-icon">
+
+            <button
+                id="desktop-search-toggle"
+                type="button"
+                aria-label="Search">
+
+                <svg class="h-9 w-9"
+                    fill="none"
+                    stroke="#000"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z"/>
+
+                </svg>
+
+            </button>
+
+        </div>
+
+        <!-- Account -->
+        <div class="bb-header-account">
+
+                <div class="account-wrapper relative">
+
+                    <div class="flex items-center cursor-pointer account-trigger">
+
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5Zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5Z"
+                            fill="currentColor"/>
+                        </svg>
+
+                    </div>
+
+                    <div class="account-dropdown absolute right-0 top-full w-40 bg-white shadow-lg border rounded z-50">
+
+                        <a href="<?= $block->getUrl('customer/account/login') ?>"
+                           class="bb-btn bg-[#000] text-white hover:text-white">
+                            Login
+                        </a>
+
+                        <a href="<?= $block->getUrl('customer/account/create') ?>"
+                           class="bb-btn border border-solid border-black hover:text-[#1e1240]">
+                            Register
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        <!-- Cart -->
+        <div class="bb-header-cart relative">
+            <?= $block->getChildHtml('minicart') ?>
+        </div>
+    
+    </div>
+
+    </div>
+
+
+    <div id="desktop-search-panel"
+     class="bb-search-panel max-h-0 overflow-hidden transition-all duration-300">
+
+    <form action="/catalogsearch/result/" method="get">
+
+        <input
+            type="text"
+            name="q"
+            placeholder="Search fragrances, brands and products..."
+            class="bb-search-input">
+
+    </form>
+
+    </div>
+
 </div>

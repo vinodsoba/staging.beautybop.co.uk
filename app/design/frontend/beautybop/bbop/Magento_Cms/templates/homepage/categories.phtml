@@ -1,0 +1,118 @@
+<section class="bb-categories py-16">
+
+    <div class="max-w-[1440px] mx-auto px-4">
+
+        <div class="bb-categories__intro">
+
+            <?= $this->getLayout()
+                ->createBlock(\Magento\Cms\Block\Block::class)
+                ->setBlockId('bb-home-categories-intro')
+                ->toHtml(); ?>
+
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+
+                <!-- Men's -->
+
+                <a href="/shops/fragrances/mens.html"
+                class="bb-category-card">
+
+                    <img
+                        src="<?= $block->getViewFileUrl('images/home/categories/mens-fragrances.jpg') ?>"
+                        alt="Men's Fragrances"
+                        class="bb-category-image">
+
+                    <div class="bb-category-overlay"></div>
+
+                    <div class="bb-category-content">
+                        <h3 class="bb-category-title">
+                            MEN'S FRAGRANCES
+                        </h3>
+
+                        <span class="bb-category-link">
+                            SHOP MEN'S →
+                        </span>
+                    </div>
+
+                </a>
+
+                <!-- Women's -->
+
+                <a href="/shops/fragrances/womens.html"
+                class="bb-category-card">
+
+                    <img
+                        src="<?= $block->getViewFileUrl('images/home/categories/womens-fragrances.jpg') ?>"
+                        alt="Women's Fragrances"
+                        class="bb-category-image">
+
+                    <div class="bb-category-overlay"></div>
+
+                    <div class="bb-category-content">
+                        <h3 class="bb-category-title">
+                            WOMEN'S FRAGRANCES
+                        </h3>
+
+                        <span class="bb-category-link">
+                            SHOP WOMEN'S →
+                        </span>
+                    </div>
+
+                </a>
+
+                <!-- Gift Sets -->
+
+                <a href="shops/gift-sets.html"
+                class="bb-category-card">
+
+                    <img
+                        src="<?= $block->getViewFileUrl('images/home/categories/gift-sets.jpg') ?>"
+                        alt="Gift Sets"
+                        class="bb-category-image">
+
+                    <div class="bb-category-overlay"></div>
+
+                    <div class="bb-category-content">
+                        <h3 class="bb-category-title">
+                            GIFT SETS
+                        </h3>
+
+                        <span class="bb-category-link">
+                            SHOP GIFTS →
+                        </span>
+                    </div>
+
+                </a>
+
+                <!-- New Arrivals -->
+
+                <a href="/new-arrivals"
+                class="bb-category-card">
+
+                    <img
+                        src="<?= $block->getViewFileUrl('images/home/categories/new-arrivals.jpg') ?>"
+                        alt="New Arrivals"
+                        class="bb-category-image">
+
+                    <div class="bb-category-overlay"></div>
+
+                    <div class="bb-category-content">
+                        <h3 class="bb-category-title">
+                            NEW ARRIVALS
+                        </h3>
+
+                        <span class="bb-category-link">
+                            SHOP NEW →
+                        </span>
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

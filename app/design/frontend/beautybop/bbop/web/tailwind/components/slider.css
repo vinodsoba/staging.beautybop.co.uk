@@ -1,0 +1,22 @@
+/* slick track responsiveness */
+.slick-list {
+    overflow: hidden;
+}
+
+
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slick-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .slick-track {
+        display: flex !important;
+    }
+}
