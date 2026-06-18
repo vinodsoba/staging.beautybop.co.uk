@@ -9,32 +9,135 @@
 
 
 /* Target Magento menu structure */
-.test {
-  @apply bg-red-500 text-white p-4;
+.announcement {
+  @apply bg-[#1e1240] text-white p-4;
 }
 
 html, body {
   overflow-x: hidden;
 }
 
+/* Header Section */
+
+.bb-header-main {
+    @apply flex items-center justify-between px-4 h-16 bg-white border-b;
+}
+
+
+.bb-header-nav {
+    @apply flex-grow flex justify-center;
+}
+
+.bb-mobile-toggle {
+    @apply flex flex-col justify-center gap-1 w-8 h-8;
+}
+
+.bb-mobile-toggle span {
+    @apply block h-0.5 bg-slate-900 rounded;
+}
+
+.bb-header-search {
+    @apply w-[260px] mx-6;
+}
+
+.bb-header-search .block-search {
+    @apply m-0;
+}
+
+.bb-header-search input {
+    @apply w-full rounded-lg border border-gray-200 px-4 py-3;
+}
+
+.bb-header-search button {
+    @apply right-3;
+}
+
+/* New style search form */
+
+.bb-search-panel {
+    @apply bg-white border-t border-gray-200 px-6 py-4;
+}
+
+.bb-search-input {
+    @apply w-full
+           border
+           border-gray-200
+           rounded-lg
+           px-4
+           py-3;
+}
+
+.bb-header-search-icon button {
+    @apply text-slate-700 hover:text-black border-none;
+}
+
+
+.bb-header-account {
+    @apply mx-4;
+}
+
+.bb-header-cart {
+    @apply flex-shrink-0;
+}
+
 /* Parent item */
+.widget.block-static-block {
+    display:none !important;
+}
+
 .navigation .level0.parent {
     position: relative;
 }
+
+/* replace basket icon */
+.action.showcart:before {
+    display: none !important;
+}
+
+.minicart-wrapper .action.showcart {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: auto;
+}
+
+.minicart-wrapper .action.showcart::after {
+    content: '';
+    width: 24px;
+    height: 24px;
+    display: block;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23333' viewBox='0 0 24 24'%3E%3Cpath stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M5 8h14l-1 12H6L5 8zm4-3a3 3 0 016 0v3H9V5z'/%3E%3C/svg%3E");
+
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.minicart-wrapper .action.showcart.counter.qty {
+    background: #d946a3;
+    color: white;
+    border-radius: 999px;
+    min-width: 18px;
+    height: 18px;
+    font-size: 11px;
+    line-height: 18px;
+}
+
 
 /* Submenu (your actual class) */
 .navigation .level0.parent > ul.level0.level-top {
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-45%);
     width: 100%;
     min-width: 1200px;
 
     display: grid !important;
     grid-template-columns: repeat(8, 1fr);
 
-    gap: 20px;
+    gap: 2px;
     padding: 20px;
     background: white;
     color: black;
@@ -50,6 +153,8 @@ html, body {
     opacity: 1;
     visibility: visible;
 }
+
+
 
 .account-menu {
     position: relative;
@@ -76,7 +181,10 @@ html, body {
     width: 260px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
     padding: 16px;
-    margin-bottom: 5px
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 2;
     
 }
 
@@ -339,5 +447,211 @@ body {
     @apply bg-white
 }
 
+.bb-home-hero {
+    background: #f8f5f0;
+    background-image:url('/media/home/background-image-hb.jpg'); 
+    background-size: cover;
+    background-position: center top;
+    min-height: 550px;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+}
 
+.bb-home-hero__content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.bb-home-hero h1 {
+    line-height: 1;
+    margin-bottom: 24px;
+}
+
+.bb-home-hero__buttons {
+    position: relative;
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.bb-home-hero__buttons a:hover {
+    color: white;
+}
+
+
+/* Trust bar section */
+
+.bb-trust-bar {
+    background: #ffffff;
+    border-top: 1px solid #ece7df;
+    border-bottom: 1px solid #ece7df;
+}
+
+.bb-trust-bar__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 32px 48px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+}
+
+.bb-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.bb-trust-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.bb-trust-content h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.bb-trust-content p {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+/* homepage categories section */
+
+@layer components {
+
+    .bb-categories__intro {
+        @apply text-center mb-12;
+    }
+
+    .bb-categories__intro h2 {
+        @apply text-4xl font-bold text-slate-900 mb-3;
+    }
+
+    .bb-categories__intro p {
+        @apply text-lg text-slate-500;
+    }
+
+     .bb-category-card {
+        @apply relative overflow-hidden rounded-xl h-[280px];
+    }
+
+    .bb-category-image {
+        @apply transition duration-500 ease-out;
+    }
+
+    .bb-category-card:hover .bb-category-image {
+        transform: scale(1.05);
+    }
+
+    .bb-category-overlay {
+        @apply absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent;
+    }
+
+    .bb-category-content {
+        @apply absolute bottom-8 left-5 z-10;
+    }
+
+     .bb-category-title {
+        @apply text-white text-xl font-semibold mb-2;
+    }
+
+    .bb-category-link {
+        @apply text-white text-xs uppercase tracking-widest;
+    }
+
+    
+}
+
+/* response style */
+
+/* Hero banner */
+@media (max-width: 1024px) {
+
+     .bb-home-hero {
+        background-position: 65% top;
+         background-image: url('/media/home/hero-banner-homepage.jpg');
+    }
+
+    .bb-home-hero h1 {
+        font-size: 56px;
+        line-height: 1.1;
+    }
+
+    .bb-home-hero__content {
+        gap: 40px;
+        padding: 60px 40px;
+    }
+
+    .bb-home-hero__right img {
+        max-width: 280px;
+    }
+
+     .bb-trust-bar__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .bb-home-hero {
+        background-position: 75% top;
+        background-image: url('/media/home/Hero Banner - homepage bg.jpg');
+
+    }
+
+    .bb-home-hero__content {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .bb-home-hero h1 {
+        font-size: 42px;
+        line-height: 1.1;
+    }
+
+    .bb-home-hero p {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    .bb-home-hero__buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .bb-home-hero__right {
+        margin-top: 40px;
+    }
+
+    .bb-home-hero__right img {
+        max-width: 59px;
+    }
+
+      .bb-trust-bar__container {
+        grid-template-columns: 1fr;
+        padding: 24px;
+        gap: 24px;
+    }
+
+    .bb-trust-item {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+    }
+}
 

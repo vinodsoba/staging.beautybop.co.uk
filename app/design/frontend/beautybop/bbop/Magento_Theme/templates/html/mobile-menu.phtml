@@ -1,0 +1,23 @@
+<!-- Overlay -->
+<div id="bb-mobile-overlay"
+     class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+
+<div id="bb-mobile-menu"
+     class="fixed top-0 left-0 w-[300px] h-screen bg-white z-50 overflow-y-auto hidden">
+
+    <div class="p-6 border-b">
+        <strong>Menu</strong>
+    </div>
+
+    <button 
+    id="bb-mobile-menu-close"
+    class="text-2xl leading-none">
+        ×
+    </button>
+
+    <?= $this->getLayout()
+        ->createBlock(\Magento\Theme\Block\Html\Topmenu::class)
+        ->setTemplate('Magento_Theme::html/topmenu.phtml')
+        ->toHtml(); ?>
+
+</div>
