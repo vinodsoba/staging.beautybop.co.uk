@@ -1,0 +1,38 @@
+.bb-header-cart {
+    @apply flex-shrink-0;
+}
+
+/* replace basket icon */
+.action.showcart:before {
+    display: none !important;
+}
+
+.minicart-wrapper .action.showcart {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: auto;
+}
+
+.minicart-wrapper .action.showcart::after {
+    content: '';
+    width: 24px;
+    height: 24px;
+    display: block;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23333' viewBox='0 0 24 24'%3E%3Cpath stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M5 8h14l-1 12H6L5 8zm4-3a3 3 0 016 0v3H9V5z'/%3E%3C/svg%3E");
+
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.minicart-wrapper .action.showcart.counter.qty {
+    background: #d946a3;
+    color: white;
+    border-radius: 999px;
+    min-width: 18px;
+    height: 18px;
+    font-size: 11px;
+    line-height: 18px;
+}

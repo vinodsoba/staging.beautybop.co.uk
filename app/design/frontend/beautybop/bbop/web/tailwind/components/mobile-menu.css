@@ -1,0 +1,7 @@
+.bb-mobile-toggle {
+    @apply flex flex-col justify-center gap-1 w-8 h-8;
+}
+
+.bb-mobile-toggle span {
+    @apply block h-0.5 bg-slate-900 rounded;
+}

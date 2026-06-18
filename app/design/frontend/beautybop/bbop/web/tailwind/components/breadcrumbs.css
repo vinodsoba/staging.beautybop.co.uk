@@ -1,0 +1,8 @@
+.breadcrumbs ul.items {
+    display: flex;
+}
+
+
+.breadcrumbs ul.items li.item {
+    @apply mr-2 py-4
+}

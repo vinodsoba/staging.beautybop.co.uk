@@ -1,0 +1,24 @@
+/* Header Section */
+.bb-test {
+    color: red !important;
+    font-size: 50px !important;
+}
+
+
+.bb-header-main {
+    @apply flex items-center justify-between px-4 h-16 bg-white border-b;
+}
+
+
+.bb-header-nav {
+    @apply flex-grow flex justify-center;
+}
+
+.action.skip,
+.header.links {
+    display: none !important;
+}
+
+.page-header nav ul {
+    @apply bg-white
+}
