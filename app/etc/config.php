@@ -341,7 +341,7 @@ return [
         'PayPal_Braintree' => 1,
         'PayPal_BraintreeGraphQl' => 1,
         'SY_Slider' => 1,
-        'Sparsh_Banner' => 1,
+        'Sparsh_Banner' => 0,
         'Temando_ShippingRemover' => 1,
         'Ulmod_NewsletterPopup' => 0
     ]

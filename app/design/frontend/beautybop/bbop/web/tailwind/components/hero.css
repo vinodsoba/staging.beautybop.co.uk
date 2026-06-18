@@ -1,0 +1,118 @@
+.bb-home-hero {
+    background: #f8f5f0;
+    background-image:url('/media/home/background-image-hb.jpg'); 
+    background-size: cover;
+    background-position: center top;
+    min-height: 550px;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+}
+
+.bb-home-hero__content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.bb-home-hero h1 {
+    line-height: 1;
+    margin-bottom: 24px;
+}
+
+.bb-home-hero__buttons {
+    position: relative;
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.bb-home-hero__buttons a:hover {
+    color: white;
+}
+
+
+/* response style */
+
+/* Hero banner */
+@media (max-width: 1024px) {
+
+     .bb-home-hero {
+        background-position: 65% top;
+         background-image: url('/media/home/hero-banner-homepage.jpg');
+    }
+
+    .bb-home-hero h1 {
+        font-size: 56px;
+        line-height: 1.1;
+    }
+
+    .bb-home-hero__content {
+        gap: 40px;
+        padding: 60px 40px;
+    }
+
+    .bb-home-hero__right img {
+        max-width: 280px;
+    }
+
+     .bb-trust-bar__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .bb-home-hero {
+        background-position: 75% top;
+        background-image: url('/media/home/Hero Banner - homepage bg.jpg');
+
+    }
+
+    .bb-home-hero__content {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .bb-home-hero h1 {
+        font-size: 42px;
+        line-height: 1.1;
+    }
+
+    .bb-home-hero p {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    .bb-home-hero__buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .bb-home-hero__right {
+        margin-top: 40px;
+    }
+
+    .bb-home-hero__right img {
+        max-width: 59px;
+    }
+
+      .bb-trust-bar__container {
+        grid-template-columns: 1fr;
+        padding: 24px;
+        gap: 24px;
+    }
+
+    .bb-trust-item {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+    }
+}

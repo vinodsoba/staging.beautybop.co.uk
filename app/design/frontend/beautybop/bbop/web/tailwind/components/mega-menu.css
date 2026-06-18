@@ -1,0 +1,49 @@
+.navigation .level0.parent {
+    position: relative;
+}
+
+/* Submenu (your actual class) */
+.navigation .level0.parent > ul.level0.level-top {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-45%);
+    width: 100%;
+    min-width: 1200px;
+
+    display: grid !important;
+    grid-template-columns: repeat(8, 1fr);
+
+    gap: 2px;
+    padding: 20px;
+    background: white;
+    color: black;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 999;
+}
+
+/* SHOW ON HOVER */
+.navigation .level0.parent:hover > ul.level0.level-top {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mega Menu */
+.navigation .submenu {
+    @apply bg-white shadow-xl border border-gray-100 rounded-lg p-8;
+}
+
+.navigation .submenu li {
+    @apply mb-2;
+}
+
+.navigation .submenu a {
+    @apply text-gray-700 hover:text-pink-500 transition;
+}
+
+.navigation .level-top {
+    @apply font-medium tracking-wide;
+}

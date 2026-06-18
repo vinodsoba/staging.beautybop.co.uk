@@ -1,0 +1,50 @@
+<div class="max-w-8xl mx-auto px-4">
+    <!-- HERO -->
+    <?php
+    echo $this->getLayout()
+    ->createBlock(\Magento\Framework\View\Element\Template::class)
+    ->setTemplate('Magento_Cms::homepage/hero.phtml')
+    ->toHtml();
+    
+    echo $this->getLayout()
+    ->createBlock(\Magento\Framework\View\Element\Template::class)
+    ->setTemplate('Magento_Cms::homepage/trust-bar.phtml')
+    ->toHtml(); 
+
+    echo $this->getLayout()
+    ->createBlock(\Magento\Framework\View\Element\Template::class)
+    ->setTemplate('Magento_Cms::homepage/categories.phtml')
+    ->toHtml();
+
+    echo $this->getLayout()
+    ->createBlock(\Magento\Framework\View\Element\Template::class)
+    ->setTemplate('Magento_Cms::homepage/best-selling-fragrances.phtml')
+    ->toHtml();
+
+    
+    
+    ?>
+
+    
+
+   
+
+</div>
+
+<script>
+require(['swiper'], function (Swiper) {
+    console.log('Swiper loaded:', Swiper);
+
+    new Swiper('.myHero', {
+        loop: true,
+        autoplay: {
+            delay: 4000,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        }
+    });
+});
+</script>
+
