@@ -91,3 +91,19 @@
 
     
 </script>
+
+<script>
+require(['jquery'], function ($) {
+
+    $(document).on('gallery:loaded', function () {
+
+        $('.loading-mask').hide();
+        $('.fotorama__spinner').hide();
+
+        console.log('gallery loaded');
+
+    });
+
+});
+</script>
+
