@@ -19,7 +19,7 @@ require([
     console.log('mobileMenu loaded');
 });
 </script>
-<a class="logo w-[270px] m-0" href="<?= $block->getUrl('') ?>" title="<?= /* @escapeNotVerified */ $storeName ?>">
+<a class="logo xl:w-[270px] w-[100%] max-w-[158px] m-0" href="<?= $block->getUrl('') ?>" title="<?= /* @escapeNotVerified */ $storeName ?>">
     <img src="<?= /* @escapeNotVerified */ $block->getLogoSrc() ?>"
          title="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>"
          alt="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>"

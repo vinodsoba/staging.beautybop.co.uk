@@ -6,12 +6,14 @@
     width: 100%;
 }
 
-.block.filter {
+/*.block.filter {
     max-height: calc(100vh - 120px);
     height: auto;
     overflow-y: auto;
     padding-right: 10px;
 }
+
+*/
 
 /* Section title */
 .filter-options-title {

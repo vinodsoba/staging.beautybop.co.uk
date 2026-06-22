@@ -7,15 +7,26 @@
   @apply font-sans;
 }
 
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.page-main {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
 
 /* Target Magento menu structure */
 .announcement {
   @apply bg-[#1e1240] text-white p-4;
 }
 
-html, body {
-  overflow-x: hidden;
-}
 
 /* Header Section */
 
@@ -55,7 +66,7 @@ html, body {
 /* New style search form */
 
 .bb-search-panel {
-    @apply bg-white border-t border-gray-200 px-6 py-4;
+    @apply bg-white  border-t-0 md:border-t-0 border-gray-200 px-6 pb-2 xl:pb-0;
 }
 
 .bb-search-input {
@@ -573,6 +584,57 @@ body {
     }
 
     
+}
+
+
+/* Mega Menu */
+/* =====================================================
+   MEGA MENU
+===================================================== */
+
+.navigation .level0.level-top {
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
+
+    min-width: 1100px;
+
+    background: #fff;
+
+    padding: 2rem;
+
+    border-top: 1px solid #eee;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.navigation .level1 > a {
+    display: block;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: .08em;
+
+    margin-bottom: 12px;
+
+    color: #111827;
+}
+
+.navigation .level2 a {
+    display: block;
+    color: #4b5563;
+    transition: .25s;
+    line-height: normal;
+}
+
+.navigation .level2 a:hover {
+    color: #d946a3;
+}
+
+.block.upsell {
+    clear: both;
 }
 
 /* response style */
