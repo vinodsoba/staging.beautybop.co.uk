@@ -81,6 +81,24 @@ define([], function () {
 
         }
 
+        document.querySelectorAll('#bb-mobile-menu .parent > a').forEach(link => {
+
+            link.addEventListener('click', function(e) {
+
+                const submenu = this.parentElement.querySelector(':scope > ul');
+
+                if (!submenu) {
+                    return;
+                }
+
+                e.preventDefault();
+
+                this.parentElement.classList.toggle('active');
+
+            });
+
+        });
+
     });
 
 });

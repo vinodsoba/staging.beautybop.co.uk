@@ -148,7 +148,11 @@ class Api
 
             do {
 
+                $this->logger->info('DEBUG: About to create SOAP client');
+
                 $client = $this->getClient();
+                
+                $this->logger->info('DEBUG: SOAP client created');
 
                 $request = new \stdClass();
                 $request->SearchTerm = ''; // empty = return all
