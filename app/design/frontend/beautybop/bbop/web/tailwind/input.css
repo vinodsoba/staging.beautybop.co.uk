@@ -7,15 +7,26 @@
   @apply font-sans;
 }
 
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.page-main {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
 
 /* Target Magento menu structure */
 .announcement {
   @apply bg-[#1e1240] text-white p-4;
 }
 
-html, body {
-  overflow-x: hidden;
-}
 
 /* Header Section */
 
@@ -55,7 +66,7 @@ html, body {
 /* New style search form */
 
 .bb-search-panel {
-    @apply bg-white border-t border-gray-200 px-6 py-4;
+    @apply bg-white  border-t-0 md:border-t-0 border-gray-200 px-6 pb-2 xl:pb-0;
 }
 
 .bb-search-input {
@@ -575,7 +586,201 @@ body {
     
 }
 
+
+/* Mega Menu */
+/* =====================================================
+   MEGA MENU
+===================================================== */
+
+.navigation .level0.level-top {
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
+
+    min-width: 1100px;
+
+    background: #fff;
+
+    padding: 2rem;
+
+    border-top: 1px solid #eee;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.navigation .level1 > a {
+    display: block;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: .08em;
+
+    margin-bottom: 12px;
+
+    color: #111827;
+}
+
+.navigation .level2 a {
+    display: block;
+    color: #4b5563;
+    transition: .25s;
+    line-height: normal;
+}
+
+.navigation .level2 a:hover {
+    color: #d946a3;
+}
+
+.block.upsell {
+    clear: both;
+}
+
 /* response style */
+
+/* ==========================================
+   MOBILE MENU
+========================================== */
+
+#bb-mobile-menu .navigation {
+    width: 100%;
+}
+
+/* Override desktop flex menu */
+#bb-mobile-menu .navigation > ul {
+    display: block !important;
+}
+
+#bb-mobile-menu .navigation li {
+    width: 100%;
+    margin: 0;
+    position: relative;
+}
+
+#bb-mobile-menu .navigation a {
+    display: block;
+    padding: 14px 18px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* Hide all child menus by default */
+#bb-mobile-menu .parent > ul {
+    display: none !important;
+}
+
+/* Show when JS adds active class */
+#bb-mobile-menu .parent.active > ul {
+    display: block !important;
+}
+
+/* Remove desktop mega menu styling */
+#bb-mobile-menu .navigation .level0.level-top {
+    position: static !important;
+    transform: none !important;
+    min-width: auto !important;
+    width: 100% !important;
+
+    display: block !important;
+    grid-template-columns: none !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    box-shadow: none !important;
+    border: 0 !important;
+    background: transparent !important;
+}
+
+/* Level 1 category */
+#bb-mobile-menu .level1 > a {
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: normal;
+    margin: 0;
+}
+
+/* Level 2 items */
+#bb-mobile-menu .level2 a {
+    padding-left: 36px;
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* Active parent */
+#bb-mobile-menu .parent.active > a {
+    background: #f8fafc;
+    color: #000;
+}
+
+#bb-mobile-menu .parent > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#bb-mobile-menu .level1.parent > a::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+
+    border-right: 2px solid #333;
+    border-bottom: 2px solid #333;
+
+    transform: rotate(45deg);
+    transition: .2s;
+}
+
+#bb-mobile-menu .level1.parent.active > a::after {
+    transform: rotate(-135deg);
+}
+
+#bb-mobile-menu .level0.nav-1 > a {
+    display: none !important;
+}
+
+/* Hide Shop link */
+#bb-mobile-menu .level0.nav-1 > a {
+    display: none !important;
+}
+
+/* Flatten Shop container */
+#bb-mobile-menu .level0.nav-1 {
+    border: 0;
+}
+
+/* Always show Fragrance, Cosmetics, Toiletries etc */
+#bb-mobile-menu .level0.nav-1 > ul {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Hide second-level children until clicked */
+#bb-mobile-menu .level1.parent > ul {
+    display: none !important;  
+}
+
+/* Show second-level children when active */
+#bb-mobile-menu .level1.parent.active > ul {
+    display: block !important;
+}
+
+#bb-mobile-menu .ui-menu-icon,
+#bb-mobile-menu .submenu-toggle {
+    display: none !important;
+}
+
+@media (min-width: 1920px) {
+    .navigation .level0.parent > ul.level0.level-top {
+        transform: translateX(-47%);
+        min-width: 1920px;
+    }
+}
 
 /* Hero banner */
 @media (max-width: 1024px) {
