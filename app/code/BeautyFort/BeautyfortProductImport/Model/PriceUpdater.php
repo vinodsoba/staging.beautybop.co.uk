@@ -44,26 +44,32 @@ class PriceUpdater
     {
         $this->logger->info('🕒 PRICE CRON START');
 
-        $this->logger->info('🔎 CRON credential debug', [
+        /*$this->logger->info('🔎 CRON credential debug', [
             'username' => $this->config->getUsername(),
             'password_length' => strlen($this->config->getPassword() ?? '')
         ]);
+        */
 
         $updatedCount = 0;
 
         /**
          * 1️⃣ Fetch ALL supplier products once
          */
+
+   
+
+        $this->logger->info('DEBUG: About to call fetchAllProducts');
+
         $supplierProducts = $this->api->fetchAllProducts();
+
+        $this->logger->info('DEBUG: fetchAllProducts returned', [
+            'count' => count($supplierProducts)
+        ]);
 
         if (empty($supplierProducts)) {
             $this->logger->warning('⚠️ No supplier products returned from bulk API');
             return;
         }
-
-        $this->logger->info('Supplier products loaded', [
-            'count' => count($supplierProducts)
-        ]);
 
         /**
          * 2️⃣ Load Magento Beautyfort products
