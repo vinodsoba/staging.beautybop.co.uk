@@ -119,9 +119,11 @@ class Api
 
             $response = $client->ProductSearch($request);
 
-            $this->logger->info('📨 SOAP response received');
+            $items = $this->extractItems($response);
 
-            return $this->extractItems($response);
+            $this->cache[$sku] = $items;
+
+            return $items;
 
         } catch (\SoapFault $e) {
             $this->logger->error('❌ SOAP FAULT', [
