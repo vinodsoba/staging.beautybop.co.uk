@@ -1,3 +1,11 @@
+@import "./components/order-summary.css";
+@import "./components/checkout/cart-items.css";
+@import "./components/card.css";
+@import "./components/checkout/details.css";
+@import "./components/checkout/totals.css";
+@import "./components/checkout/checkout.css";
+@import "./components/form.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -1,0 +1,11 @@
+/* ==========================================================
+   BeautyBop Checkout Sections
+   ========================================================== */
+
+.bb-checkout-section {
+    margin-bottom: 2rem;
+}
+
+.bb-checkout-section:last-child {
+    margin-bottom: 0;
+}

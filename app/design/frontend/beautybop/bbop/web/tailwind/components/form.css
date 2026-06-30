@@ -1,0 +1,29 @@
+/* ==========================================================
+   BeautyBop Forms
+   ========================================================== */
+
+.bb-form-row {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+
+}
+
+.bb-form-row > .field {
+    width: 100%;
+}
+
+
+.bb-form-row--name,
+.bb-form-row--country,
+.bb-form-row--city {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.bb-form-row--company,
+.bb-form-row--street,
+.bb-form-row--phone {
+    grid-template-columns: 1fr;
+}
