@@ -53,23 +53,17 @@ class PriceUpdater
         $updatedCount = 0;
 
         /**
-         * 1️⃣ Fetch ALL supplier products once
+         * OLD BULK FETCH
+         * 1️⃣ Temporarily disabled while migrating to SKU lookups
          */
 
+        $checkedCount = 0;
+        $unchangedCount = 0;
+        $errorCount = 0;
    
 
-        $this->logger->info('DEBUG: About to call fetchAllProducts');
+        // $supplierProducts = $this->api->fetchAllProducts();
 
-        $supplierProducts = $this->api->fetchAllProducts();
-
-        $this->logger->info('DEBUG: fetchAllProducts returned', [
-            'count' => count($supplierProducts)
-        ]);
-
-        if (empty($supplierProducts)) {
-            $this->logger->warning('⚠️ No supplier products returned from bulk API');
-            return;
-        }
 
         /**
          * 2️⃣ Load Magento Beautyfort products
@@ -78,7 +72,7 @@ class PriceUpdater
         $collection->addAttributeToSelect(['sku', 'price', 'beautyfort_source']);
         $collection->addAttributeToFilter('beautyfort_source', 1);
 
-        $this->logger->info('Magento collection size', [
+        $this->logger->info('Magento BeautyFort products loaded', [
             'count' => $collection->getSize()
         ]);
 
@@ -91,34 +85,49 @@ class PriceUpdater
                 $sku = $product->getSku();
 
                 // Skip if supplier does not have this SKU
-                if (!isset($supplierProducts[$sku])) {
-                    continue;
-                }
-
-                $oldPrice = (float)$product->getPrice();
-                $supplierCost = (float)$supplierProducts[$sku]->UnitPrice->Amount;
-
-                $newPrice = $this->price->calculatePrice($supplierCost);
-
                 $this->logger->info('Checking SKU', [
+                'sku' => $sku
+            ]);
+
+            $supplierItems = $this->api->fetchProductBySku($sku);
+
+            $checkedCount++;
+
+            if (empty($supplierItems)) {
+
+                $this->logger->warning('Supplier product not found', [
+                    'sku' => $sku
+                ]);
+
+                continue;
+            }
+
+            $supplierProduct = $supplierItems[0];
+
+            $oldPrice = (float)$product->getPrice();
+            $supplierCost = (float)$supplierProduct->UnitPrice->Amount;
+
+            $newPrice = $this->price->calculatePrice($supplierCost);
+
+            $this->logger->info('Checking SKU', [
+                'sku' => $sku,
+                'old_price' => $oldPrice,
+                'new_price' => $newPrice
+            ]);
+
+            if ($newPrice != $oldPrice) {
+
+                $product->setPrice($newPrice);
+                $this->productRepository->save($product);
+
+                $updatedCount++;
+
+                $this->logger->info('💰 Price updated', [
                     'sku' => $sku,
                     'old_price' => $oldPrice,
                     'new_price' => $newPrice
                 ]);
-
-                if ($newPrice != $oldPrice) {
-
-                    $product->setPrice($newPrice);
-                    $this->productRepository->save($product);
-
-                    $updatedCount++;
-
-                    $this->logger->info('💰 Price updated', [
-                        'sku' => $sku,
-                        'old_price' => $oldPrice,
-                        'new_price' => $newPrice
-                    ]);
-                }
+            }
 
             } catch (\Throwable $e) {
 

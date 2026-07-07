@@ -1,0 +1,46 @@
+<div class="bb-card">
+
+    <div class="bb-card__header">
+
+        <h2 class="bb-card__title">
+            <span data-bind="i18n: 'Your Order'"></span>
+        </h2>
+
+    </div>
+
+    <div class="bb-card__body">
+
+         <!-- Cart Items -->
+        <!-- ko foreach: getCartItems() -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        <!-- /ko -->
+
+        <!-- Items Before -->
+        <!-- ko foreach: getItemsBefore() -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        <!-- /ko -->
+
+        <!-- Totals -->
+        <!-- ko foreach: getTotals() -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        <!-- /ko -->
+
+        <!-- Items After -->
+        <!-- ko foreach: getItemsAfter() -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        <!-- /ko -->
+
+
+    </div>
+
+    <div class="bb-card__footer">
+
+        <div class="bb-summary-security">
+
+            🔒 Secure Checkout
+
+        </div>
+
+    </div>
+
+</div>

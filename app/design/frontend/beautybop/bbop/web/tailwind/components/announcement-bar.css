@@ -1,0 +1,22 @@
+.bb-announcement {
+    position: relative;
+    height: 20px;
+    text-align: center;
+    font-weight: 600;
+    color: #fff;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+.bb-announcement .bb-message {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity .6s ease;
+}
+
+.bb-announcement .bb-message.active {
+    opacity: 1;
+}

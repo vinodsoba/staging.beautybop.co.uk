@@ -1,0 +1,33 @@
+@layer components {
+
+.bb-order-summary {
+    @apply bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden;
+}
+
+.bb-order-summary__header {
+    @apply px-6 py-5 border-b border-slate-200;
+}
+
+.bb-order-summary__title {
+    @apply text-xl font-semibold text-slate-900;
+}
+
+.bb-order-summary__body {
+    @apply p-6;
+}
+
+}
+
+
+@layer components {
+
+.bb-summary-benefits{
+
+    @apply border-t
+           border-slate-200
+           px-6
+           py-6;
+
+}
+
+}

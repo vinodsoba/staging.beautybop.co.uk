@@ -1,0 +1,19 @@
+<!--
+/**
+ * BeautyBop Shipping Methods
+ */
+-->
+
+<div id="checkout-shipping-method-load"
+     class="bb-shipping-methods">
+
+    <!-- ko foreach: { data: rates(), as: 'method' } -->
+
+        <!-- ko template: {
+            name: element.shippingMethodItemTemplate
+        } -->
+        <!-- /ko -->
+
+    <!-- /ko -->
+
+</div>
