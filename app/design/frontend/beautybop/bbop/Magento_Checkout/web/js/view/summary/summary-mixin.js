@@ -23,6 +23,8 @@ define([], function () {
              */
             getTotals: function () {
 
+                console.log('SUMMARY ELEMS', this.elems());
+
                 return this.elems().filter(function (item) {
                     return item.index === 'totals';
                 });

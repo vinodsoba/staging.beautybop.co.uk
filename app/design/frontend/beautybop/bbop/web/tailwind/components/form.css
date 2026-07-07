@@ -15,15 +15,76 @@
     width: 100%;
 }
 
+.bb-form-row > .field > label span {
+    padding-bottom: 8px;
+}
+
 
 .bb-form-row--name,
 .bb-form-row--country,
 .bb-form-row--city {
     grid-template-columns: repeat(2, 1fr);
+    
 }
 
 .bb-form-row--company,
 .bb-form-row--street,
 .bb-form-row--phone {
     grid-template-columns: 1fr;
+}
+
+.bb-form .control  input,
+.bb-form .control select {
+    height: 56px;
+    border-radius: 10px;
+    border: 1px solid #E5E7EB;
+    padding: 0 20px;
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+.bb-card__title {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.bb-card__subtitle {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #6B7280;
+    line-height: 1.5;
+}
+
+.checkout-index-index,
+.checkout-index-index input,
+.checkout-index-index select,
+.checkout-index-index textarea,
+.checkout-index-index button {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .bb-form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .bb-card {
+        padding: 24px 20px;
+    }
+
+    .bb-form input,
+    .bb-form select {
+        width: 100%;
+    }
+
+    .bb-form-row {
+        margin-bottom: 17px;
+    }
+
 }

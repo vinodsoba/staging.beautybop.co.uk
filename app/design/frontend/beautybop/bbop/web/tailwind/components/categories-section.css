@@ -6,24 +6,45 @@
         @apply text-center mb-12;
     }
 
+    .bb-categories__intro .eyebrow {
+        @apply text-[#C9A227] text-[14px] py-[26px] font-semibold;
+    }
+
     .bb-categories__intro h2 {
-        @apply text-4xl font-bold text-slate-900 mb-3;
+        @apply text-[48px] font-bold text-slate-900 mb-3;
     }
 
     .bb-categories__intro p {
-        @apply text-lg text-slate-500;
+        @apply text-[16px] text-slate-500;
     }
 
      .bb-category-card {
         @apply relative overflow-hidden rounded-xl h-[280px];
+        min-height: 430px;
+        padding: 40px;
+        display: flex;
+        align-items: flex-start;
     }
+    
 
     .bb-category-image {
-        @apply transition duration-500 ease-out;
+        @apply ease-out absolute top-0 right-0;
+        transform: translateY(-35px);
+        height: 100%;
+        min-height: 512px;
+        object-fit: cover;
+        object-position: center;
+
+        transition: .35s ease;
     }
 
     .bb-category-card:hover .bb-category-image {
-        transform: scale(1.05);
+        transform: translateY(-45px) scale(1.03);
+        
+    }
+
+    a.bb-category-card:hover {
+        text-decoration: none;
     }
 
     .bb-category-overlay {
@@ -31,12 +52,18 @@
     }
 
     .bb-category-content {
-        @apply absolute bottom-8 left-5 z-10;
+        @apply relative top-8 left-5 z-10;
+        width: 45%;
+    }
+
+    .bb-category-content  p {
+        @apply text-[14px] text-white pt-[39px] pb-[28px];
     }
 
      .bb-category-title {
-        @apply text-white text-xl font-semibold mb-2;
+        @apply text-black text-[28px] font-semibold mb-2;
     }
+
 
     .bb-category-link {
         @apply text-white text-xs uppercase tracking-widest;
@@ -44,3 +71,65 @@
 
     
 }
+
+
+@media (max-width: 1024px) {
+
+    .bb-category-card {
+        min-height: 360px;
+        padding: 28px;
+    }
+
+    .bb-category-content {
+        width: 100%;
+    }
+
+    .bb-category-image {
+        width: 100%;
+        transform: translateY(-15px);
+    }
+
+}
+
+
+@media (max-width: 767px) {
+
+    .bb-category-card {
+
+        min-height: auto;
+
+        padding: 24px;
+
+        display: flex;
+        flex-direction: column;
+
+        text-align: center;
+        align-items: center;
+    }
+
+    .bb-category-content {
+
+        width: 100% !important;
+
+        order: 2;
+    }
+
+    .bb-category-image {
+
+        position: relative;
+
+        width: 100%;
+
+
+        right: auto;
+        bottom: auto;
+
+        transform: none;
+
+        margin-bottom: 24px;
+
+        order: 1;
+    }
+
+}
+

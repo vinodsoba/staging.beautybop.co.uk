@@ -9,7 +9,7 @@
 }
 
 .bb-card__title {
-    @apply text-[24px] font-semibold text-slate-900 py-[32px] ;
+    @apply text-[24px] font-semibold text-slate-900 py-[10px] ;
 }
 
 .bb-card__body {

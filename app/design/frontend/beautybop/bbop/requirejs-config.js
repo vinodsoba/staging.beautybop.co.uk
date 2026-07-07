@@ -11,5 +11,9 @@ var config = {
                 return window.Swiper;
             }
         }
-    }
+    },
+    deps: [
+        'js/announcement',
+        'js/homepage-carousel'
+    ]
 };

@@ -20,3 +20,20 @@
         display: flex !important;
     }
 }
+
+.bb-home-carousel {
+    overflow: hidden;
+}
+
+.bb-home-carousel .swiper-slide {
+    height: auto;
+}
+
+.bb-home-carousel .group {
+    height: 100%;
+}
+
+.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after,
+.swiper-button-next:after {
+    color: #000;
+}

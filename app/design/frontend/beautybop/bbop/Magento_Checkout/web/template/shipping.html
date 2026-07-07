@@ -8,9 +8,9 @@
     class="checkout-shipping-address"
     data-bind="fadeVisible: visible()">
 
-    <div class="step-title"
+    <!--<div class="step-title"
          translate="'Shipping Address'"
-         data-role="title"></div>
+         data-role="title"></div> -->
 
     <div id="checkout-step-shipping"
          class="step-content"
@@ -82,8 +82,12 @@
                 <div class="bb-card__header">
 
                     <h2 class="bb-card__title">
-                        <span data-bind="i18n: 'Shipping Address'"></span>
+                        <span data-bind="i18n: 'Delivery Address'"></span>
                     </h2>
+
+                    <p class="bb-card__subtitle">
+                        <span data-bind="i18n: 'Where should we deliver your order?'"></span>
+                    </p>
 
                 </div>
 

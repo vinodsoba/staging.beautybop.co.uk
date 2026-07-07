@@ -1,0 +1,40 @@
+<div class="bb-shipping-card"
+     click="element.selectShippingMethod">
+
+    <input
+        type="radio"
+        class="bb-shipping-radio"
+        ifnot="method.error_message"
+        ko-checked="element.isSelected"
+        ko-value="method.carrier_code + '_' + method.method_code"
+        attr="'checked': element.rates().length == 1 || element.isSelected" />
+
+    <div class="bb-shipping-content">
+
+        <div class="bb-shipping-header">
+
+            <div class="bb-shipping-title">
+
+                <!-- ko if: method.carrier_code == 'freeshipping' -->
+                Free Delivery
+                <!-- /ko -->
+
+                <!-- ko if: method.carrier_code == 'flatrate' -->
+                Standard Delivery
+                <!-- /ko -->
+
+            </div>
+
+            <div class="bb-shipping-price">
+                <each args="element.getRegion('price')" render=""></each>
+            </div>
+
+        </div>
+
+        <div class="bb-shipping-description">
+            Delivered in 2–4 working days
+        </div>
+
+    </div>
+
+</div>
