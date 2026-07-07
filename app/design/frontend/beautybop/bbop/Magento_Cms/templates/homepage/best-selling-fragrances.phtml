@@ -26,45 +26,62 @@ $imageHelper = \Magento\Framework\App\ObjectManager::getInstance()
                     ->toHtml(); ?>
         </div>
 
-       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+       <div class="swiper bb-home-carousel">
 
-        <?php foreach ($productCollection as $product): ?>
+        <div class="swiper-wrapper">
 
-           <div class="group border bg-white p-5 transition duration-300 hover:shadow-xl hover:-translate-y-1">
+        
 
-            <a href="<?= $product->getProductUrl(); ?>" class="block overflow-hidden">
-                <img 
-                    src="<?= $imageHelper->init($product, 'product_small_image')->getUrl(); ?>" 
-                    alt="<?= $product->getName(); ?>"
-                    class="h-52 w-full object-contain mx-auto transition duration-300 group-hover:scale-105"
-                />
-            </a>
+            <?php foreach ($productCollection as $product): ?>
 
-            <h3 class="mt-3 text-2xl text-gray-700 leading-tight min-h-[44px]">
-                <?= $product->getName(); ?>
-            </h3>
+                <div class="swiper-slide">
+                <div class="group border bg-white p-5 transition duration-300 hover:shadow-xl hover:-translate-y-1 h-full">
+                
+                    <a href="<?= $product->getProductUrl(); ?>" class="block overflow-hidden">
+                        <img 
+                            src="<?= $imageHelper->init($product, 'product_small_image')->getUrl(); ?>" 
+                            alt="<?= $product->getName(); ?>"
+                            class="h-52 w-full object-contain mx-auto transition duration-300 group-hover:scale-105"
+                        />
+                    </a>
 
-            <div class="mt-3 border-t pt-3"></div>
+                    <h3 class="mt-3 text-2xl text-gray-700 leading-tight min-h-[44px]">
+                        <?= $product->getName(); ?>
+                    </h3>
 
-            <div class="text-2xl font-semibold text-black">
-                £<?= number_format($product->getFinalPrice(), 2); ?>
-            </div>
+                    <div class="mt-3 border-t pt-3"></div>
 
-            <form action="<?= $block->getUrl('checkout/cart/add'); ?>" method="post" class="mt-3">
-                <input type="hidden" name="product" value="<?= $product->getId(); ?>" />
-                <input type="hidden" name="form_key" value="<?= $block->getFormKey(); ?>" />
+                    <div class="text-2xl font-semibold text-black">
+                        £<?= number_format($product->getFinalPrice(), 2); ?>
+                    </div>
 
-                <button 
-                    type="submit"
-                    class="w-full border border-black py-2 text-sm font-medium tracking-wide transition duration-300 hover:bg-black hover:text-white"
-                >
-                    Add to Cart
-                </button>
-            </form>
+                    <form action="<?= $block->getUrl('checkout/cart/add'); ?>" method="post" class="mt-3">
+                        <input type="hidden" name="product" value="<?= $product->getId(); ?>" />
+                        <input type="hidden" name="form_key" value="<?= $block->getFormKey(); ?>" />
+
+                        <button 
+                            type="submit"
+                            class="w-full border h-[40px] border-black py-2 text-md font-medium tracking-wide transition duration-300 hover:bg-black hover:text-white"
+                        >
+                            Add to Cart
+                        </button>
+                    </form>
+
+                </div>
+
+                </div>
+
+
+            <?php endforeach; ?>
+
 
         </div>
 
-        <?php endforeach; ?>
+            <div class="swiper-pagination"></div>
+
+            <div class="swiper-button-prev"></div>
+
+            <div class="swiper-button-next"></div>
 
         </div>
     </section>

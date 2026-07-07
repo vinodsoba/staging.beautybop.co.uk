@@ -3,7 +3,6 @@ use Magento\Framework\App\Action\Action;
 // @codingStandardsIgnoreFile
 ?>
 
-<div class="custom-category-wrapper">
 
 <?php
 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
@@ -120,6 +119,19 @@ $position = ' style="left:' . $productImage->getWidth() . 'px;top:' . $productIm
 
 <div class="actions-primary"<?= strpos($pos, $viewMode . '-primary') !== false ? $position : '' ?>>
 
+
+
+<?php if ($_product->isAvailable()): ?>
+<div class="stock available">
+    <span><?= __('In stock') ?></span>
+</div>
+<?php else: ?>
+<div class="stock unavailable">
+    <span><?= __('Out of stock') ?></span>
+</div>
+<?php endif; ?>
+
+
 <?php if ($_product->isSaleable()): ?>
 
 <?php $postParams = $block->getAddToCartPostParams($_product); ?>
@@ -138,26 +150,15 @@ value="<?= $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>">
 <?= $block->getBlockHtml('formkey') ?>
 
 <button type="submit"
-title="<?= $block->escapeHtml(__('Add to Cart')) ?>"
-class="action tocart primary">
+    title="<?= $block->escapeHtml(__('Add to Bag')) ?>"
+    class="action tocart primary">
 
-<span>
-<a href="<?= $_product->getProductUrl() ?>">
-<?= __('SHOP NOW') ?>
-</a>
-</span>
+    <span><?= __('Add to Bag') ?></span>
 
 </button>
 
 </form>
 
-<?php else: ?>
-
-<?php if ($_product->isAvailable()): ?>
-<div class="stock available"><span><?= __('In stock') ?></span></div>
-<?php else: ?>
-<div class="stock unavailable"><span><?= __('Out of stock') ?></span></div>
-<?php endif; ?>
 
 <?php endif; ?>
 
@@ -210,4 +211,3 @@ class="action more">
 
 <?php endif; ?>
 
-</div>

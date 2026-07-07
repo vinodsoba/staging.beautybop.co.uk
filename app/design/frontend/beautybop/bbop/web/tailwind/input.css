@@ -1,3 +1,17 @@
+@import "./components/order-summary.css";
+@import "./components/checkout/cart-items.css";
+@import "./components/card.css";
+@import "./components/checkout/details.css";
+@import "./components/checkout/totals.css";
+@import "./components/checkout/checkout.css";
+@import "./components/form.css";
+@import "./components/announcement-bar.css";
+@import "./components/categories-section.css";
+@import "./pages/category.css";
+@import "./components/slider.css";
+@import "./components//button.css";
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,6 +20,7 @@
 .bb {
   @apply font-sans;
 }
+
 
 .page-wrapper {
     display: flex;
@@ -23,8 +38,8 @@ footer {
 
 
 /* Target Magento menu structure */
-.announcement {
-  @apply bg-[#1e1240] text-white p-4;
+.bb-announcement {
+  @apply bg-[#1e1240] text-white p-4 h-[40px];
 }
 
 
@@ -365,85 +380,6 @@ body {
 
 }
 
-.catalog-category-view .product-items {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-
-@media (min-width: 768px) {
-  .catalog-category-view .product-items {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .catalog-category-view .product-items {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.catalog-category-view .product-item {
-  width: 100% !important;
-  float: none !important;
-}
-
-.product-item {
-  width: 100% !important;
-  float: none !important;
-}
-
-
-.subcat-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 0;
-  margin-bottom: 30px;
-}
-
-.subcat-item {
-  list-style: none;
-  width: 120px;
-}
-
-
-.category-custom-wrapper {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.catalog-category-view .columns::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.catalog-category-view .column.main {
-  float: right;
-  width: 75%;
-}
-
-.catalog-category-view .sidebar-main {
-  float: left;
-  width: 25%;
-}
-
-.columns,
-.column.main,
-.products.wrapper,
-.products.list.items {
-  height: auto !important;
-  min-height: auto !important;
-}
-
-.column.main {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-
 /* header search form */
 .page-header .search-input {
     @apply w-full py-2 pr-10 border-b border-black;
@@ -537,53 +473,6 @@ body {
     margin: 4px 0 0;
     font-size: 14px;
     color: #6b7280;
-}
-
-/* homepage categories section */
-
-@layer components {
-
-    .bb-categories__intro {
-        @apply text-center mb-12;
-    }
-
-    .bb-categories__intro h2 {
-        @apply text-4xl font-bold text-slate-900 mb-3;
-    }
-
-    .bb-categories__intro p {
-        @apply text-lg text-slate-500;
-    }
-
-     .bb-category-card {
-        @apply relative overflow-hidden rounded-xl h-[280px];
-    }
-
-    .bb-category-image {
-        @apply transition duration-500 ease-out;
-    }
-
-    .bb-category-card:hover .bb-category-image {
-        transform: scale(1.05);
-    }
-
-    .bb-category-overlay {
-        @apply absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent;
-    }
-
-    .bb-category-content {
-        @apply absolute bottom-8 left-5 z-10;
-    }
-
-     .bb-category-title {
-        @apply text-white text-xl font-semibold mb-2;
-    }
-
-    .bb-category-link {
-        @apply text-white text-xs uppercase tracking-widest;
-    }
-
-    
 }
 
 
