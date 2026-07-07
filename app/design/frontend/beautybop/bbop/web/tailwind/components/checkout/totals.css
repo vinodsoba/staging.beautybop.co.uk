@@ -1,0 +1,21 @@
+.bb-summary-totals {
+
+    @apply border-t
+           border-b
+           border-slate-200
+           mt-8
+           py-8;
+
+}
+
+.bb-summary-table{
+
+    @apply w-full
+           border-collapse;
+
+}
+
+.bb-summary-table tbody tr{
+
+    @apply h-12;
+}

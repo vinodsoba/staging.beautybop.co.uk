@@ -1,0 +1,23 @@
+@layer components {
+
+.bb-card {
+    @apply bg-white rounded-2xl border-l border-r border-t border-b border-slate-200 shadow-sm overflow-hidden;
+}
+
+.bb-card__header {
+    @apply px-6 py-5;
+}
+
+.bb-card__title {
+    @apply text-[24px] font-semibold text-slate-900 py-[10px] ;
+}
+
+.bb-card__body {
+    @apply p-6;
+}
+
+.bb-card__footer {
+    @apply px-6 py-5;
+}
+
+}
