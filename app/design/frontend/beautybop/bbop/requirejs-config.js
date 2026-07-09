@@ -14,6 +14,7 @@ var config = {
     },
     deps: [
         'js/announcement',
-        'js/homepage-carousel'
+        'js/homepage-carousel',
+        'js/mobile-filter'
     ]
 };

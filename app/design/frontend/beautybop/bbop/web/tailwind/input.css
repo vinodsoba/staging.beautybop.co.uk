@@ -10,6 +10,8 @@
 @import "./pages/category.css";
 @import "./components/slider.css";
 @import "./components//button.css";
+@import "./components/mobile-filter.css";
+@import "./components/pagination.css";
 
 
 @tailwind base;
