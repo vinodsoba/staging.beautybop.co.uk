@@ -11,5 +11,12 @@ var config = {
                 return window.Swiper;
             }
         }
-    }
+    },
+    deps: [
+        'js/announcement',
+        'js/homepage-carousel',
+        'js/mobile-filter',
+        'mage/tabs',
+        'mage/collapsible'
+    ]
 };

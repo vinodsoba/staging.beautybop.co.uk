@@ -1,0 +1,212 @@
+.bb-login-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.bb-login-card {
+    width: 100%;
+    max-width: 420px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.bb-login-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.bb-field {
+    margin-bottom: 20px;
+}
+
+.bb-field label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.bb-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.bb-input:focus {
+    border-color: #000;
+    outline: none;
+}
+
+.bb-login-btn {
+    width: 100%;
+    background: #000;
+    color: #fff;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 10px;
+    border: none;
+}
+
+.bb-login-btn:hover {
+    background: #333;
+}
+
+.bb-login-help {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.bb-login-help a {
+    display: block;
+    margin-top: 5px;
+    color: #000;
+    text-decoration: underline;
+}
+
+.block.block-new-customer {
+    display: none;
+}
+
+
+/********************************
+Register Form
+********************************/
+
+.bb-benefits {
+    margin: 20px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bb-benefits li {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #444;
+}
+
+.bb-auth-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.bb-auth-card {
+    max-width: 800px;
+    width: 100%;
+    background: #fff;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.bb-auth-title {
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.bb-auth-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.bb-primary-btn {
+    width: 100%;
+    padding: 14px;
+    background: #000;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.bb-primary-btn:hover {
+    background: #222;
+}
+
+/* Stack label above input */
+.bb-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+/* Label styling */
+.bb-label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+/* Input styling */
+.bb-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+/* Focus state (premium feel) */
+.bb-input:focus {
+    border-color: #000;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
+    outline: none;
+}
+
+
+.form-create-account {
+    max-width: 100%;
+}
+
+.bb-auth-card .field .control {
+    width: 100%;
+}
+
+.bb-auth-card input {
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.bb-auth-card input:focus {
+    border-color: #000;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
+    outline: none;
+}
+
+.fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.legend {
+    display: none;
+}
+
+.bb-auth-card .field {
+    margin-bottom: 16px;
+}
+
+.newsletter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0 20px;
+}
+
+.form-create-account .actions-toolbar {
+    margin: 0;
+    padding-top: 20px;
+}

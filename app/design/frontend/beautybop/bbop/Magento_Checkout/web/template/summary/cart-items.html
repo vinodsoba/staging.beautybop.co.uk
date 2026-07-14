@@ -1,0 +1,44 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<div class="bb-summary-items">
+
+    <div class="bb-summary-items__header">
+
+        <h3 class="bb-summary-items__title">
+
+            <span data-bind="text: getCartSummaryItemsCount().toLocaleString(window.LOCALE)"></span>
+
+            <span data-bind="i18n: getCartSummaryItemsCount() === 1 ? ' Item in Cart' : ' Items in Cart'"></span>
+
+        </h3>
+
+    </div>
+
+    <div class="bb-summary-items__content">
+
+        <ol class="bb-summary-products">
+
+            <each args="items()">
+
+                <li class="bb-summary-product">
+
+                    <div class="bb-summary-product__wrapper">
+
+                        <each args="$parent.elems()" render=""></each>
+
+                    </div>
+
+                </li>
+
+            </each>
+
+        </ol>
+
+    </div>
+
+</div>

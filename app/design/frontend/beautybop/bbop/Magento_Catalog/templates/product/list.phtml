@@ -3,7 +3,9 @@ use Magento\Framework\App\Action\Action;
 // @codingStandardsIgnoreFile
 ?>
 
-<div class="custom-category-wrapper">
+<?php
+$helper = $this->helper(\BeautyBop\Base\Helper\Data::class);
+?>
 
 <?php
 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
@@ -110,6 +112,15 @@ $position = ' style="left:' . $productImage->getWidth() . 'px;top:' . $productIm
 
 </strong>
 
+<?php $rating = $helper->getProductRating($_product); ?>
+
+<div class="flex items-center gap-1 text-md mt-1">
+    <span class="text-yellow-500"><?= $rating['stars']; ?></span>
+    <span class="text-gray-500">
+        (<?= $rating['score']; ?> • <?= $rating['count']; ?> reviews)
+    </span>
+</div>
+
 <?= $block->getReviewsSummaryHtml($_product, $templateType) ?>
 <?= $block->getProductPrice($_product) ?>
 <?= $block->getProductDetailsHtml($_product) ?>
@@ -119,6 +130,19 @@ $position = ' style="left:' . $productImage->getWidth() . 'px;top:' . $productIm
 <div class="product actions product-item-actions"<?= strpos($pos, $viewMode . '-actions') !== false ? $position : '' ?>>
 
 <div class="actions-primary"<?= strpos($pos, $viewMode . '-primary') !== false ? $position : '' ?>>
+
+
+
+<?php if ($_product->isAvailable()): ?>
+<div class="stock available">
+    <span><?= __('In stock') ?></span>
+</div>
+<?php else: ?>
+<div class="stock unavailable">
+    <span><?= __('Out of stock') ?></span>
+</div>
+<?php endif; ?>
+
 
 <?php if ($_product->isSaleable()): ?>
 
@@ -138,26 +162,15 @@ value="<?= $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>">
 <?= $block->getBlockHtml('formkey') ?>
 
 <button type="submit"
-title="<?= $block->escapeHtml(__('Add to Cart')) ?>"
-class="action tocart primary">
+    title="<?= $block->escapeHtml(__('Add to Bag')) ?>"
+    class="action tocart primary">
 
-<span>
-<a href="<?= $_product->getProductUrl() ?>">
-<?= __('SHOP NOW') ?>
-</a>
-</span>
+    <span><?= __('Add to Bag') ?></span>
 
 </button>
 
 </form>
 
-<?php else: ?>
-
-<?php if ($_product->isAvailable()): ?>
-<div class="stock available"><span><?= __('In stock') ?></span></div>
-<?php else: ?>
-<div class="stock unavailable"><span><?= __('Out of stock') ?></span></div>
-<?php endif; ?>
 
 <?php endif; ?>
 
@@ -210,4 +223,3 @@ class="action more">
 
 <?php endif; ?>
 
-</div>

@@ -5,7 +5,9 @@
 
 html, body {
   overflow-x: hidden;
+
 }
+
 
 /* Parent item */
 .widget.block-static-block {

@@ -1,0 +1,59 @@
+@layer components {
+
+.bb-summary-product__wrapper {
+    @apply 
+    grid 
+    items-start
+    py-5 
+    gap-6;
+    grid-template-columns: 88px 1fr auto;
+
+}
+
+.bb-summary-items{
+
+    @apply py-4;
+}
+
+.bb-summary-items__header{
+
+    @apply px-6 py-5;
+
+}
+
+.bb-summary-items__title{
+
+    @apply text-3xl
+           font-bold
+           text-right
+           text-slate-900;
+
+
+}
+
+.bb-summary-items__content{
+
+    @apply pt-4;
+
+}
+
+.bb-summary-products{
+
+    @apply space-y-6;
+
+}
+
+.bb-summary-product{
+
+    @apply pt-6;
+
+}
+
+.bb-summary-product:first-child{
+
+    @apply border-0
+           pt-0;
+
+}
+
+}

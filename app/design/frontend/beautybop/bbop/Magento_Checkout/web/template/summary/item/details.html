@@ -1,0 +1,53 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<!-- Product Image -->
+<!-- ko foreach: getRegion('before_details') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+<!-- /ko -->
+
+<div class="bb-summary-product-details">
+
+    <div class="bb-summary-product-main">
+
+        
+        <div class="bb-summary-product-info">
+
+            <strong class="bb-summary-product-title"
+                    data-bind="html: getNameUnsanitizedHtml($parent)">
+            </strong>
+
+            <div class="bb-summary-qty">
+
+                <span class="bb-summary-qty-label">Qty</span>
+
+                <span class="bb-summary-qty-value"
+                    data-bind="text:$parent.qty.toLocaleString(window.LOCALE)">
+                </span>
+
+            </div>
+
+            <!-- Options -->
+
+        </div>
+
+        <div class="bb-summary-product-price">
+
+            <!-- ko foreach: getRegion('after_details') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Messages -->
+<!-- ko foreach: getRegion('item_message') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+<!-- /ko -->

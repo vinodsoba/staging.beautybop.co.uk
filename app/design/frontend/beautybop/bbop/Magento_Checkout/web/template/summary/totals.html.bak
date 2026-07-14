@@ -1,0 +1,23 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<!-- ko if: isDisplayed() -->
+<div class="bb-summary-totals">
+
+    <table class="bb-summary-table">
+
+        <tbody>
+
+            <!-- ko foreach: elems() -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+
+        </tbody>
+
+    </table>
+
+</div>
+<!-- /ko -->

@@ -1,0 +1,66 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<form class="form form-shipping-address"
+      id="co-shipping-form"
+      data-bind="attr: {'data-hasrequired': $t('* Required Fields')}">
+
+    <div id="shipping-new-address-form"
+         class="fieldset address">
+
+        <!-- BeautyBop Form -->
+        <div class="bb-form">
+
+            <!-- Name -->
+            <div class="bb-form-row bb-form-row--name"></div>
+
+            <!-- Address -->
+            <div class="bb-form-row bb-form-row--address1"></div>
+
+            <!-- Address Line 2 -->
+            <div class="bb-form-row bb-form-row--address2"></div>
+
+            <!-- Country -->
+            <div class="bb-form-row bb-form-row--country"></div>
+
+            <!-- Town / City + Postcode -->
+            <div class="bb-form-row bb-form-row--city"></div>
+
+            <!-- Phone -->
+            <div class="bb-form-row bb-form-row--phone"></div>
+
+             <!-- ko foreach: getRegion('additional-fieldsets') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+
+        </div>
+
+        <!-- Save in address book -->
+        <!-- ko if: (isCustomerLoggedIn) -->
+
+        <div class="field choice"
+             data-bind="visible: !isFormInline">
+
+            <input type="checkbox"
+                   class="checkbox"
+                   id="shipping-save-in-address-book"
+                   data-bind="checked: saveInAddressBook" />
+
+            <label class="label"
+                   for="shipping-save-in-address-book">
+
+                <span data-bind="i18n: 'Save in address book'"></span>
+
+            </label>
+
+        </div>
+
+        <!-- /ko -->
+
+    </div>
+
+</form>
