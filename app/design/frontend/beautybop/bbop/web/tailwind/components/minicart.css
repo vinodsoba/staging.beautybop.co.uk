@@ -36,3 +36,38 @@
     font-size: 11px;
     line-height: 18px;
 }
+
+
+#top-cart-btn-checkout {
+    background-color: black;
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+
+.product-item-details .product-item-name a {
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+/***********************************************
+ Mobile checkout cart 
+***********************************************/
+
+@media (max-width: 768px) {
+    .cart-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cart.items {
+        order: 1;
+    }
+
+    .cart-summary {
+        order: 2;
+    }
+}

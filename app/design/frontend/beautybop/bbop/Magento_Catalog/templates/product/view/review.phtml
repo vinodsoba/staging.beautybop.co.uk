@@ -4,8 +4,18 @@
  * See COPYING.txt for license details.
  */
 
-// @codingStandardsIgnoreFile
-
+/** @var \Magento\Review\Block\Product\Review $block */
 ?>
-<?php /** @var $block \Magento\Catalog\Block\Product\AbstractProduct */ ?>
-<?= $block->getReviewsSummaryHtml($block->getProduct(), false, true) ?>
+<div id="product-review-container" data-role="product-review"></div>
+<?= $block->getChildHtml() ?>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Review/js/process-reviews": {
+                "productReviewUrl": "<?= $block->escapeJs($block->getProductReviewUrl()) ?>",
+                "reviewsTabSelector": "#tab-label-reviews"
+            }
+        }
+    }
+</script>

@@ -3,12 +3,24 @@
     <body>
         <move element="logo" destination="header-wrapper" before="-" />
         <!-- <move element="navigation.sections" destination="header-wrapper"/> -->
-        <referenceBlock name="minicart" remove="false" />
-        <referenceContainer name="header.panel" remove="false" />
-        <referenceBlock name="top.search" remove="false" />
+        <referenceBlock name="minicart" remove="true" />
+        <referenceContainer name="header.panel" remove="true" />
+        <referenceBlock name="top.search" remove="true" />
         <referenceBlock name="catalog.compare.link" remove="false" />
-        <!-- <referenceBlock name="catalog.topnav" remove="false"/> -->
+        <referenceBlock name="catalog.topnav" remove="false"/>
         <referenceContainer name="footer-container"  remove="false"/>
+
+        
+
+        <referenceContainer name="page.top">
+
+            <block
+                class="Magento\Framework\View\Element\Template"
+                name="bb.checkout.header"
+                template="Magento_Checkout::checkout-header.phtml"
+                before="-"/>
+
+        </referenceContainer>
 
         <!-- GA4 (Owned) begin_checkout -->
         <referenceContainer name="before.body.end">
