@@ -1,10 +1,5 @@
 /* Side bar filtering */
 
-/* Sidebar container */
-.products-grid {
-    display: block;
-    width: 100%;
-}
 
 /*.block.filter {
     max-height: calc(100vh - 120px);
@@ -58,7 +53,7 @@
 /* Listing for Mens Perfume on Homepage */
 .product-items {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
 }
 .product-item {

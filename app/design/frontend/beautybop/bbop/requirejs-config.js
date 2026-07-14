@@ -15,6 +15,8 @@ var config = {
     deps: [
         'js/announcement',
         'js/homepage-carousel',
-        'js/mobile-filter'
+        'js/mobile-filter',
+        'mage/tabs',
+        'mage/collapsible'
     ]
 };

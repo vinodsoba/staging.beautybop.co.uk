@@ -4,11 +4,11 @@
     <body>
 
         <!-- Free Shipping Bar -->
-        <referenceContainer name="header.container">
+       <referenceContainer name="after.body.start">
             <block class="Magento\Framework\View\Element\Template"
-                   name="free.shipping.bar"
-                   template="Magento_Theme::html/free-shipping.phtml"
-                   before="-"/>
+                name="free.shipping.bar"
+                template="Magento_Theme::html/free-shipping.phtml"
+                before="-"/>
         </referenceContainer>
 
 

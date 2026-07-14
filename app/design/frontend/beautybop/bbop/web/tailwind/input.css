@@ -12,6 +12,11 @@
 @import "./components//button.css";
 @import "./components/mobile-filter.css";
 @import "./components/pagination.css";
+@import "./components/checkout/checkout-header.css";
+@import "./components/product-detail.css";
+@import "./components/minicart.css";
+@import "./components/product-listings.css";
+@import "./components/login-forms.css";
 
 
 @tailwind base;
@@ -36,6 +41,22 @@
 
 footer {
     flex-shrink: 0;
+}
+
+
+.customer-account-login .page-title-wrapper, 
+.customer-account-create .page-title-wrapper {
+    text-align: center;
+}
+
+.page-title-wrapper > h2 > span {
+    font-size: 48px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.page-title-wrapper {
+    margin-bottom: 20px;
 }
 
 
@@ -73,7 +94,7 @@ footer {
 }
 
 .bb-header-search input {
-    @apply w-full rounded-lg border border-gray-200 px-4 py-3;
+    @apply w-full rounded-lg border border-black px-4 py-3;
 }
 
 .bb-header-search button {
@@ -86,14 +107,19 @@ footer {
     @apply bg-white  border-t-0 md:border-t-0 border-gray-200 px-6 pb-2 xl:pb-0;
 }
 
-.bb-search-input {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
     @apply w-full
            border
-           border-gray-200
+           border-[#6f6f6f]
+           cursor-pointer
            rounded-lg
+           h-[50px]
            px-4
            py-3;
 }
+
 
 .bb-header-search-icon button {
     @apply text-slate-700 hover:text-black border-none;
@@ -235,6 +261,16 @@ footer {
     width: 100%;
 }
 
+@media (max-width: 768px) {
+    .product-items {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 16px;
+        padding: 0 10px;
+        min-width: 0;
+    }
+}
+
 .block.filter {
     max-height: calc(100vh - 120px);
     height: auto;
@@ -351,7 +387,7 @@ body {
 /* Listing for Mens Perfume on Homepage */
 .product-items {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
 }
 .product-item {
@@ -624,6 +660,7 @@ body {
 
     transform: rotate(45deg);
     transition: .2s;
+
 }
 
 #bb-mobile-menu .level1.parent.active > a::after {
@@ -748,6 +785,14 @@ body {
         justify-content: center;
         text-align: center;
         flex-direction: column;
+    }
+
+    .navigation .parent .level-top:after {
+        display: none;
+    }
+
+    input[type="text"] {
+        margin-top: 12px;
     }
 }
 

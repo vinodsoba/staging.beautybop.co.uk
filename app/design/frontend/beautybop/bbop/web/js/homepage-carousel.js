@@ -4,8 +4,6 @@ define([
 ], function ($, Swiper) {
     'use strict';
 
-    console.log('✅ BeautyBop Homepage Carousel Loaded');
-
     if (!$('.bb-home-carousel').length) {
         return;
     }

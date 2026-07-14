@@ -1,0 +1,13 @@
+.product-info-stock-sku .product.attribute.sku {
+    display: none;
+}
+
+.product.info.detailed,
+.product.info.detailed .info {
+    position: relative !important;
+    opacity: 1 !important;
+    margin: 0 !important;
+}
+
+
+
