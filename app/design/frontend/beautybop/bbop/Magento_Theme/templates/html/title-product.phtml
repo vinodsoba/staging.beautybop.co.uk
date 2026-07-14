@@ -26,6 +26,24 @@ if (trim($block->getPageHeading())) {
         <?= /* @escapeNotVerified */ $title ?>
     </h1>
  
+    <div class="mt-2">
+
+    <?php
+    $product = $block->getLayout()
+        ->getBlock('product.info')
+        ->getProduct();
+    ?>
+
+    <?php
+        $helper = $this->helper(\BeautyBop\Base\Helper\Data::class);
+        $rating = $helper->getProductRating($product);
+    ?>
+        <div class="flex items-center gap-2 mb-2">
+            <span class="text-yellow-500 text-lg"><?= $rating['stars']; ?></span>
+            <span class="font-semibold"><?= $rating['score']; ?> out of 5</span>
+            <span class="text-gray-500">(<?= $rating['count']; ?> reviews)</span>
+        </div>
+    </div>
    
     <?= $block->getChildHtml() ?>
 </div>

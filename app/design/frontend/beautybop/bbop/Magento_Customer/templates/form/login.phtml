@@ -1,0 +1,91 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Generic.Files.LineLength.TooLong
+
+/** @var \Magento\Customer\Block\Form\Login $block */
+/** @var \Magento\Customer\ViewModel\LoginButton $loginButtonViewModel */
+$loginButtonViewModel = $block->getData('login_button_view_model');
+?>
+<div class="bb-login-wrapper">
+    <div class="bb-login-card">
+
+        <h1 class="bb-login-title"><?= $block->escapeHtml(__('Sign in')) ?></h1>
+
+        <form class="form form-login"
+              action="<?= $block->escapeUrl($block->getPostActionUrl()) ?>"
+              method="post"
+              id="login-form"
+              data-mage-init='{"validation":{}}'>
+
+            <?= $block->getBlockHtml('formkey') ?>
+
+            <fieldset class="fieldset login">
+
+                <!-- Email -->
+                <div class="bb-field">
+                    <label for="email"><?= $block->escapeHtml(__('Email')) ?></label>
+                    <input name="login[username]"
+                           value="<?= $block->escapeHtmlAttr($block->getUsername()) ?>"
+                           id="email"
+                           type="email"
+                           placeholder="Please enter your email"
+                           class="bb-input"
+                           data-mage-init='{"mage/trim-input":{}}'
+                           data-validate="{required:true, 'validate-email':true}">
+                </div>
+
+                <!-- Password -->
+                <div class="bb-field">
+                    <label for="pass"><?= $block->escapeHtml(__('Password')) ?></label>
+                    <input name="login[password]"
+                           type="password"
+                           id="pass"
+                           placeholder="Please enter your password"
+                           class="bb-input"
+                           data-validate="{required:true}">
+                </div>
+
+                <!-- Show password -->
+                <div class="bb-show-password" data-bind="scope: 'showPassword'">
+                    <!-- ko template: getTemplate() --><!-- /ko -->
+                </div>
+
+                <?= $block->getChildHtml('form_additional_info') ?>
+
+                <!-- CTA -->
+                <button type="submit"
+                        class="bb-login-btn"
+                        name="send"
+                        id="send2"
+                        <?php if ($loginButtonViewModel->disabled()): ?> disabled="disabled" <?php endif; ?>>
+                    <?= $block->escapeHtml(__('Sign in')) ?>
+                </button>
+
+                <!-- Help -->
+                <div class="bb-login-help">
+                    <strong>Need help signing in?</strong>
+                    <a href="<?= $block->escapeUrl($block->getForgotPasswordUrl()) ?>">
+                        <?= $block->escapeHtml(__('Reset your password')) ?>
+                    </a>
+
+                    <h3><strong>New here?</strong></h3>
+
+                    <a href="<?= $block->getUrl('customer/account/create') ?>"
+                        class="bb-secondary-btn">
+                        Create Account
+                    </a>
+
+
+                    <div class="bb-guest-note">
+                        Or continue checkout without creating an account
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</div>
