@@ -81,11 +81,24 @@ class Cronrun
 
                 $stockdatarray = json_decode($response->File, true);
 
+                $this->_logger->info('✅ GetStockFile completed');
+
+                $this->_logger->info('First Stock File Record', [
+                    'record' => print_r($stockdatarray[0], true)
+                ]);
+
                 $this->_logger->info('**************** Current Date **************** ::');
                 $this->_logger->info(gmDate("Y-m-d H:i:s"));
 
                 $api_product_sku_array = array();
                 foreach ($stockdatarray as $value) {
+
+                $this->_logger->info(
+                    'Supplier Record',
+                    $value
+                );
+
+                break;
                     /* print_r($value['Quantity']);
                       print_r($value['StockLevel']); */
                     $api_product_sku_array [] = $value['StockCode'];

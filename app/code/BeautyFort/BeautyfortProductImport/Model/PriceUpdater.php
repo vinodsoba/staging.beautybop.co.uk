@@ -9,6 +9,9 @@ use BeautyFort\BeautyfortProductImport\Helper\Api;
 use BeautyFort\BeautyfortProductImport\Helper\Price;
 use BeautyFort\BeautyfortProductImport\Logger\Logger;
 
+use Magento\Framework\App\State;
+use Magento\Framework\App\Area;
+
 class PriceUpdater
 {
     /** @var CollectionFactory */
@@ -26,29 +29,58 @@ class PriceUpdater
     /** @var Logger */
     private $logger;
 
+    /** @var State */
+    private $appState;
+
     public function __construct(
         CollectionFactory $productCollectionFactory,
         ProductRepositoryInterface $productRepository,
         Api $api,
         Price $price,
-        Logger $logger
+        Logger $logger,
+        State $appState
     ) {
         $this->productCollectionFactory = $productCollectionFactory;
         $this->productRepository = $productRepository;
         $this->api = $api;
         $this->price = $price;
         $this->logger = $logger;
+        $this->appState = $appState;
     }
 
     public function execute(): void
     {
+
+        try {
+             $this->appState->setAreaCode(Area::AREA_ADMINHTML);
+        } catch (\Magento\Framework\Exception\LocalizedException $e) {
+                // Ignore if already set
+        }
+        
         $this->logger->info('🕒 PRICE CRON START');
 
-        /*$this->logger->info('🔎 CRON credential debug', [
-            'username' => $this->config->getUsername(),
-            'password_length' => strlen($this->config->getPassword() ?? '')
+        $supplierProducts = $this->api->getStockFile();
+
+        $this->logger->info('Supplier stock file downloaded', [
+            'count' => count($supplierProducts)
         ]);
-        */
+
+        $supplierLookup = [];
+
+        foreach ($supplierProducts as $item) {
+
+            if (empty($item['StockCode'])) {
+                continue;
+            }
+
+            $supplierLookup[$item['StockCode']] = $item;
+        }
+
+        $this->logger->info('Supplier lookup built', [
+            'count' => count($supplierLookup)
+        ]);
+
+       
 
         $updatedCount = 0;
 
@@ -61,9 +93,6 @@ class PriceUpdater
         $unchangedCount = 0;
         $errorCount = 0;
    
-
-        // $supplierProducts = $this->api->fetchAllProducts();
-
 
         /**
          * 2️⃣ Load Magento Beautyfort products
@@ -82,34 +111,70 @@ class PriceUpdater
         foreach ($collection as $product) {
 
             try {
+                
                 $sku = $product->getSku();
+
+                if($sku !== 'T240'){
+                    continue;
+                }
 
                 // Skip if supplier does not have this SKU
                 $this->logger->info('Checking SKU', [
                 'sku' => $sku
-            ]);
-
-            $supplierItems = $this->api->fetchProductBySku($sku);
-
-            $checkedCount++;
-
-            if (empty($supplierItems)) {
-
-                $this->logger->warning('Supplier product not found', [
-                    'sku' => $sku
                 ]);
+
+            if (!isset($supplierLookup[$sku])) {
+
+                $this->logger->warning(
+                    'Supplier SKU not found',
+                    ['sku' => $sku]
+                );
 
                 continue;
             }
 
-            $supplierProduct = $supplierItems[0];
+            $supplierData = $supplierLookup[$sku];
 
+            $this->logger->info('Supplier lookup hit', [
+                'sku'   => $sku,
+                'price' => $supplierData['Price'] ?? null,
+                'rrp'   => $supplierData['RRP'] ?? null,
+                'stock' => $supplierData['StockLevel'] ?? null,
+            ]);
+
+            $checkedCount++;
+
+            
             $oldPrice = (float)$product->getPrice();
-            $supplierCost = (float)$supplierProduct->UnitPrice->Amount;
+            $supplierCost = (float)($supplierData['Price'] ?? 0);
 
             $newPrice = $this->price->calculatePrice($supplierCost);
 
-            $this->logger->info('Checking SKU', [
+            $currentRrp = (float) $product->getData('beautyfort_rrp');
+            $newRrp = (float) ($supplierData['RRP'] ?? 0);
+
+            $this->logger->info('RRP comparison', [
+                'sku'         => $sku,
+                'current_rrp' => $currentRrp,
+                'new_rrp'     => $newRrp
+            ]);
+
+            $hasChanges = false;
+
+            if ($currentRrp != $newRrp) {
+
+                $product->setData('beautyfort_rrp', $newRrp);
+
+                $hasChanges = true;
+
+                $this->logger->info('RRP changed', [
+                    'sku' => $sku,
+                    'old' => $currentRrp,
+                    'new' => $newRrp
+                ]);
+            }
+
+            $this->logger->info('Price comparison', [
                 'sku' => $sku,
                 'old_price' => $oldPrice,
                 'new_price' => $newPrice
@@ -118,28 +183,56 @@ class PriceUpdater
             if ($newPrice != $oldPrice) {
 
                 $product->setPrice($newPrice);
-                $this->productRepository->save($product);
 
-                $updatedCount++;
+                $hasChanges = true;
 
-                $this->logger->info('💰 Price updated', [
+                $this->logger->info('Price changed', [
                     'sku' => $sku,
                     'old_price' => $oldPrice,
                     'new_price' => $newPrice
                 ]);
+            } 
+
+
+            if ($hasChanges) {
+
+                $this->logger->info('Saving product', [
+                    'sku' => $sku
+                ]);
+
+                $this->productRepository->save($product);
+
+                $updatedCount++;
+
+            } else {
+
+                $unchangedCount++;
+
+                $this->logger->info('Product unchanged', [
+                    'sku' => $sku
+                ]);
+
             }
 
             } catch (\Throwable $e) {
 
+                $errorCount++;
+
                 $this->logger->error('❌ Price update failed', [
-                    'sku' => $product->getSku(),
-                    'error' => $e->getMessage()
+                    'sku'   => $product->getSku(),
+                    'error' => $e->getMessage(),
+                    'trace' => $e->getTraceAsString()
                 ]);
-            }
+                            }
         }
 
-        $this->logger->info('✅ PRICE CRON FINISHED', [
-            'updated' => $updatedCount
+        $this->logger->info('✅ PRICE CRON SUMMARY', [
+
+            'checked'   => $checkedCount,
+            'updated'   => $updatedCount,
+            'unchanged' => $unchangedCount,
+            'errors'    => $errorCount
+
         ]);
     }
 

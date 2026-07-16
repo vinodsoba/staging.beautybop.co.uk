@@ -25,8 +25,6 @@ class Api
     ) {
         $this->logger = $logger;
         $this->config = $config;
-
-        $this->logger->info('✅ Beautyfort Api helper constructed');
     }
 
     /**
@@ -34,13 +32,9 @@ class Api
      */
     public function getClient(): \SoapClient
     {
-    $this->logger->info('🧪 STEP 4.1 — getClient() entered');
-
+  
     $wsdl = 'http://www.beautyfort.com/api/wsdl/v2/wsdl.wsdl';
     $endpoint = 'http://www.beautyfort.com/api/soap/';
-
-    $this->logger->info('🧪 STEP 4.1 — before SoapClient', [
-    ]);
 
     $client = new \SoapClient($wsdl, [
         'location'   => $endpoint,
@@ -51,8 +45,6 @@ class Api
 
     $client->__setSoapHeaders($this->buildAuthHeader());
 
-
-    $this->logger->info('🧪 STEP 4.1 — SoapClient constructed OK');
 
     return $client;
     }
@@ -75,8 +67,6 @@ class Api
         $auth->Nonce    = $digest;
         $auth->Created  = $created;
         $auth->Password = base64_encode(sha1($auth->Nonce . $auth->Created . $password));
-
-        $this->logger->info('🔐 SOAP auth header built');
 
         return new \SoapHeader(
             'http://www.beautyfort.com/api/',
@@ -119,9 +109,25 @@ class Api
 
             $response = $client->ProductSearch($request);
 
+            $this->logger->info(
+                'SOAP RAW RESPONSE',
+                ['response' => print_r($response, true)]
+            );
+
+            $this->logger->info('📨 SOAP response received');
+
             $items = $this->extractItems($response);
 
+            $this->logger->info('📦 Products returned', [
+                'sku'   => $sku,
+                'count' => count($items)
+            ]);
+
             $this->cache[$sku] = $items;
+
+            $this->logger->info('💾 Cached supplier response', [
+                'sku' => $sku
+            ]);
 
             return $items;
 
@@ -276,6 +282,45 @@ class Api
                 'brand' => $brand,
                 'error' => $e->getMessage()
             ]);
+
+            return [];
+        }
+    }
+
+
+    public function getStockFile(): array
+    {
+        $this->logger->info('📦 Starting GetStockFile');
+
+        try {
+
+            $client = $this->getClient();
+
+            $ap_param['TestMode'] = false;
+            $ap_param['StockFileFormat'] = 'JSON';
+            $ap_param['FieldDelimiter'] = ',';
+            $ap_param['StockFileFields']['StockFileField'] = [
+                'Price',
+                'RRP',
+                'StockLevel'
+            ];
+            $ap_param['SortBy'] = 'StockLevel';
+
+            $response = $client->GetStockFile($ap_param);
+
+            $data = json_decode($response->File, true);
+
+            $this->logger->info('✅ GetStockFile downloaded successfully', [
+                'products' => count($data)
+            ]);
+
+            return $data;
+
+            return json_decode($response->File, true);
+
+        } catch (\Throwable $e) {
+
+            $this->logger->error($e->getMessage());
 
             return [];
         }

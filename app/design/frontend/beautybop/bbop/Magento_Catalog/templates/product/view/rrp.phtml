@@ -1,0 +1,26 @@
+<?php
+/** @var \BeautyBop\Core\Block\Product\View\Rrp $block */
+?>
+
+<?php if ($block->hasRrp()): ?>
+
+    <div class="bb-product-rrp">
+
+        <div class="bb-product-rrp__price">
+            <span class="label">RRP</span>
+            <span class="value">
+                <?= $block->escapeHtml($block->formatPrice($block->getRrp())) ?>
+            </span>
+        </div>
+
+        <div class="bb-product-rrp__saving">
+            Save
+            <strong>
+                <?= $block->escapeHtml($block->formatPrice($block->getSavingAmount())) ?>
+            </strong>
+            (<?= (int)$block->getSavingPercentage(); ?>%)
+        </div>
+
+    </div>
+
+<?php endif; ?>
