@@ -28,6 +28,7 @@ class BulkImporter
      */
     public function import(array $skus): array
     {
+        $this->logger->info('*** BulkImporter.php ***');
         $results = [
             'success' => 0,
             'failed'  => 0

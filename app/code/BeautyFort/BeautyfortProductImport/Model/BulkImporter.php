@@ -11,15 +11,33 @@ use BeautyFort\BeautyfortProductImport\Helper\Content;
 use Magento\Framework\Filesystem;
 use Magento\Framework\App\Filesystem\DirectoryList;
 
+use BeautyFort\BeautyfortProductImport\Logger\Logger;
+
 class BulkImporter
 {
-    protected ProductRepositoryInterface $productRepository;
-    protected ProductFactory $productFactory;
-    protected ApiHelper $apiHelper;
-    protected Price $price;
-    protected Image $image;
-    protected Filesystem $filesystem;
-    protected Content $content;
+    /** @var ProductRepositoryInterface */
+    private  $productRepository;
+
+    /** @var ProductFactory */
+    private  $productFactory;
+
+    /** @var ApiHelper */
+    private  $apiHelper;
+
+    /** @var Price */
+    private $price;
+
+    /** @var Image */
+    private $image;
+
+    /** @var Filesystem */
+    private $filesystem;
+
+    /** @var Content */
+    private $content;
+
+    /** @var Logger */
+    private $logger;
 
     private const TEST_IMPORT_LIMIT = 5;
 
@@ -30,7 +48,8 @@ class BulkImporter
         Price $price,
         Image $image,
         Filesystem $filesystem,
-        Content $content
+        Content $content,
+        Logger $logger
     ) {
         $this->productRepository = $productRepository;
         $this->productFactory = $productFactory;
@@ -39,10 +58,27 @@ class BulkImporter
         $this->content = $content;
         $this->image = $image;
         $this->filesystem = $filesystem;
+        $this->logger = $logger;
     }
 
     public function import(array $skus, array $categoryIds): array
     {
+        $this->logger->info('*** ROOT BulkImporter.php ***');
+
+        // lets download the full catalogue using getStockFile
+
+        $supplierProducts = $this->apiHelper->getStockFile();
+
+        $supplierLookup = [];
+
+        foreach ($supplierProducts as $item) {
+
+            if (empty($item['StockCode'])) {
+                continue;
+            }
+
+            $supplierLookup[$item['StockCode']] = $item;
+        }
         $limit = self::TEST_IMPORT_LIMIT;
         $count = 0;
 
@@ -94,12 +130,14 @@ class BulkImporter
                     }
                 }
 
-                sleep(1); // throttle API calls
+                sleep(3); // throttle API calls
 
                 if (empty($apiResponse) || !isset($apiResponse[0])) {
                     $results[$sku] = 'Failed - not found in API';
                     continue;
                 }
+
+                $supplierData = $supplierLookup[$sku] ?? [];
 
                 $item = $apiResponse[0];
                 $name = $item->Name ?? '';
@@ -124,13 +162,21 @@ class BulkImporter
                 $product->setName($name);
 
                 /** Price */
-                $price = isset($item->UnitPrice->Amount)
-                    ? (float)$item->UnitPrice->Amount
-                    : 0;
+                $supplierCost = (float)($supplierData['Price'] ?? 0);
 
-                $product->setPrice(
-                    $this->price->calculatePrice($price)
+                $newPrice = $this->price->calculatePrice($supplierCost);
+
+                $product->setPrice($newPrice);
+
+                $product->setData(
+                    'beautyfort_rrp',
+                    (float)($supplierData['RRP'] ?? 0)
                 );
+
+                $this->logger->info('Importer RRP', [
+                    'sku' => $sku,
+                    'rrp' => $item->RRP ?? null
+                ]);
 
                 /** Stock */
                 $qty = (int)($item->QuantityAvailable ?? 0);
@@ -169,6 +215,10 @@ class BulkImporter
                     $imageUrl = $item->ThumbnailImageUrl;
                 }
 
+                if (!$imageUrl) {
+                    $this->logger->info('No image for SKU', ['sku' => $sku]);
+                }
+
                 if ($imageUrl) {
 
                     $mediaTmp = $this->filesystem
@@ -183,6 +233,8 @@ class BulkImporter
 
                     $this->image->downloadAndResize($imageUrl, $tmpFile);
 
+                    if (file_exists($tmpFile) && filesize($tmpFile) > 0) {
+
                     $product->addImageToMediaGallery(
                         $tmpFile,
                         ['image','small_image','thumbnail'],
@@ -190,9 +242,17 @@ class BulkImporter
                         false
                     );
 
+                    }
+
                     $this->productRepository->save($product);
 
-                    @unlink($tmpFile);
+                    if (file_exists($tmpFile)) {
+                        unlink($tmpFile);
+                    }
+
+                    if (!$imageUrl) {
+                        echo "No image for SKU: " . $sku;
+                    }
                 }
 
                 $results[$sku] = 'Imported';

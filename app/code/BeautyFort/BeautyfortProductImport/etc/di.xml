@@ -13,5 +13,25 @@
         </arguments>
     </type>
 
+
+      <!-- Console Commands -->
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+
+                <item name="beautyfort_test_connection"
+                    xsi:type="object">
+                    BeautyFort\BeautyfortProductImport\Console\TestApi
+                </item>
+
+                <item name="beautyfort_price_update"
+                    xsi:type="object">
+                    BeautyFort\BeautyfortProductImport\Console\PriceUpdate
+                </item>
+
+            </argument>
+        </arguments>
+    </type>
+
 </config>
 
