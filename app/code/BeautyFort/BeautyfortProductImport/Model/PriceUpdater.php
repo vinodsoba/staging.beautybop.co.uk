@@ -114,9 +114,9 @@ class PriceUpdater
                 
                 $sku = $product->getSku();
 
-                if($sku !== 'T240'){
+                /*if($sku !== 'T240'){
                     continue;
-                }
+                }*/
 
                 // Skip if supplier does not have this SKU
                 $this->logger->info('Checking SKU', [

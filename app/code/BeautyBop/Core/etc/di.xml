@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+
+                <item name="beautybop_seo_export" xsi:type="object">
+                    BeautyBop\Core\Console\SeoExport
+                </item>
+
+                <item name="beautybop_seo_locate" xsi:type="object">
+                    BeautyBop\Core\Console\SeoLocate
+                </item>
+
+                 <item name="beautybop_seo_validate"
+                    xsi:type="object">
+                    BeautyBop\Core\Console\SeoValidate
+                </item>
+
+                 <item name="beautybop_seo_create"
+                    xsi:type="object">
+                    BeautyBop\Core\Console\SeoCreate
+                </item>
+
+            </argument>
+        </arguments>
+    </type>
+
+</config>

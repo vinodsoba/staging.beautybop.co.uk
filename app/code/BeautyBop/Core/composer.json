@@ -1,0 +1,14 @@
+{
+    "name": "beautybop/module-core",
+    "description": "BeautyBop Core Module",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "BeautyBop\\Core\\": ""
+        }
+    }
+}
