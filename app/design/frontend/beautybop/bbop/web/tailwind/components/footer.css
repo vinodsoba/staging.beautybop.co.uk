@@ -1,0 +1,117 @@
+footer {
+ font-family: 'Poppins', sans-serif;   
+}
+
+/*************************
+Checkout Footer 
+*************************/
+
+.bb-checkout-footer{
+
+    margin-top:80px;
+    border-top:1px solid #ececec;
+    background:#fff;
+
+}
+
+.bb-checkout-footer__trust{
+
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    gap:40px;
+
+    padding:40px 20px;
+
+}
+
+.bb-trust-item{
+
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+
+}
+
+.bb-icon{
+
+    font-size:26px;
+
+}
+
+.bb-trust-item strong{
+
+    display:block;
+    margin-bottom:6px;
+
+}
+
+.bb-trust-item small{
+
+    color:#777;
+
+}
+
+.bb-checkout-footer__bottom{
+
+    border-top:1px solid #eee;
+
+    padding:24px 20px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    max-width:1200px;
+    margin:auto;
+
+}
+
+.bb-payment-methods{
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+}
+
+.bb-payment-methods img{
+
+    height:24px;
+
+}
+
+.bb-checkout-links{
+
+    display:flex;
+    gap:20px;
+
+}
+
+.bb-checkout-copy{
+
+    color:#777;
+
+}
+
+@media(max-width:768px){
+
+    .bb-checkout-footer__trust{
+
+        grid-template-columns:1fr;
+        gap:24px;
+
+    }
+
+    .bb-checkout-footer__bottom{
+
+        flex-direction:column;
+        gap:20px;
+        text-align:center;
+
+    }
+
+}

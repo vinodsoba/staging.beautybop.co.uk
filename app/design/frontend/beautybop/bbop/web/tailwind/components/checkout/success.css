@@ -1,0 +1,167 @@
+.bb-success {
+    max-width:900px;
+    margin:80px auto;
+    padding:0 20px;
+}
+
+.bb-success__header {
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.bb-success__icon {
+    width:90px;
+    height:90px;
+    margin:0 auto 30px;
+    border-radius:50%;
+    background:#16a34a;
+    color:#fff;
+    font-size:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+}
+
+.bb-success h1 {
+    font-size:54px;
+    margin-bottom:20px;
+    font-weight:600;
+}
+
+.bb-success__intro {
+    font-size:20px;
+    color:#666;
+    max-width:700px;
+    margin:0 auto;
+}
+
+.bb-success__card {
+    background:#fff;
+    border-radius:18px;
+    padding:35px;
+    margin-bottom:30px;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.06);
+}
+
+.bb-success__card h2 {
+    margin-bottom:20px;
+}
+
+.bb-success__order {
+    font-size:26px;
+    font-weight:700;
+    color:#6C2BD9;
+    text-decoration:none;
+}
+
+.bb-success__steps {
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+.bb-success__steps li {
+    position:relative;
+    padding-left:34px;
+    margin-bottom:18px;
+}
+
+.bb-success__steps li:before {
+    content:"✓";
+    position:absolute;
+    left:0;
+    color:#16a34a;
+    font-weight:bold;
+}
+
+.bb-success__actions {
+    text-align:center;
+    margin-top:40px;
+}
+
+.bb-success__actions .action {
+    min-width:240px;
+}
+
+/* Mobile */
+@media (max-width:768px){
+
+    .bb-success  {
+        margin:40px auto;
+    }
+
+    .bb-success h1 {
+        font-size:36px;
+    }
+
+    .bb-success__intro {
+        font-size:17px;
+    }
+
+    .bb-success__card {
+        padding:25px;
+    }
+
+}
+
+
+/*********************************
+Registration Form
+*********************************/
+
+.bb-registration-card {
+
+    max-width:700px;
+    margin:60px auto 0;
+    background:#fff;
+    border-radius:18px;
+    padding:40px;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+    text-align:center;
+
+}
+
+.bb-registration-card h2 {
+    margin-bottom:20px;
+    font-size:30px;
+}
+
+.bb-registration-intro {
+    color:#666;
+    margin-bottom:25px;
+    line-height:1.7;
+}
+
+.bb-registration-benefits{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0 0 35px;
+
+}
+
+.bb-registration-benefits li{
+
+    position:relative;
+
+    padding-left:28px;
+
+    margin-bottom:15px;
+
+}
+
+.bb-registration-benefits li::before {
+    content:"✓";
+    position:absolute;
+    left:0;
+    color:#22c55e;
+    font-weight:700;
+}
+
+.bb-registration-actions{
+    margin-top:30px;
+}

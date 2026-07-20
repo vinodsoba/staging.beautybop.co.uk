@@ -76,3 +76,19 @@
     font-size: 14px;
     color: #64748B;
 }
+
+/***************************************
+Empty Basket
+***************************************/
+
+.cart-empty {
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+}
+
+@media screen and (max-width: 767px) {
+    .cart-empty {
+        font-size: 12px;
+        font-family: 'Poppins', sans-serif;
+    }
+}

@@ -343,6 +343,8 @@ return [
         'PayPal_BraintreeGraphQl' => 1,
         'SY_Slider' => 1,
         'Sparsh_Banner' => 0,
+        'StripeIntegration_Tax' => 1,
+        'StripeIntegration_Payments' => 1,
         'Temando_ShippingRemover' => 1,
         'Ulmod_NewsletterPopup' => 0
     ]
