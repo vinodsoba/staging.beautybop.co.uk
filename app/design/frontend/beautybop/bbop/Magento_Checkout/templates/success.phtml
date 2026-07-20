@@ -8,24 +8,93 @@
 
 ?>
 <?php /** @var $block \Magento\Checkout\Block\Onepage\Success */ ?>
-<div class="checkout-success">
-    <!-- TEST SUCCESS OVERRIDE -->
-    <?php if ($block->getOrderId()):?>
-        <?php if ($block->getCanViewOrder()) :?>
-            <p><?= __('Your order number is: %1.', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeHtml($block->getViewOrderUrl()), $block->escapeHtml($block->getOrderId()))) ?></p>
-        <?php  else :?>
-            <p><?= __('Your order # is: <span>%1</span>.', $block->escapeHtml($block->getOrderId())) ?></p>
-        <?php endif;?>
-            <p><?= /* @escapeNotVerified */ __('We\'ll email you an order confirmation with details and tracking info.') ?></p>
-    <?php endif;?>
+
+
+<div class="bb-success">
+
+    <div class="bb-success__header">
+
+        <div class="bb-success__icon">
+            ✓
+        </div>
+
+        <h1>Order Confirmed</h1>
+
+        <p class="bb-success__intro">
+            Thank you for shopping with BeautyBop.
+            Your order has been received and we'll begin preparing it shortly.
+        </p>
+
+    </div>
+
+    <?php if ($block->getOrderId()): ?>
+
+        <div class="bb-success__card">
+
+            <h2>Order Details</h2>
+
+            <?php if ($block->getCanViewOrder()): ?>
+
+                <p>
+                    <strong>Order Number</strong><br>
+
+                    <a class="bb-success__order"
+                       href="<?= $block->escapeUrl($block->getViewOrderUrl()) ?>">
+
+                        #<?= $block->escapeHtml($block->getOrderId()) ?>
+
+                    </a>
+
+                </p>
+
+            <?php else: ?>
+
+                <p>
+                    <strong>Order Number</strong><br>
+
+                    <span class="bb-success__order">
+
+                        #<?= $block->escapeHtml($block->getOrderId()) ?>
+
+                    </span>
+
+                </p>
+
+            <?php endif; ?>
+
+        </div>
+
+    <?php endif; ?>
+
+    <div class="bb-success__card">
+
+        <h2>What happens next?</h2>
+
+        <ul class="bb-success__steps">
+
+            <li>Confirmation email sent.</li>
+
+            <li>Your order is now being prepared.</li>
+
+            <li>We'll send tracking details as soon as your order has been dispatched.</li>
+
+        </ul>
+
+    </div>
 
     <?= $block->getAdditionalInfoHtml() ?>
 
-    <div class="actions-toolbar">
-        <div class="primary">
-            <a class="action primary continue" href="<?= /* @escapeNotVerified */ $block->getContinueUrl() ?>"><span><?= /* @escapeNotVerified */ __('Continue Shopping') ?></span></a>
-        </div>
+    <div class="bb-success__actions">
+
+        <a class="action primary continue"
+           href="<?= $block->escapeUrl($block->getContinueUrl()) ?>">
+
+            Continue Shopping
+
+        </a>
+
     </div>
+
 </div>
 
 <?php

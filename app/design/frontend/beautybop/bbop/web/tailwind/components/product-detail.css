@@ -11,11 +11,13 @@
 
 .product-info-price .bb-product-rrp {
     font-size: 17px;
+    padding-top: 20px;
 }
 
 .product-info-price .price-box .price-final_price span.price {
-    font-size: 20px;
+    font-size: 27px;
     font-weight: 600;
+    margin-bottom: 20px;
 }
 
 

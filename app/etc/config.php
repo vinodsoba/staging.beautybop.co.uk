@@ -329,6 +329,7 @@ return [
         'Magento_WishlistGraphQl' => 1,
         'Aitoc_TwoFactorAuthentication' => 0,
         'BeautyBop_Base' => 1,
+        'BeautyBop_Core' => 1,
         'BeautyBop_FooterBlock' => 1,
         'BeautyBop_Qty' => 1,
         'Magecomp_Inventoryupdate' => 1,
@@ -342,6 +343,8 @@ return [
         'PayPal_BraintreeGraphQl' => 1,
         'SY_Slider' => 1,
         'Sparsh_Banner' => 0,
+        'StripeIntegration_Tax' => 1,
+        'StripeIntegration_Payments' => 1,
         'Temando_ShippingRemover' => 1,
         'Ulmod_NewsletterPopup' => 0
     ]

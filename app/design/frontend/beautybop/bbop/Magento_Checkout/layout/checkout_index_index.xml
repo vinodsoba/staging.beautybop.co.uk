@@ -22,6 +22,16 @@
 
         </referenceContainer>
 
+
+         <referenceContainer name="before.body.end">
+
+            <block
+                class="Magento\Framework\View\Element\Template"
+                name="bb.checkout.footer"
+                template="Magento_Checkout::checkout-footer.phtml"/>
+
+        </referenceContainer>
+
         <!-- GA4 (Owned) begin_checkout -->
         <referenceContainer name="before.body.end">
             <block class="Magento\Framework\View\Element\Template"
@@ -30,6 +40,7 @@
         </referenceContainer>
 
         
-        
+        <!-- Remove default footer -->
+       <referenceBlock name="custom.footer" remove="true"/>
     </body>
 </page>

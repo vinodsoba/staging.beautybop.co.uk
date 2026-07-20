@@ -17,6 +17,8 @@
 @import "./components/minicart.css";
 @import "./components/product-listings.css";
 @import "./components/login-forms.css";
+@import "./components/footer.css";
+@import "./components/checkout/success.css";
 
 
 @tailwind base;
@@ -53,6 +55,7 @@ footer {
     font-size: 48px;
     padding-top: 20px;
     padding-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .page-title-wrapper {
