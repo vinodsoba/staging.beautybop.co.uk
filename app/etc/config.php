@@ -330,6 +330,7 @@ return [
         'Aitoc_TwoFactorAuthentication' => 0,
         'BeautyBop_Base' => 1,
         'BeautyBop_Core' => 1,
+        'BeautyBop_Developer' => 1,
         'BeautyBop_FooterBlock' => 1,
         'BeautyBop_Qty' => 1,
         'Magecomp_Inventoryupdate' => 1,
