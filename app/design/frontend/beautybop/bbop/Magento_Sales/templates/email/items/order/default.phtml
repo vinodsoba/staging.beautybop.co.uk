@@ -16,14 +16,16 @@ $_order = $_item->getOrder();
 ?>
 
 <?php
-$product = $_item->getProduct();
+$image = $block->getProductImage($_item);
 ?>
 
-<p style="color:red;">
-    Product ID:
-    <?= $product ? $product->getId() : 'No Product' ?>
-</p>
-
+<?php if ($image): ?>
+    <img
+        src="<?= $block->escapeUrl($image) ?>"
+        alt="<?= $block->escapeHtml($_item->getName()) ?>"
+        width="80"
+    />
+<?php endif; ?>
 <tr>
     <td class="item-info<?= ($block->getItemOptions() ? ' has-extra' : '') ?>">
         <p class="product-name"><?= $escaper->escapeHtml($_item->getName()) ?></p>

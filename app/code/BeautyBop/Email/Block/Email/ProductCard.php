@@ -2,16 +2,18 @@
 
 namespace BeautyBop\Email\Block\Email;
 
-use Magento\Framework\View\Element\Template;
+use Magento\Sales\Block\Order\Email\Items\Order\DefaultOrder;
+
+use Magento\Framework\View\Element\Template\Context;
 use Magento\Sales\Model\Order\Item as OrderItem;
 use BeautyBop\Email\Helper\ProductHelper;
 
-class ProductCard extends Template
+class ProductCard extends DefaultOrder
 {
     private ProductHelper $productHelper;
 
     public function __construct(
-        Template\Context $context,
+        Context $context,
         ProductHelper $productHelper,
         array $data = []
     ) {
@@ -36,9 +38,7 @@ class ProductCard extends Template
     public function getProductImage(OrderItem $item): string
     {
         return $this->productHelper
-            ->getImageUrl(
-                $this->getProduct($item)
-            );
+            ->getImageUrl($item->getProductId());
     }
 
     /**
@@ -50,5 +50,15 @@ class ProductCard extends Template
             ->getProductUrl(
                 $this->getProduct($item)
             );
+    }
+
+    public function getProductImageAttribute(OrderItem $item): string
+    {
+        return (string)$this->getProduct($item)->getImage();
+    }
+
+    public function getProductSku(OrderItem $item): string
+    {
+        return (string)$this->getProduct($item)->getSku();
     }
 }

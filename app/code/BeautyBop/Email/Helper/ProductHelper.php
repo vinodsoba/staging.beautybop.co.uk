@@ -5,26 +5,24 @@ namespace BeautyBop\Email\Helper;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 use Magento\Catalog\Api\ProductRepositoryInterface;
-use Magento\Catalog\Helper\Image;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Catalog\Api\Data\ProductInterface;
+use Magento\Framework\UrlInterface;
+
 
 class ProductHelper extends AbstractHelper
 {
     private ProductRepositoryInterface $productRepository;
-    private Image $imageHelper;
     private StoreManagerInterface $storeManager;
 
     public function __construct(
         Context $context,
         ProductRepositoryInterface $productRepository,
-        Image $imageHelper,
         StoreManagerInterface $storeManager
     ) {
         parent::__construct($context);
 
         $this->productRepository = $productRepository;
-        $this->imageHelper = $imageHelper;
         $this->storeManager = $storeManager;
     }
 
@@ -39,11 +37,21 @@ class ProductHelper extends AbstractHelper
     /**
      * Product Image
      */
-    public function getImageUrl(ProductInterface $product): string
+    public function getImageUrl(int $productId): string
     {
-        return $this->imageHelper
-            ->init($product, 'product_base_image')
-            ->getUrl();
+        $product = $this->getProduct($productId);
+
+        $image = $product->getImage();
+
+        if (!$image || $image === 'no_selection') {
+            return '';
+        }
+
+        return $this->storeManager
+            ->getStore()
+            ->getBaseUrl(UrlInterface::URL_TYPE_MEDIA)
+            . 'catalog/product'
+            . $image;
     }
 
     /**
