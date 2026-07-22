@@ -1,0 +1,138 @@
+<?php
+/**
+ * BeautyBop Product Card
+ *
+ * @var \BeautyBop\Email\Block\Email\ProductCard $block
+ */
+
+$item = $block->getItem();
+
+$image = $block->getProductImage($item);
+$productUrl = $block->getProductUrl($item);
+?>
+<tr>
+    <td colspan="3" style="padding:0 0 20px 0;">
+    <table
+        width="100%"
+        cellpadding="0"
+        cellspacing="0"
+        style="
+            border:1px solid #ececec;
+            border-radius:8px;
+            background:#ffffff;
+            margin-bottom:20px;
+        ">
+            <tr>
+                <td
+                    width="120"
+                    valign="top"
+                    style="padding:20px;">
+
+                    <?php if ($image): ?>
+
+                        <a href="<?= $block->escapeUrl($productUrl) ?>">
+
+                            <img
+                                src="<?= $block->escapeUrl($image) ?>"
+                                alt="<?= $block->escapeHtml($item->getName()) ?>"
+                                width="90"
+                                style="display:block;border:0;">
+
+                        </a>
+
+                    <?php endif; ?>
+
+                </td>
+
+                <td
+                    valign="top"
+                    style="padding:20px 20px 20px 0;">
+
+                    <h3
+                    style="
+                        margin:0;
+                        font-size:18px;
+                        font-weight:600;
+                        color:#222;
+                    ">
+
+                    <a
+                        href="<?= $block->escapeUrl($productUrl) ?>"
+                        style="
+                            color:#222;
+                            text-decoration:none;
+                        ">
+
+                        <?= $block->escapeHtml($item->getName()) ?>
+
+                    </a>
+
+                </h3>
+
+                <p
+                    style="
+                        margin:12px 0;
+                        font-size:14px;
+                        color:#666;
+                    ">
+
+                    SKU:
+                    <?= $block->escapeHtml(
+                        $block->getProductSku($item)
+                    ) ?>
+
+                </p>
+
+                <table width="100%">
+
+                <tr>
+
+                <td
+                    style="
+                        font-size:15px;
+                        color:#444;
+                    ">
+
+                Qty:
+
+                <?= (float)$item->getQtyOrdered() ?>
+
+                </td>
+
+                <td
+                    align="right"
+                    style="
+                        font-size:20px;
+                        font-weight:bold;
+                        color:#111;
+                    ">
+
+                <?= $block->getItemPrice($item) ?>
+
+                </td>
+
+                </tr>
+
+                </table>
+                <p style="margin-top:18px;">
+
+                <a
+                    href="<?= $block->escapeUrl($productUrl) ?>"
+                    style="
+                        color:#111;
+                        font-weight:600;
+                        text-decoration:none;
+                    ">
+
+                    View Product →
+
+                </a>
+
+            </p>
+        </td>
+
+    </tr>
+
+    </table>
+    </td>
+</tr>
