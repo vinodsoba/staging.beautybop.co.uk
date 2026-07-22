@@ -1,0 +1,14 @@
+{
+    "name": "beautybop/module-email",
+    "description": "BeautyBop Email Module",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "BeautyBop\\Email\\": ""
+        }
+    }
+}

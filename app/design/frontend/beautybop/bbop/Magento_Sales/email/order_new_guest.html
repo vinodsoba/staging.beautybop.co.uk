@@ -1,0 +1,337 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<!--@subject {{trans "Your %store_name order confirmation" store_name=$store.frontend_name}} @-->
+<!--@vars {
+"var formattedBillingAddress|raw":"Billing Address",
+"var order_data.email_customer_note|escape|nl2br":"Email Order Note",
+"var order.increment_id":"Order Id",
+"layout handle=\"sales_email_order_items\" order=$order area=\"frontend\"":"Order Items Grid",
+"var payment_html|raw":"Payment Details",
+"var formattedShippingAddress|raw":"Shipping Address",
+"var order.shipping_description":"Shipping Description",
+"var shipping_msg":"Shipping message",
+"var created_at_formatted":"Order Created At",
+"var store.frontend_name":"Store Frontend Name",
+"var store_phone":"Store Phone",
+"var store_email":"Store Email",
+"var store_hours":"Store Hours",
+"var this.getUrl($store,'customer/account/',[_nosid:1])":"Customer Account URL",
+"var order_data.is_not_virtual":"Order Type",
+"var order":"Order",
+"var order_id":"Order DB Id",
+"var order_data.customer_name":"Customer Name"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+
+<tr>
+    <td style="padding:0;">
+
+        <!-- Hero -->
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td align="center"
+                    style="padding:50px 40px;background:#fafafa;border-top:1px solid #eeeeee;border-bottom:1px solid #eeeeee;">
+
+                    <div style="font-size:46px;line-height:1;margin-bottom:20px;">
+                        ✓
+                    </div>
+
+                    <h1 style="margin:0;font-size:30px;font-family:Arial,Helvetica,sans-serif;font-weight:bold;color:#222222;">
+                        Order Confirmed
+                    </h1>
+
+                    <p style="margin:20px auto 30px;max-width:430px;font-size:16px;line-height:28px;color:#666666;font-family:Arial,Helvetica,sans-serif;">
+
+                        Hi <strong>{{var order_data.customer_name}}</strong>,
+
+                        <br><br>
+
+                        Thank you for shopping with <strong>BeautyBop</strong>.
+
+                        <br><br>
+
+                        We've received your order and are preparing it for dispatch.
+
+                        You'll receive another email as soon as your order has been shipped.
+
+                    </p>
+
+                    <table
+                    width="100%"
+                    cellpadding="0"
+                    cellspacing="0"
+                    border="0"
+                    style="
+                        max-width:520px;
+                        margin:40px auto 0;
+                        border:1px solid #eeeeee;
+                        border-radius:8px;
+                        background:#ffffff;">
+
+                    <tr>
+                        <td colspan="2"
+                            style="
+                                padding:18px 25px;
+                                font-size:13px;
+                                letter-spacing:2px;
+                                text-transform:uppercase;
+                                background:#fafafa;
+                                border-bottom:1px solid #eeeeee;
+                                color:#777777;">
+
+                            Order Details
+
+                        </td>
+                    </tr>
+
+                    <tr>
+
+                        <td style="padding:18px 25px;">
+                            <strong>Order Number</strong>
+                        </td>
+
+                        <td align="right" style="padding:18px 25px;">
+                            #{{var order.increment_id}}
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td style="padding:18px 25px;border-top:1px solid #f2f2f2;">
+                            <strong>Placed On</strong>
+                        </td>
+
+                        <td align="right"
+                            style="padding:18px 25px;border-top:1px solid #f2f2f2;">
+
+                            {{var created_at_formatted}}
+
+                        </td>
+
+                    </tr>
+
+                </table>
+
+                <p style="
+                margin:35px 0 0;
+                color:#777777;
+                font-size:14px;
+                line-height:24px;
+                text-align:center;">
+
+                We'll email you again as soon as your order has been dispatched.
+
+                </p>
+
+                </td>
+            </tr>
+        </table>
+
+    </td>
+</tr>
+
+<tr class="email-information">
+    <td>
+
+        {{depend order_data.email_customer_note}}
+        <table class="message-info">
+            <tr>
+                <td>
+                    {{var order_data.email_customer_note|escape|nl2br}}
+                </td>
+            </tr>
+        </table>
+        {{/depend}}
+
+        <table
+            width="100%"
+            cellpadding="0"
+            cellspacing="20"
+            border="0"
+            style="margin-top:40px;">
+
+            <tr>
+
+                <td
+                    valign="top"
+                    width="50%"
+                    style="
+                        border:1px solid #eeeeee;
+                        border-radius:8px;
+                        padding:30px;
+                        background:#ffffff;">
+
+                    <div style="
+                        font-size:12px;
+                        text-transform:uppercase;
+                        letter-spacing:2px;
+                        color:#999999;
+                        margin-bottom:20px;">
+
+                        📄 Billing Address
+
+                    </div>
+
+                    <div style="
+                        font-size:15px;
+                        line-height:28px;
+                        color:#444444;">
+
+                        {{var formattedBillingAddress|raw}}
+
+                    </div>
+
+                </td>
+
+                {{depend order_data.is_not_virtual}}
+
+                <td
+                    valign="top"
+                    width="50%"
+                    style="
+                        border:1px solid #eeeeee;
+                        border-radius:8px;
+                        padding:30px;
+                        background:#ffffff;">
+
+                    <div style="
+                        font-size:12px;
+                        text-transform:uppercase;
+                        letter-spacing:2px;
+                        color:#999999;
+                        margin-bottom:20px;">
+
+                        🚚 Delivery Address
+
+                    </div>
+
+                    <div style="
+                        font-size:15px;
+                        line-height:28px;
+                        color:#444444;">
+
+                        {{var formattedShippingAddress|raw}}
+
+                    </div>
+
+                </td>
+
+                {{/depend}}
+
+            </tr>
+
+            <tr>
+
+                <td style="padding-top:25px;">
+
+                    <table
+                        width="100%"
+                        cellpadding="0"
+                        cellspacing="0"
+                        border="0">
+
+                        <tr>
+
+                            <!-- Payment -->
+
+                            <td
+                                valign="top"
+                                width="50%"
+                                style="
+                                    border:1px solid #eeeeee;
+                                    border-radius:8px;
+                                    padding:30px;
+                                    background:#ffffff;">
+
+                                <div style="
+                                    font-size:12px;
+                                    text-transform:uppercase;
+                                    letter-spacing:2px;
+                                    color:#999999;
+                                    margin-bottom:20px;">
+
+                                    💳 Payment
+
+                                </div>
+
+                                <div style="
+                                    font-size:15px;
+                                    line-height:26px;
+                                    color:#444444;">
+
+                                    {{var payment_html|raw}}
+
+                                </div>
+
+                            </td>
+
+                            {{depend order_data.is_not_virtual}}
+
+                            <td width="20"></td>
+
+                            <!-- Shipping -->
+
+                            <td
+                                valign="top"
+                                width="50%"
+                                style="
+                                    border:1px solid #eeeeee;
+                                    border-radius:8px;
+                                    padding:30px;
+                                    background:#ffffff;">
+
+                                <div style="
+                                    font-size:12px;
+                                    text-transform:uppercase;
+                                    letter-spacing:2px;
+                                    color:#999999;
+                                    margin-bottom:20px;">
+
+                                    📦 Delivery
+
+                                </div>
+
+                                <div style="
+                                    font-size:15px;
+                                    line-height:26px;
+                                    color:#444444;">
+
+                                    {{var order.shipping_description}}
+
+                                    {{if shipping_msg}}
+
+                                        <br><br>
+
+                                        {{var shipping_msg}}
+
+                                    {{/if}}
+
+                                </div>
+
+                            </td>
+
+                            {{/depend}}
+
+                        </tr>
+
+                    </table>
+
+                </td>
+
+            </tr>
+
+        </table>
+
+        {{layout handle="sales_email_order_items" order_id=$order_id area="frontend"}}
+
+    </td>
+</tr>
+
+{{template config_path="design/email/footer_template"}}
