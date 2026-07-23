@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Menu/etc/menu.xsd">
+
+    <menu>
+
+        <add
+        id="BeautyBop_Developer::developer"
+        title="Developer"
+        module="BeautyBop_Developer"
+        sortOrder="999"
+        parent="Magento_Backend::stores"
+        resource="BeautyBop_Developer::developer"/>
+
+        <add
+        id="BeautyBop_Developer::dashboard"
+        title="Developer Home"
+        module="BeautyBop_Developer"
+        parent="BeautyBop_Developer::developer"
+        action="developer/dashboard/index"
+        sortOrder="10"
+        resource="BeautyBop_Developer::developer"/>
+
+
+       <add
+        id="BeautyBop_Developer::email_preview"
+        title="Email Preview"
+        module="BeautyBop_Developer"
+        parent="BeautyBop_Developer::developer"
+        action="developer/email/preview"
+        sortOrder="20"
+        resource="BeautyBop_Developer::developer"/>
+
+    </menu>
+</config>
