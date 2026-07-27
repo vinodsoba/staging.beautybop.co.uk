@@ -1,0 +1,186 @@
+.catalog-category-view .category-description h2 {
+    margin: 0 0 16px;
+    font-size: 28px;
+    line-height: 1.25;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: #252525;
+}
+
+.catalog-category-view .category-description p {
+    margin: 0 0 12px;
+    font-size: 16px;
+    line-height: 1.65;
+    color: #444;
+}
+
+.catalog-category-view .category-description {
+    max-width: 1100px;
+    margin-bottom: 40px;
+}
+
+
+/*****************************************
+Hero image banner
+*****************************************/
+.bb-brand-hero {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    background: #f3f0eb;
+}
+
+.bb-brand-hero__inner {
+    width: min(100% - 40px, 1400px);
+    min-height: 580px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 60px;
+    padding: 70px 0;
+}
+
+.bb-brand-hero__eyebrow,
+.bb-brand-section-heading__eyebrow {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.bb-brand-hero__title {
+    margin: 0 0 24px;
+    font-size: clamp(44px, 5vw, 76px);
+    line-height: 1.04;
+    font-weight: 400;
+    letter-spacing: -0.045em;
+}
+
+.bb-brand-hero__description {
+    max-width: 610px;
+    margin: 0 0 32px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #484848;
+}
+
+.bb-brand-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.bb-brand-hero__button {
+    min-height: 50px;
+    padding: 0 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #191919;
+    border: 1px solid #191919;
+    color: #fff;
+    text-decoration: none;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.bb-brand-hero__button:hover {
+    background: transparent;
+    color: #191919;
+}
+
+.bb-brand-hero__button--outline {
+    background: transparent;
+    color: #191919;
+}
+
+.bb-brand-hero__button--outline:hover {
+    background: #191919;
+    color: #fff;
+}
+
+.bb-brand-hero__media img {
+    display: block;
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+}
+
+.bb-brand-collections {
+    padding: 80px 0;
+}
+
+.bb-brand-container {
+    width: min(100% - 40px, 1400px);
+    margin: 0 auto;
+}
+
+.bb-brand-section-heading {
+    max-width: 720px;
+    margin-bottom: 40px;
+}
+
+.bb-brand-section-heading__title {
+    margin: 0 0 16px;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.15;
+    font-weight: 400;
+}
+
+.bb-brand-section-heading__description {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #555;
+}
+
+.bb-brand-collections__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.bb-brand-collection-card {
+    min-height: 280px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: #f5f5f5;
+    color: #222;
+    text-decoration: none;
+}
+
+.bb-brand-collection-card h3 {
+    margin: 0 0 8px;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    .bb-brand-hero__inner {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        gap: 32px;
+        padding: 45px 0;
+    }
+
+    .bb-brand-hero__title {
+        font-size: 44px;
+    }
+
+    .bb-brand-hero__media {
+        order: -1;
+    }
+
+    .bb-brand-collections {
+        padding: 55px 0;
+    }
+
+    .bb-brand-collections__grid {
+        grid-template-columns: 1fr;
+    }
+}

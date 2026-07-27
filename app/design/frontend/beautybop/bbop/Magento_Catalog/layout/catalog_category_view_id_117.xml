@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <body>
+
+        <!-- Hide Magento's default category title -->
+        <referenceBlock name="page.main.title" remove="true"/>
+
+        <!-- Add the reusable brand landing sections -->
+        <referenceContainer name="content">
+
+            <block
+                class="Magento\Framework\View\Element\Template"
+                name="beautybop.brand.hero"
+                template="Magento_Catalog::category/brand/hero.phtml"
+                before="-"
+            />
+
+            <block
+                class="Magento\Framework\View\Element\Template"
+                name="beautybop.brand.collections"
+                template="Magento_Catalog::category/brand/collections.phtml"
+                after="beautybop.brand.hero"
+            />
+
+        </referenceContainer>
+
+    </body>
+</page>

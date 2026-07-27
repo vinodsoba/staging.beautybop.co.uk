@@ -1,0 +1,65 @@
+<?php
+/**
+ * Hugo Boss flagship brand hero
+ *
+ * This template will later be made dynamic for all brand categories.
+ */
+?>
+
+<section class="bb-brand-hero">
+    <div class="bb-brand-hero__inner">
+
+        <div class="bb-brand-hero__content">
+
+            <span class="bb-brand-hero__eyebrow">
+                Hugo Boss
+            </span>
+
+            <h1 class="bb-brand-hero__title">
+                Hugo Boss Fragrances
+            </h1>
+
+            <p class="bb-brand-hero__description">
+                Discover iconic Hugo Boss aftershaves and perfumes,
+                including Boss Bottled, The Scent and Hugo Man.
+            </p>
+
+            <div class="bb-brand-hero__actions">
+                <a
+                    href="<?= $escaper->escapeUrl(
+                        $block->getUrl(
+                            'brands/hugo-boss-fragrance/mens-fragrance.html'
+                        )
+                    ) ?>"
+                    class="bb-brand-hero__button"
+                >
+                    Shop Men's
+                </a>
+
+                <a
+                    href="#product-list"
+                    class="bb-brand-hero__button bb-brand-hero__button--outline"
+                >
+                    Shop All
+                </a>
+            </div>
+
+        </div>
+
+        <div class="bb-brand-hero__media">
+            <img
+                src="<?= $escaper->escapeUrl(
+                    $block->getViewFileUrl(
+                        'images/brands/hugo-boss/hugo-boss-lading-page-hero.png'
+                    )
+                ) ?>"
+                alt="<?= $escaper->escapeHtmlAttr(
+                    __('Hugo Boss fragrances')
+                ) ?>"
+                width="700"
+                height="650"
+            >
+        </div>
+
+    </div>
+</section>
