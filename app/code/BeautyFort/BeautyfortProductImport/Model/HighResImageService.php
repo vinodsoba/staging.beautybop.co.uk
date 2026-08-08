@@ -46,23 +46,42 @@ class HighResImageService
      */
     public function getImageUrlForSku(string $sku): ?string
     {
+        $this->logger->info('HIGH RES LOOKUP START', [
+            'sku' => $sku
+        ]);
 
         if (!$this->websiteLogin->login()) {
+
+            $this->logger->info('HIGH RES LOGIN FAILED', [
+                'sku' => $sku
+            ]);
 
             return null;
         }
 
+        $this->logger->info('HIGH RES LOGIN OK', [
+            'sku' => $sku
+        ]);
+
         $previewId = $this->websiteSearch->findPreviewId($sku);
 
-        if (!$previewId) {
+        $this->logger->info('HIGH RES PREVIEW ID', [
+            'sku' => $sku,
+            'preview_id' => $previewId
+        ]);
 
+        if (!$previewId) {
             return null;
         }
 
         $imageUrl = $this->previewParser->getImageUrl($previewId);
 
-        if (!$imageUrl) {
+        $this->logger->info('HIGH RES IMAGE URL', [
+            'sku' => $sku,
+            'image_url' => $imageUrl
+        ]);
 
+        if (!$imageUrl) {
             return null;
         }
 

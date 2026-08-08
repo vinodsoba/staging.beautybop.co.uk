@@ -273,24 +273,28 @@ class BulkImporter
 
                     if (file_exists($tmpFile) && filesize($tmpFile) > 0) {
 
-                    $product->addImageToMediaGallery(
-                        $tmpFile,
-                        ['image','small_image','thumbnail'],
-                        false,
-                        false
-                    );
+                        // Reload the saved product so media gallery data is fresh
+                        $product = $this->productRepository->get(
+                            $sku,
+                            false,
+                            null,
+                            true
+                        );
 
+                        $product->addImageToMediaGallery(
+                            $tmpFile,
+                            ['image', 'small_image', 'thumbnail'],
+                            false,
+                            false
+                        );
+
+                        $this->productRepository->save($product);
                     }
-
-                    $this->productRepository->save($product);
 
                     if (file_exists($tmpFile)) {
                         unlink($tmpFile);
                     }
 
-                    if (!$imageUrl) {
-                        echo "No image for SKU: " . $sku;
-                    }
                 }
 
                 $results[$sku] = 'Imported';

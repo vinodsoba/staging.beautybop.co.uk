@@ -67,4 +67,26 @@ class Config extends AbstractHelper
             ScopeInterface::SCOPE_WEBSITE
         );
     }
+
+    /**
+     * BeautyFort website login email
+     */
+    public function getWebsiteEmail(): ?string
+    {
+        return $this->scopeConfig->getValue(
+            self::XML_PATH . 'website_email',
+            ScopeInterface::SCOPE_WEBSITE
+        );
+    }
+
+    /**
+     * BeautyFort website login password
+     */
+    public function getWebsitePassword(): ?string
+    {
+        return $this->scopeConfig->getValue(
+            self::XML_PATH . 'website_password',
+            ScopeInterface::SCOPE_WEBSITE
+        );
+    }
 }

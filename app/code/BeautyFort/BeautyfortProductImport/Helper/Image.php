@@ -26,33 +26,76 @@ class Image
         $srcHeight = imagesy($source);
 
         /*
-         Target canvas
+        * Match our manually-created Figma product images.
         */
         $canvasSize = 500;
 
         /*
-         Target bottle size
+        * Maximum area occupied by supplier image.
+        *
+        * 350px = approximately 70% of the 500px canvas.
         */
-        $targetHeight = 300;
-
-        $ratio = $srcWidth / $srcHeight;
-
-        $targetWidth = (int)($targetHeight * $ratio);
+        $maxArtworkWidth  = 350;
+        $maxArtworkHeight = 350;
 
         /*
-         Create white canvas
+        * Scale supplier image UP or DOWN to fit the
+        * artwork area while preserving aspect ratio.
+        *
+        * Important: unlike the previous version,
+        * this deliberately allows upscaling.
         */
-        $canvas = imagecreatetruecolor($canvasSize, $canvasSize);
+        $scale = min(
+            $maxArtworkWidth / $srcWidth,
+            $maxArtworkHeight / $srcHeight
+        );
 
-        $white = imagecolorallocate($canvas, 255, 255, 255);
-        imagefill($canvas, 0, 0, $white);
+        $targetWidth = max(
+            1,
+            (int) round($srcWidth * $scale)
+        );
+
+        $targetHeight = max(
+            1,
+            (int) round($srcHeight * $scale)
+        );
 
         /*
-         Center position
+        * Create 500x500 white canvas.
         */
-        $dstX = (int)(($canvasSize - $targetWidth) / 2);
-        $dstY = (int)(($canvasSize - $targetHeight) / 2);
+        $canvas = imagecreatetruecolor(
+            $canvasSize,
+            $canvasSize
+        );
 
+        $white = imagecolorallocate(
+            $canvas,
+            255,
+            255,
+            255
+        );
+
+        imagefill(
+            $canvas,
+            0,
+            0,
+            $white
+        );
+
+        /*
+        * Centre supplier image.
+        */
+        $dstX = (int) round(
+            ($canvasSize - $targetWidth) / 2
+        );
+
+        $dstY = (int) round(
+            ($canvasSize - $targetHeight) / 2
+        );
+
+        /*
+        * High-quality resize.
+        */
         imagecopyresampled(
             $canvas,
             $source,
@@ -66,12 +109,19 @@ class Image
             $srcHeight
         );
 
-        imagejpeg($canvas, $destination, 90);
+        /*
+        * High quality JPEG.
+        */
+        $saved = imagejpeg(
+            $canvas,
+            $destination,
+            95
+        );
 
         imagedestroy($source);
         imagedestroy($canvas);
 
-        return true;
+        return $saved;
     }
 
     /**

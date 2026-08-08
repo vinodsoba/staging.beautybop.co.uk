@@ -55,18 +55,21 @@ class WebsiteLoginCommand extends Command
     $output->writeln('<info>========================================</info>');
     $output->writeln('');
 
-    $output->writeln('Processing SKU K230265...');
+    $sku = 'B406518';
+
+    $output->writeln('Processing SKU B406518...');
     $output->writeln('');
 
-    $file = $this->highResImageService->getImageForSku('K230265');
+    $imageUrl = $this->highResImageService->getImageUrlForSku($sku);
 
-    if (!$file) {
-        $output->writeln('<error>High Resolution Image Not Found</error>');
+    if (!$imageUrl) {
+        $output->writeln('<error>No high resolution image found.</error>');
+
         return Command::FAILURE;
     }
 
-    $output->writeln('<info>✓ High Resolution Image Downloaded</info>');
-    $output->writeln($file);
+    $output->writeln('<info>High Resolution Image URL Found</info>');
+    $output->writeln($imageUrl);
 
     return Command::SUCCESS;
 

@@ -56,12 +56,12 @@
                 </field>
 
                 <field id="password"
-                       translate="label"
-                       type="obscure"
-                       sortOrder="40"
-                       showInDefault="1"
-                       showInWebsite="1"
-                       showInStore="0">
+                    translate="label"
+                    type="obscure"
+                    sortOrder="40"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="0">
                     <label>API Password</label>
                 </field>
 
@@ -74,6 +74,27 @@
                        showInStore="0">
                     <label>Test Mode</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+
+                <field id="website_email"
+                    translate="label"
+                    type="text"
+                    sortOrder="60"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="0">
+                    <label>Website Email</label>
+                </field>
+
+                <field id="website_password"
+                    translate="label"
+                    type="obscure"
+                    sortOrder="70"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="0">
+                    <label>Website Password</label>
                 </field>
 
             </group>

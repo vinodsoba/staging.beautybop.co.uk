@@ -64,8 +64,8 @@ class WebsiteLogin
          * Submit login using same session
          */
         $postFields = [
-            'Email'    => $this->config->getUsername(),
-            'Password' => $this->config->getPassword(),
+            'Email'    => $this->config->getWebsiteEmail(),
+            'Password' => $this->config->getWebsitePassword(),
             'action'   => 'login',
             's'        => 'LOGIN'
         ];
