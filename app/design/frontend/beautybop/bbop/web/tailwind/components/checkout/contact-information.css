@@ -1,0 +1,228 @@
+/* Contact information */
+.bb-card__body .fieldset {
+    margin: 0;
+}
+
+.bb-card__body .field {
+    margin: 0;
+}
+
+.bb-card__body .field .label {
+    display: block;
+    margin: 0 0 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.bb-card__body .field .control {
+    width: 100%;
+    max-width: 640px;
+}
+
+.bb-card__body .field input[type="email"],
+.bb-card__body .field input[type="text"] {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+
+    background: #fff;
+    font-size: 15px;
+    color: #111827;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.bb-card__body .field input:focus {
+    outline: none;
+    border-color: #241043;
+    box-shadow: 0 0 0 3px rgba(36, 16, 67, .08);
+}
+
+/* Required asterisk */
+.bb-card__body .field.required > .label::after,
+.bb-card__body .field._required > .label::after {
+    color: #dc2626;
+}
+
+/* Tooltip */
+.bb-card__body .field-tooltip {
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.bb-card__body .field-tooltip .field-tooltip-action {
+    width: 20px;
+    height: 20px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 50%;
+
+    color: #64748b;
+}
+
+/* Account message underneath */
+.bb-card__body .note,
+.bb-card__body .field-note {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #6b7280;
+}
+
+
+/* =========================================
+   CHECKOUT - CONTACT EMAIL
+========================================= */
+
+.bb-card--contact .form-login {
+    width: 100%;
+    max-width: 640px;
+    margin: 0;
+}
+
+.bb-card--contact #customer-email-fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* Magento normally puts label + control side-by-side.
+   Force normal vertical field layout. */
+.bb-card--contact #customer-email-fieldset > .field.required {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+/* Label above input */
+.bb-card--contact #customer-email-fieldset > .field.required > .label {
+    display: block !important;
+    float: none !important;
+    width: 100% !important;
+    margin: 0 0 8px !important;
+    padding: 0 !important;
+
+    text-align: left !important;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* Input container */
+.bb-card--contact #customer-email-fieldset > .field.required > .control {
+    display: block !important;
+    position: relative;
+
+    float: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+/* Email input */
+.bb-card--contact #customer-email-fieldset input[type="email"],
+.bb-card--contact #customer-email-fieldset input[name="username"] {
+    display: block;
+
+    width: 100% !important;
+    height: 48px;
+
+    margin: 0;
+    padding: 0 14px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d5d9e2;
+    border-radius: 6px;
+
+    background: #fff;
+
+    font-size: 15px;
+    line-height: 48px;
+    color: #111827;
+
+    box-shadow: none;
+}
+
+.bb-card--contact #customer-email-fieldset input[type="email"]:focus,
+.bb-card--contact #customer-email-fieldset input[name="username"]:focus {
+    outline: none;
+    border-color: #241043;
+    box-shadow: 0 0 0 3px rgba(36, 16, 67, 0.08);
+}
+
+/* Placeholder */
+.bb-card--contact #customer-email-fieldset input::placeholder {
+    color: #9ca3af;
+}
+
+.bb-card--contact #customer-email-fieldset .field-tooltip {
+    display: none !important;
+}
+
+.bb-card--contact .bb-contact-email-help {
+    max-width: 640px;
+
+    margin: 10px 0 0;
+    padding: 0;
+
+    font-size: 12px;
+    line-height: 1.5;
+    color: #6b7280;
+}
+
+.bb-card--contact #customer-email-fieldset .note {
+    display: block;
+    margin: 10px 0 0 !important;
+
+    font-size: 12px;
+    line-height: 1.5;
+    color: #64748b;
+}
+
+
+.bb-customer-email {
+    max-width: 640px;
+    padding: 16px 18px;
+
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+}
+
+.bb-customer-email__label {
+    display: block;
+    margin-bottom: 5px;
+
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b7280;
+}
+
+.bb-customer-email__value {
+    display: block;
+    margin-bottom: 8px;
+
+    font-size: 15px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.bb-customer-email__status {
+    display: inline-block;
+
+    font-size: 12px;
+    font-weight: 600;
+    color: #18794e;
+}

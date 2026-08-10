@@ -27,7 +27,9 @@
 @import "./components/blog/single.css";
 @import "./components/blog/form.css";
 @import "./pages/homepage.css";
-
+@import "./components/checkout/summary.css";
+@import "./components/checkout/contact-information.css";
+@import "./components/trust-bar.css";
 
 @tailwind base;
 @tailwind components;

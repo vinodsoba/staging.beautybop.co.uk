@@ -1,4 +1,6 @@
-define([], function () {
+define([
+     'Magento_Customer/js/model/customer'
+], function (customer) {
     'use strict';
 
     return function (Shipping) {
@@ -247,6 +249,20 @@ define([], function () {
 
             getCustomerEmailRegion: function () {
                 return this.getRegion('customer-email');
+            },
+
+            isCustomerLoggedIn: function () {
+                return customer.isLoggedIn();
+            },
+
+            getCustomerEmail: function () {
+                if (!customer.isLoggedIn()) {
+                    return '';
+                }
+
+                return customer.customerData && customer.customerData.email
+                    ? customer.customerData.email
+                    : '';
             },
 
             getAddressListRegion: function () {

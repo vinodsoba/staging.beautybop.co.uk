@@ -1,0 +1,155 @@
+.bb-checkout-assurance {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.bb-checkout-assurance__delivery,
+.bb-checkout-assurance__payments,
+.bb-checkout-assurance__row {
+    background: #fff;
+    border: 1px solid #ececf0;
+    border-radius: 8px;
+}
+
+.bb-checkout-assurance__delivery {
+    padding: 14px;
+    background: #fff9dc;
+}
+
+.bb-checkout-assurance__delivery-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bb-checkout-assurance__icon {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.bb-checkout-assurance__delivery-text {
+    font-size: 12px;
+    line-height: 1.4;
+    color: #2b2b2b;
+}
+
+.bb-checkout-assurance__progress {
+    width: 100%;
+    height: 6px;
+    margin-top: 12px;
+    background: #ebe7d4;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.bb-checkout-assurance__progress span {
+    display: block;
+    height: 100%;
+    background: #231044;
+    border-radius: inherit;
+}
+
+.bb-checkout-assurance__progress-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-size: 10px;
+    color: #777;
+}
+
+.bb-checkout-assurance__payments {
+    padding: 14px;
+}
+
+.bb-checkout-assurance__payments h4 {
+    margin: 0 0 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #222;
+}
+
+.bb-checkout-assurance__payment-icons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.bb-checkout-assurance__payment-icons span {
+    width: 70px;
+    height: 40px;
+}
+
+.bb-payment-logo {
+    min-width: 42px;
+    height: 24px;
+    padding: 0 7px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff;
+    border: 1px solid #dedee5;
+    border-radius: 4px;
+
+    font-size: 10px;
+    font-weight: 700;
+    color: #1d1d1f;
+}
+
+
+.bb-payment-logo img {
+    display: block;
+    width: auto;
+    height: 24px;
+    max-width: 52px;
+}
+
+.bb-checkout-assurance__row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+}
+
+.bb-checkout-assurance__large-icon {
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+}
+
+.bb-checkout-assurance__row strong {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #222;
+}
+
+.bb-checkout-assurance__row span:not(.bb-checkout-assurance__large-icon) {
+    display: block;
+    font-size: 10px;
+    line-height: 1.4;
+    color: #747474;
+}
+
+@media (max-width: 767px) {
+    .bb-checkout-assurance {
+        margin-top: 14px;
+    }
+
+    .bb-checkout-assurance__delivery,
+    .bb-checkout-assurance__payments,
+    .bb-checkout-assurance__row {
+        border-radius: 6px;
+    }
+}

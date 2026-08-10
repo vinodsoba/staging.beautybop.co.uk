@@ -24,25 +24,41 @@
             <div class="bb-card bb-card--contact">
 
                 <div class="bb-card__header">
-
                     <h2 class="bb-card__title">
                         <span data-bind="i18n: 'Contact Information'"></span>
                     </h2>
-
-                    <p class="bb-card__description">
-
-                        We'll send your order confirmation and delivery updates to this email address.
-
-                    </p>
-
                 </div>
 
                 <div class="bb-card__body">
 
+                    <!-- Guest checkout -->
                     <each if="!quoteIsVirtual"
                         args="getCustomerEmailRegion()"
                         render="">
                     </each>
+
+                    <!-- Logged-in customer -->
+                    <!-- ko if: isCustomerLoggedIn() -->
+                    <div class="bb-customer-email">
+
+                        <span class="bb-customer-email__label">
+                            Email Address
+                        </span>
+
+                        <strong class="bb-customer-email__value"
+                                data-bind="text: getCustomerEmail()">
+                        </strong>
+
+                        <span class="bb-customer-email__status">
+                            ✓ Signed in
+                        </span>
+
+                    </div>
+                    <!-- /ko -->
+
+                    <p class="bb-contact-email-help">
+                        We'll send your order confirmation and delivery updates to this email address.
+                    </p>
 
                 </div>
 

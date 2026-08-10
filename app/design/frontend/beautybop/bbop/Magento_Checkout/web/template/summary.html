@@ -35,24 +35,78 @@
 
     <div class="bb-card__footer">
 
-        <div class="bb-summary-payment-methods">
+       <div class="bb-checkout-assurance">
 
-            <h2>We accept</h2>
-            <ul>
-                <li>visa logo</li>
-                <li>mastercard</li>
-                <li>paypal</li>
-                <li>stripe</li>
-            </ul>
+            <!-- Free delivery progress -->
+            <div class="bb-checkout-assurance__delivery">
+                <div class="bb-checkout-assurance__delivery-row">
+                    <span class="bb-checkout-assurance__icon">🚚</span>
+                    <span class="bb-checkout-assurance__delivery-text">
+                        Add <strong>£8.59</strong> more to get <strong>FREE delivery</strong>
+                    </span>
+                </div>
 
-        </div>
+                <div class="bb-checkout-assurance__progress">
+                    <span style="width: 72%;"></span>
+                </div>
 
-        <div class="bb-summary-security flex">
+                <div class="bb-checkout-assurance__progress-labels">
+                    <span>£0</span>
+                    <span>£50</span>
+                </div>
+            </div>
 
-             <img src="images/icons/payment-method-co-stripe.svg" alt="">
+            <!-- Payment methods -->
+            <div class="bb-checkout-assurance__payments">
+                <h4>We Accept</h4>
 
-            <p>We do not store your card details.
-All payments are securely processed</p>
+                <div class="bb-checkout-assurance__payment-icons">
+                    <span class="bb-payment-logo">
+                    <img data-bind="attr: {
+                    src: require.toUrl('images/icons/payment-method-co-visa.svg')
+                    }"
+                    alt="Visa">    
+                    </span>
+                    <span class="bb-payment-logo">
+                        <img data-bind="attr: {
+                    src: require.toUrl('images/icons/payment-method-co-mastercard.svg')
+                    }"
+                    alt="Mastercard">    
+                    </span>
+                    <span class="bb-payment-logo">
+                     <img data-bind="attr: {
+                    src: require.toUrl('images/icons/payment-method-co-paypal.svg')
+                    }"
+                    alt="PayPal">    
+                    </span>
+                    <span class="bb-payment-logo">
+                        <img data-bind="attr: {
+                        src: require.toUrl('images/icons/payment-method-co-stripe.svg')
+                    }"
+                    alt="Stripe">
+                    </span>
+                </div>
+            </div>
+
+            <!-- Security -->
+            <div class="bb-checkout-assurance__row">
+                <span class="bb-checkout-assurance__large-icon">🔒</span>
+
+                <div>
+                    <strong>We don't store your card details</strong>
+                    <span>All payments are securely processed</span>
+                </div>
+            </div>
+
+            <!-- Help -->
+            <div class="bb-checkout-assurance__row">
+                <span class="bb-checkout-assurance__large-icon">◯</span>
+
+                <div>
+                    <strong>Need help?</strong>
+                    <span>Contact our support team</span>
+                </div>
+            </div>
 
         </div>
 

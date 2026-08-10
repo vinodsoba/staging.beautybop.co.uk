@@ -3,15 +3,16 @@
     <!-- HERO -->
     <?php
 
+     echo $this->getLayout()
+    ->createBlock(\Magento\Framework\View\Element\Template::class)
+    ->setTemplate('Magento_Cms::homepage/trust-bar.phtml')
+    ->toHtml();
+
     echo $this->getLayout()
     ->createBlock(\Magento\Framework\View\Element\Template::class)
     ->setTemplate('Magento_Cms::homepage/hero-slider.phtml')
     ->toHtml();
 
-     echo $this->getLayout()
-    ->createBlock(\Magento\Framework\View\Element\Template::class)
-    ->setTemplate('Magento_Cms::homepage/trust-bar.phtml')
-    ->toHtml();
 
     echo $this->getLayout()
     ->createBlock(\Magento\Framework\View\Element\Template::class)
