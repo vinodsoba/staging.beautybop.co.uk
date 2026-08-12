@@ -34,6 +34,7 @@
 @import "./components/checkout/contact-information.css";
 @import "./components/trust-bar.css";
 @import "./components/blog/hero.css";
+@import "./components/404.css";
 
 @tailwind base;
 @tailwind components;
