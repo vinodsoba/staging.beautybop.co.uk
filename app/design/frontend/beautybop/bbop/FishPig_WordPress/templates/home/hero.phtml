@@ -1,0 +1,96 @@
+<section class="bb-blog-hero">
+
+    <div class="bb-blog-hero__inner">
+
+        <div class="bb-blog-hero__copy">
+
+            <p class="bb-blog-hero__eyebrow">
+                BEAUTY BOP
+            </p>
+
+            <h1 class="bb-blog-hero__title">
+                JOURNAL
+            </h1>
+
+            <p class="bb-blog-hero__intro">
+                Discover genuine designer perfumes and aftershaves
+                from leading brands including Hugo Boss, Prada,
+                Calvin Klein and more.
+            </p>
+
+        </div>
+
+        <div class="bb-blog-hero__image">
+
+            <img
+                src="<?= $block->getViewFileUrl('images/blog/beautybop-journal-hero.jpg') ?>"
+                alt="Beauty Bop Journal fragrance and beauty inspiration"
+            />
+
+        </div>
+
+    </div>
+
+    <form
+    class="bb-blog-search"
+    id="bb-blog-search-form"
+    action="#"
+    method="get"
+    role="search"
+>
+    <label class="sr-only" for="bb-blog-search-input">
+        Search journal articles
+    </label>
+
+    <div class="bb-blog-search__field">
+
+        <input
+            id="bb-blog-search-input"
+            class="bb-blog-search__input"
+            type="search"
+            name="s"
+            placeholder="Search articles..."
+            autocomplete="off"
+        >
+
+        <button
+            class="bb-blog-search__button"
+            type="submit"
+            aria-label="Search articles"
+        >
+            <span aria-hidden="true">⌕</span>
+        </button>
+
+    </div>
+</form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    var form = document.getElementById('bb-blog-search-form');
+    var input = document.getElementById('bb-blog-search-input');
+
+    if (!form || !input) {
+        return;
+    }
+
+    form.addEventListener('submit', function (event) {
+
+        event.preventDefault();
+
+        var searchTerm = input.value.trim();
+
+        if (!searchTerm) {
+            return;
+        }
+
+        window.location.href =
+            '/blog/search/' +
+            encodeURIComponent(searchTerm.toLowerCase()) +
+            '/';
+    });
+
+});
+</script>
+
+</section>

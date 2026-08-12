@@ -33,6 +33,7 @@
 @import "./components/checkout/summary.css";
 @import "./components/checkout/contact-information.css";
 @import "./components/trust-bar.css";
+@import "./components/blog/hero.css";
 
 @tailwind base;
 @tailwind components;

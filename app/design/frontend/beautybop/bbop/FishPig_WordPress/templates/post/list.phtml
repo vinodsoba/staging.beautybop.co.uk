@@ -9,27 +9,90 @@ $posts = $block->getPosts();
 ?>
 
 <?php if (count($posts) > 0): ?>
-    <section class="bb-journal-list" aria-label="<?= $block->escapeHtmlAttr(__('Journal articles')) ?>">
-        <ol class="bb-journal-grid">
-            <?php foreach ($posts as $post): ?>
-                <?php $renderedPostHtml = $block->renderPost($post); ?>
 
-                <?php if ($renderedPostHtml): ?>
-                    <li class="bb-journal-grid__item<?= $post->isSticky() ? ' is-sticky' : '' ?>">
+    <section
+        class="bb-journal-list"
+        aria-label="<?= $block->escapeHtmlAttr(__('Journal articles')) ?>"
+    >
+
+        <?php
+        $postIndex = 0;
+        $latestPosts = [];
+        ?>
+
+        <?php foreach ($posts as $post): ?>
+
+            <?php $renderedPostHtml = $block->renderPost($post); ?>
+
+            <?php if (!$renderedPostHtml): ?>
+                <?php continue; ?>
+            <?php endif; ?>
+
+            <?php if ($postIndex === 0): ?>
+
+                <div class="bb-journal-featured">
+                    <div class="bb-journal-featured__item<?= $post->isSticky() ? ' is-sticky' : '' ?>">
                         <?= /* @noEscape */ $renderedPostHtml ?>
-                    </li>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </ol>
+                    </div>
+                </div>
+
+            <?php else: ?>
+
+                <?php
+                $latestPosts[] = [
+                    'html' => $renderedPostHtml,
+                    'sticky' => $post->isSticky()
+                ];
+                ?>
+
+            <?php endif; ?>
+
+            <?php $postIndex++; ?>
+
+        <?php endforeach; ?>
+
+
+        <?php if (!empty($latestPosts)): ?>
+
+            <div class="bb-journal-latest">
+
+                <h2 class="bb-journal-latest__title">
+                    <?= $block->escapeHtml(__('Latest Articles')) ?>
+                </h2>
+
+                <ol class="bb-journal-grid">
+
+                    <?php foreach ($latestPosts as $latestPost): ?>
+
+                        <li class="bb-journal-grid__item<?= $latestPost['sticky'] ? ' is-sticky' : '' ?>">
+                            <?= /* @noEscape */ $latestPost['html'] ?>
+                        </li>
+
+                    <?php endforeach; ?>
+
+                </ol>
+
+            </div>
+
+        <?php endif; ?>
+
 
         <?php if ($pagerHtml = $block->getPagerHtml()): ?>
+
             <div class="bb-journal-pagination">
                 <?= /* @noEscape */ $pagerHtml ?>
             </div>
+
         <?php endif; ?>
+
     </section>
+
 <?php else: ?>
+
     <div class="bb-journal-empty">
-        <p><?= $block->escapeHtml(__('No journal articles are available yet.')) ?></p>
+        <p>
+            <?= $block->escapeHtml(__('No journal articles are available yet.')) ?>
+        </p>
     </div>
+
 <?php endif; ?>

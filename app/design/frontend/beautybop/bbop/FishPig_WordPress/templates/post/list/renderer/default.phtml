@@ -43,6 +43,11 @@ $post = $block->getPost();
         <?php endif; ?>
 
         <div class="bb-journal-card__content">
+
+        <span class="bb-journal-card__featured-label">
+            <?= $block->escapeHtml(__('Featured Article')) ?>
+        </span>
+
             <div class="bb-journal-card__meta">
                 <?php if ($categoryString): ?>
                     <span class="bb-journal-card__category">
