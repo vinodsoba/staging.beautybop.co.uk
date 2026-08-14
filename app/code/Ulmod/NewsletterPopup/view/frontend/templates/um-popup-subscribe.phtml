@@ -1,82 +1,143 @@
 <?php
 /**
- * Copyright © Ulmod. All rights reserved.
- * See LICENSE.txt for license details.
- */
-
-// @codingStandardsIgnoreFile
-
-/**
  * @var \Ulmod\NewsletterPopup\Block\Subscribe $block
  */
-?>
 
-<?php
 $modelConfig = $block->getConfigModel();
 ?>
 
-<div class="um-newsletter-popup block newsletter um-newsletter-p custom" id="um-popup-newsletter">
-    <div class="messages">
-        <div class="message message-error error">
-            <div></div>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<div class="um-newsletter-popup block newsletter um-newsletter-p custom"
+     id="um-popup-newsletter">
+
+    <div class="bb-newsletter-popup">
+
+        <div class="bb-newsletter-popup__image">
+            <img
+                src="<?= $block->getViewFileUrl('images/newsletter/newsletter-popup.jpg') ?>"
+                alt="BeautyBop fragrance offers and new arrivals"
+            >
         </div>
-    </div>
-    <div class="um-newslp-content content">
-      <h2><span style="color:#fff; padding: 2px 24px 0px 0px;">Welcome to</span> <img src="/pub/media/logo/stores/1/logo-new-white-newsletter.png" width="166" height="35" /></h2>
-        <form class="form subscribe"
-            novalidate	action="<?= $block->escapeUrl($block->getFormActionUrl()) ?>"
-            method="post" data-mage-init='{"validation": {"errorClass": "mage-error"}}'
-            id="newsletter-validate-detail">
-            <div class="field newsletter">
-				<div class="um-newslp-msg"><?php  echo $modelConfig->getContentMsg(); ?></div>
-                <div class="um-newslp-input control">
-					<div class="um-newslp-email">
-						<input name="email" type="email" id="newsletter"
-							 placeholder="<?= $block->escapeHtml(__('Enter your email address')) ?>"
-							 data-validate="{required:true, 'validate-email':true}"/>
-					</div>
-					<?php if ($modelConfig->isShowTermCondition()) : ?>
-						<div class="um-newslp-terms">
-							<input class="input required-entry"
-								type="checkbox" id="newsl-term" name="check" value="1"
-								data-validate="{required:true, 'validate-one-required-by-name':true}" />
-							<?php  echo $modelConfig->getTermConditionMsg(); ?>
-						</div>
-					<?php endif; ?>
+
+        <div class="bb-newsletter-popup__content">
+
+            <div class="messages">
+                <div class="message message-error error">
+                    <div></div>
                 </div>
             </div>
-            <div class="um-newslp-actions actions">
-                <button class="action subscribe primary"
-					title="<?php echo $block->escapeHtml($modelConfig->getSubscribeBtnText()); ?>"
-					type="submit">
-                    <span><?php echo $block->escapeHtml($modelConfig->getSubscribeBtnText()); ?></span>
-                </button>
-            </div>
-        </form>
+
+            <span class="bb-newsletter-popup__eyebrow">
+                BEAUTYBOP
+            </span>
+
+            <h2 class="bb-newsletter-popup__title">
+                Get 10% Off
+                <span>Your First Order</span>
+            </h2>
+
+            <p class="bb-newsletter-popup__intro">
+                Join the BeautyBop newsletter for exclusive offers,
+                new fragrance arrivals and beauty inspiration.
+            </p>
+
+            <form
+                class="form subscribe bb-newsletter-popup__form"
+                novalidate
+                action="<?= $block->escapeUrl($block->getFormActionUrl()) ?>"
+                method="post"
+                data-mage-init='{"validation":{"errorClass":"mage-error"}}'
+                id="newsletter-validate-detail"
+            >
+
+                <?= $block->getBlockHtml('formkey') ?>
+
+                <div class="field newsletter">
+
+                    <label class="bb-newsletter-popup__label"
+                           for="newsletter">
+                        Email Address
+                    </label>
+
+                    <div class="control">
+
+                        <input
+                            name="email"
+                            type="email"
+                            id="newsletter"
+                            class="bb-newsletter-popup__input"
+                            placeholder="<?= $block->escapeHtmlAttr(__('Enter your email address')) ?>"
+                            data-validate="{required:true, 'validate-email':true}"
+                        >
+
+                    </div>
+
+                </div>
+
+                <?php if ($modelConfig->isShowTermCondition()) : ?>
+
+                    <div class="bb-newsletter-popup__terms">
+
+                        <input
+                            class="input required-entry"
+                            type="checkbox"
+                            id="newsl-term"
+                            name="check"
+                            value="1"
+                            data-validate="{required:true, 'validate-one-required-by-name':true}"
+                        >
+
+                        <label for="newsl-term">
+                            <?= /* @noEscape */ $modelConfig->getTermConditionMsg(); ?>
+                        </label>
+
+                    </div>
+
+                <?php endif; ?>
+
+                <div class="bb-newsletter-popup__captcha">
+
+                    <div
+                        class="g-recaptcha"
+                        data-sitekey="6LfDxKUUAAAAANa-0KY_NnrSzRFNalIJVX50YxgN">
+                    </div>
+
+                </div>
+
+                <div class="actions bb-newsletter-popup__actions">
+
+                    <button
+                        class="action subscribe primary bb-newsletter-popup__submit"
+                        type="submit"
+                    >
+                        <span>Get My 10% Off</span>
+                    </button>
+
+                </div>
+
+                <p class="bb-newsletter-popup__privacy">
+                    No spam. Unsubscribe at any time.
+                </p>
+
+            </form>
+
+        </div>
 
     </div>
-	<?php echo $this->getLayout()->createBlock("Ulmod\NewsletterPopup\Block\SocialFollow")
-		->setTemplate("Ulmod_NewsletterPopup::um-follow-buttons.phtml")
-		->toHtml(); ?>
+
 </div>
+
 <script type="text/x-magento-init">
-    {
-        "#um-popup-newsletter": {
-            "Ulmod_NewsletterPopup/js/um-newsletter-popup": {
-                "popupTitle": "<?= /** @noEscape */ $modelConfig->getPopupTitle() ?>",
-				"behaviorData": "<?= /** @noEscape */ $modelConfig->getDisplayBehavior() ?>",
-				"delaySecData": "<?= /** @noEscape */ $modelConfig->getDelaySecond() ?>",
-				"delayPerData": "<?= /** @noEscape */ $modelConfig->getDelayPercent() ?>",
-				"cookieLtData": "<?= /** @noEscape */ $modelConfig->getCookieLifetime() ?>"
-            }
+{
+    "#um-popup-newsletter": {
+        "Ulmod_NewsletterPopup/js/um-newsletter-popup": {
+            "popupTitle": "",
+            "behaviorData": "<?= /** @noEscape */ $modelConfig->getDisplayBehavior() ?>",
+            "delaySecData": "<?= /** @noEscape */ $modelConfig->getDelaySecond() ?>",
+            "delayPerData": "<?= /** @noEscape */ $modelConfig->getDelayPercent() ?>",
+            "cookieLtData": "<?= /** @noEscape */ $modelConfig->getCookieLifetime() ?>"
         }
     }
-</script>
-<style type="text/css">
-    
-.um-popup-newsletter .modal-title {
-    
-    color: #fff;
 }
-
-</style>
+</script>

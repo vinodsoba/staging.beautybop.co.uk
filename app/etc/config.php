@@ -352,6 +352,6 @@ return [
         'StripeIntegration_Tax' => 1,
         'StripeIntegration_Payments' => 1,
         'Temando_ShippingRemover' => 1,
-        'Ulmod_NewsletterPopup' => 0
+        'Ulmod_NewsletterPopup' => 1
     ]
 ];

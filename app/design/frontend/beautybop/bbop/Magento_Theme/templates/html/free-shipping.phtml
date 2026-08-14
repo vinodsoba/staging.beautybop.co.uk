@@ -1,19 +1,26 @@
 <div class="bb-announcement">
 
     <span class="bb-announcement__message is-active">
-        🚚 Free UK Delivery on Orders Over £45
+        <div class="flex justify-center items-center flex-row gap-[20px]">
+            <img src="<?= $block->getViewFileUrl('images/icons/material-symbols-light_delivery-truck-speed-outline.svg') ?>" alt="">
+             Free UK Delivery on Orders Over £45        
+        </div>
+        
     </span>
 
     <span class="bb-announcement__message">
-        🎁 Save 10% On Your First Order
+         <div class="flex justify-center items-end flex-row gap-[20px]">
+            <img src="<?= $block->getViewFileUrl('images/icons/fluent-mdl2_giftbox.svg') ?>" alt=""> 
+            Save 10% On Your First Order
+        </div>
     </span>
 
-    <span class="bb-announcement__message">
-        ⭐ 100% Genuine Designer Fragrances
-    </span>
 
     <span class="bb-announcement__message">
-        🔒 Secure Checkout with PayPal & Stripe
+        <div class="flex justify-center items-center flex-row gap-[20px]">
+            <img src="<?= $block->getViewFileUrl('images/icons/circum_lock.svg') ?>" alt=""> 
+            Secure Checkout
+        </div>
     </span>
 
 </div>

@@ -6,6 +6,8 @@
 
 namespace Ulmod\NewsletterPopup\Controller\Subscriber;
 
+use Magento\Framework\HTTP\Client\Curl;
+
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Customer\Model\Session;
@@ -18,9 +20,17 @@ use Magento\Newsletter\Model\Subscriber as SubscriberModel;
 use Magento\Store\Model\ScopeInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\Validator\EmailAddress;
+
+
 
 class NewAction extends Action
 {
+    /**
+    * @var Curl
+    */
+    protected $curl;
+
     /**
      * @var Session
      */
@@ -55,6 +65,11 @@ class NewAction extends Action
      * @var ScopeConfigInterface
      */
     protected $scopeConfig;
+
+    /**
+     * @var EmailAddress
+     */
+    protected $emailValidator;
     
     /**
      * @param Context $context
@@ -73,7 +88,9 @@ class NewAction extends Action
         CustomerUrl $customerUrl,
         CustomerAccountManagement $customerAccountManagement,
         JsonFactory $resultJsonFactory,
-        ScopeConfigInterface $scopeConfig
+        ScopeConfigInterface $scopeConfig,
+        Curl $curl,
+        EmailAddress $emailValidator
     ) {
         $this->customerAccountManagement = $customerAccountManagement;
         $this->storeManager = $storeManager;
@@ -82,6 +99,8 @@ class NewAction extends Action
         $this->customerUrl = $customerUrl;
         $this->resultJsonFactory = $resultJsonFactory;
         $this->scopeConfig = $scopeConfig;
+        $this->curl = $curl;
+        $this->emailValidator = $emailValidator;
         parent::__construct($context);
     }
 
@@ -92,10 +111,11 @@ class NewAction extends Action
      * @throws \Magento\Framework\Exception\LocalizedException
      * @return void
      */
+    
     protected function validateEmailFormat($email)
     {
-        if (!\Zend_Validate::is($email, 'EmailAddress')) {
-            throw new \Magento\Framework\Exception\LocalizedException(
+        if (!$this->emailValidator->isValid($email)) {
+            throw new LocalizedException(
                 __('Please enter a valid email address.')
             );
         }
@@ -169,6 +189,8 @@ class NewAction extends Action
                 $this->validateEmailAvailable($subscribedEmail);
                 $this->validateGuestSubscription();
                 
+                $this->validateRecaptcha();
+                
                 $subscribeStatus = $this->subscriberFactory->create()
                     ->subscribe($subscribedEmail);
                     
@@ -191,5 +213,44 @@ class NewAction extends Action
         $result = $this->resultJsonFactory->create();
         
         return $result->setData($data);
+    }
+
+    /**
+     * Validate Google reCAPTCHA
+     *
+     * @throws LocalizedException
+     */
+    protected function validateRecaptcha()
+    {
+        $captchaResponse = $this->getRequest()->getParam('g-recaptcha-response');
+
+        if (!$captchaResponse) {
+            throw new LocalizedException(
+                __('Please complete the reCAPTCHA.')
+            );
+        }
+
+        $secretKey = '6LfDxKUUAAAAAPLz3899pbRxRmM3rl4ehanJ4_8B';
+
+        $this->curl->post(
+            'https://www.google.com/recaptcha/api/siteverify',
+            [
+                'secret' => $secretKey,
+                'response' => $captchaResponse,
+                'remoteip' => $_SERVER['REMOTE_ADDR']
+            ]
+        );
+
+        $result = json_decode($this->curl->getBody(), true);
+
+        if (
+            empty($result)
+            || empty($result['success'])
+            || !$result['success']
+        ) {
+            throw new LocalizedException(
+                __('Captcha validation failed.')
+            );
+        }
     }
 }

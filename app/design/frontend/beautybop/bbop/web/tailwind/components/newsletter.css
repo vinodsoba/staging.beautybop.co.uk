@@ -1,4 +1,522 @@
-.um-popup-newsletter,
-.popup-authentication {
-    display: none !important;
+/* =========================================
+   BEAUTYBOP NEWSLETTER POPUP
+========================================= */
+
+.um-popup-newsletter .modal-inner-wrap {
+    width: calc(100% - 40px) !important;
+    max-width: 860px !important;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+.um-popup-newsletter .modal-header {
+    padding: 0;
+}
+
+.um-popup-newsletter .modal-title {
+    display: none;
+}
+
+.um-popup-newsletter .modal-content {
+    padding: 0;
+}
+
+.um-popup-newsletter .action-close {
+    top: 14px;
+    right: 14px;
+    z-index: 20;
+
+    width: 38px;
+    height: 38px;
+    padding: 0px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================
+   POPUP LAYOUT
+========================================= */
+
+.bb-newsletter-popup {
+    display: grid;
+    grid-template-columns: 46% 54%;
+    min-height: 520px;
+    background: #fff;
+}
+
+.bb-newsletter-popup__image {
+    position: relative;
+    min-height: 520px;
+    overflow: hidden;
+}
+
+.bb-newsletter-popup__image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+    min-height: 520px;
+
+    object-fit: cover;
+    object-position: right center;
+}
+
+.bb-newsletter-popup__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 54px 48px;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.bb-newsletter-popup__eyebrow {
+    margin-bottom: 14px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: #c84f95;
+}
+
+.bb-newsletter-popup__title {
+    margin: 0 0 18px;
+
+    font-size: 38px;
+    line-height: 1.05;
+    font-weight: 700;
+
+    color: #17132d;
+}
+
+.bb-newsletter-popup__title span {
+    display: block;
+}
+
+.bb-newsletter-popup__intro {
+    max-width: 430px;
+    margin: 0 0 28px;
+
+    font-size: 14px;
+    line-height: 1.7;
+
+    color: #6b7280;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.bb-newsletter-popup__form {
+    width: 100%;
+}
+
+.bb-newsletter-popup__label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #374151;
+}
+
+.bb-newsletter-popup__input {
+    width: 100%;
+    height: 50px;
+
+    padding: 0 15px;
+
+    box-sizing: border-box;
+
+    background: #fff;
+
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.bb-newsletter-popup__input:focus {
+    outline: none;
+
+    border-color: #21163d;
+    box-shadow: 0 0 0 3px rgba(33, 22, 61, 0.08);
+}
+
+.bb-newsletter-popup__terms {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+
+    margin-top: 14px;
+
+    font-size: 12px;
+    line-height: 1.5;
+
+    color: #6b7280;
+}
+
+.bb-newsletter-popup__captcha {
+    margin-top: 18px;
+}
+
+.bb-newsletter-popup__actions {
+    margin-top: 18px !important;
+}
+
+.bb-newsletter-popup__submit {
+    width: 100%;
+    height: 50px;
+
+    border: 0 !important;
+    border-radius: 5px !important;
+
+    background: #21163d !important;
+    color: #fff !important;
+
+    font-size: 13px !important;
+    font-weight: 700 !important;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.bb-newsletter-popup__submit:hover {
+    background: #352451 !important;
+    transform: translateY(-1px);
+}
+
+.bb-newsletter-popup__privacy {
+    margin: 14px 0 0;
+
+    text-align: center;
+
+    font-size: 11px;
+    line-height: 1.5;
+
+    color: #9ca3af;
+}
+
+
+/* =========================================
+   MESSAGES
+========================================= */
+
+.bb-newsletter-popup__content .messages {
+    display: none;
+    margin: 0 0 18px;
+}
+
+.bb-newsletter-popup__content .message {
+    margin: 0;
+    padding: 12px 14px;
+
+    border-radius: 4px;
+
+    font-size: 13px;
+}
+
+.bb-newsletter-popup__content .message-success {
+    background: #ecfdf3;
+    color: #166534;
+}
+
+.bb-newsletter-popup__content .message-error {
+    background: #fef2f2;
+    color: #991b1b;
+}
+
+
+/* =========================================
+   TABLET / LARGE MOBILE
+   401px - 767px
+========================================= */
+
+@media (max-width: 767px) {
+
+    .um-popup-newsletter .modal-inner-wrap {
+        width: calc(100% - 28px) !important;
+        max-width: 500px !important;
+
+        max-height: calc(100vh - 28px);
+
+        margin: 14px auto !important;
+
+        overflow-y: auto;
+
+        border-radius: 10px;
+    }
+
+    .um-popup-newsletter .modal-content {
+        padding: 0 !important;
+    }
+
+    .bb-newsletter-popup {
+        display: block;
+        min-height: auto;
+    }
+
+    /* Show image as banner */
+    .bb-newsletter-popup__image {
+        display: block;
+
+        width: 100%;
+        height: 160px;
+        min-height: 160px;
+
+        overflow: hidden;
+    }
+
+    .bb-newsletter-popup__image img {
+        display: block;
+
+        width: 100%;
+        height: 160px;
+        min-height: 160px;
+
+        object-fit: cover;
+
+        /*
+         * Product is positioned on right-hand side
+         * of our generated artwork.
+         */
+        object-position: right 58%;
+    }
+
+    .bb-newsletter-popup__content {
+        padding: 30px 24px 26px;
+    }
+
+    .bb-newsletter-popup__eyebrow {
+        margin-bottom: 9px;
+
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .bb-newsletter-popup__title {
+        margin-bottom: 12px;
+
+        font-size: 27px;
+        line-height: 1.08;
+    }
+
+    .bb-newsletter-popup__intro {
+        margin-bottom: 20px;
+
+        font-size: 13px;
+        line-height: 1.55;
+    }
+
+    .bb-newsletter-popup__label {
+        margin-bottom: 7px;
+        font-size: 12px;
+    }
+
+    .bb-newsletter-popup__input {
+        height: 46px;
+        font-size: 14px;
+    }
+
+    .bb-newsletter-popup__captcha {
+        width: 304px;
+        height: 67px;
+
+        margin-top: 15px;
+
+        transform: scale(0.86);
+        transform-origin: left top;
+    }
+
+    .bb-newsletter-popup__actions {
+        margin-top: 14px !important;
+    }
+
+    .bb-newsletter-popup__submit {
+        height: 46px;
+
+        font-size: 12px !important;
+    }
+
+    .bb-newsletter-popup__privacy {
+        margin-top: 9px;
+
+        font-size: 10px;
+    }
+
+    .um-popup-newsletter .action-close {
+        top: 10px;
+        right: 10px;
+
+        width: 34px;
+        height: 34px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   400px AND BELOW
+========================================= */
+
+@media (max-width: 350px) {
+
+    .um-popup-newsletter .modal-inner-wrap {
+        width: calc(100% - 20px) !important;
+        max-width: 360px !important;
+
+        max-height: calc(100vh - 20px);
+
+        margin: 10px auto !important;
+
+        border-radius: 8px;
+        overflow-y: auto;
+    }
+
+    .um-popup-newsletter .block.newsletter input
+    {
+        float: none !important;
+    }
+
+    /* Hide artwork on small phones */
+    .bb-newsletter-popup__image {
+        display: none;
+    }
+
+    .bb-newsletter-popup__content {
+        padding: 34px 18px 24px;
+    }
+
+    .bb-newsletter-popup__eyebrow {
+        margin-bottom: 8px;
+
+        font-size: 9px;
+        letter-spacing: 1.8px;
+    }
+
+    .bb-newsletter-popup__title {
+        margin-bottom: 12px;
+
+        font-size: 24px;
+        line-height: 1.08;
+    }
+
+    .bb-newsletter-popup__title span {
+        display: block;
+    }
+
+    .bb-newsletter-popup__intro {
+        margin-bottom: 18px;
+
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .bb-newsletter-popup__label {
+        margin-bottom: 6px;
+
+        font-size: 11px;
+    }
+
+    .bb-newsletter-popup__input {
+        height: 44px;
+
+        padding: 0 12px;
+
+        font-size: 13px;
+    }
+
+    .bb-newsletter-popup__captcha {
+        width: 304px;
+        height: 62px;
+
+        margin-top: 14px;
+
+        transform: scale(0.82);
+        transform-origin: left top;
+    }
+
+    .bb-newsletter-popup__actions {
+        margin-top: 12px !important;
+    }
+
+    .bb-newsletter-popup .field.newsletter {
+        display: block !important;
+        width: 100%;
+        margin: 0 0 18px !important;
+    }
+
+    .bb-newsletter-popup .field.newsletter .control {
+        display: block !important;
+        width: 100%;
+    }
+
+    .bb-newsletter-popup .field.newsletter .bb-newsletter-popup__label {
+        display: block !important;
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .bb-newsletter-popup .field.newsletter .bb-newsletter-popup__input {
+        display: block;
+        width: 100% !important;
+    }
+
+    .bb-newsletter-popup__submit {
+        height: 44px;
+
+        font-size: 11px !important;
+        letter-spacing: 0.8px;
+    }
+
+    .bb-newsletter-popup__privacy {
+        margin-top: 8px;
+
+        font-size: 9px;
+        line-height: 1.4;
+    }
+
+    .bb-newsletter-popup__terms {
+        margin-top: 10px;
+
+        gap: 7px;
+
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    .um-popup-newsletter .action-close {
+        top: 8px;
+        right: 8px;
+
+        width: 30px;
+        height: 30px;
+    }
+
+    .bb-newsletter-popup__content .message {
+        padding: 10px 12px;
+
+        font-size: 11px;
+    }
 }
