@@ -41,6 +41,28 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body,
+button,
+input,
+select,
+textarea {
+    font-family: "Poppins", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+label {
+    font-family: inherit;
+}
+
 /* Scope Tailwind ONLY inside .bb */
 .bb {
   @apply font-sans;

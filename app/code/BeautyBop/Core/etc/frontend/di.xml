@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Theme\Block\Html\Topmenu">
+
+        <plugin
+            name="beautybop_clean_brand_navigation_names"
+            type="BeautyBop\Core\Plugin\Topmenu"
+            sortOrder="10"
+        />
+
+    </type>
+
+</config>

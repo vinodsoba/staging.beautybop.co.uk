@@ -56,12 +56,11 @@
     position: relative;
 }
 
-/* Brands parent */
 .bb-header-nav .navigation > ul > .nav-4 {
     position: static;
 }
 
-/* Hide submenu by default */
+/* Main dropdown */
 .bb-header-nav .navigation > ul > .nav-4 > ul.level0 {
     display: none;
 
@@ -69,49 +68,53 @@
     top: 100%;
     left: 50%;
 
-    width: min(900px, calc(100vw - 60px));
-    padding: 32px 36px;
-
+    width: min(860px, calc(100vw - 48px));
+    padding: 24px 28px;
+   
     transform: translateX(-50%);
 
     background: #fff;
-
     border: 1px solid #eee;
     border-radius: 0 0 8px 8px;
 
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.10);
 
     z-index: 1000;
 }
 
-/* Open on hover */
+/* Open */
 .bb-header-nav .navigation > ul > .nav-4:hover > ul.level0 {
     display: grid;
 
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px 32px;
+    grid-template-columns:
+        repeat(auto-fit, minmax(170px, 1fr));
+
+    column-gap: 28px;
+    row-gap: 4px;
 }
 
-/* Brand items */
+/* Individual brand */
 .bb-header-nav .navigation > ul > .nav-4 > ul.level0 > li {
     width: 100%;
     margin: 0;
     padding: 0;
 }
 
-/* Brand links */
+/* Link */
 .bb-header-nav .navigation > ul > .nav-4 > ul.level0 > li > a {
     display: block;
 
-    padding: 10px 12px;
+    padding: 9px 8px;
 
     font-size: 14px;
     font-weight: 500;
-    line-height: 1.4;
+    line-height: 1.35;
 
     color: #1e1240;
 
     border-radius: 4px;
+
+    white-space: normal;
 
     transition:
         background 0.2s ease,
@@ -124,12 +127,14 @@
 }
 
 
-/* Keep main Brands link clickable */
+/* =========================================
+   BRANDS LINK / ARROW
+========================================= */
+
 .bb-header-nav .navigation > ul > .nav-4 > a {
     position: relative;
 }
 
-/* Small dropdown arrow */
 .bb-header-nav .navigation > ul > .nav-4 > a::after {
     content: "";
 
@@ -153,6 +158,66 @@
     transform: rotate(225deg);
 }
 
+
+/* =========================================
+Footer For Brands
+============================================ */
+
+.bb-header-nav
+.navigation
+> ul
+> .nav-4
+> ul.level0
+> .bb-view-all-brands {
+    grid-column: 1 / -1;
+
+    margin-top: 10px;
+    padding-top: 14px;
+
+    border-top: 1px solid #eee;
+}
+
+.bb-header-nav
+.navigation
+> ul
+> .nav-4
+> ul.level0
+> .bb-view-all-brands
+> a {
+    display: inline-flex;
+
+    padding: 8px 0;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+
+    color: #1e1240;
+}
+
+.bb-header-nav
+.navigation
+> ul
+> .nav-4
+> ul.level0
+> .bb-view-all-brands
+> a::after {
+    content: "→";
+    margin-left: 8px;
+}
+
+.bb-header-nav
+.navigation
+> ul
+> .nav-4
+> ul.level0
+> .bb-view-all-brands
+> a:hover {
+    background: transparent;
+    color: #c84f95;
+}
 
 /* =========================================
    TABLET / MOBILE
