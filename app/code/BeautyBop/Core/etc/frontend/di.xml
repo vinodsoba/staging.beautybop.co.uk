@@ -13,6 +13,14 @@
 
     </type>
 
+    <type name="Magento\Contact\Controller\Index\Post">
+        <plugin
+            name="beautybop_contact_post_redirect"
+            type="BeautyBop\Core\Plugin\Contact\PostRedirect"
+            sortOrder="10"
+        />
+    </type>
+
 
 
 </config>

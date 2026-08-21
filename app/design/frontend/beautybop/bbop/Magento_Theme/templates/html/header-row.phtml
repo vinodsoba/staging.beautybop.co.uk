@@ -1,6 +1,6 @@
 <div class="bb-mobile-header md:hidden">
 
-    <div class="grid items-center grid-cols-[64px_minmax(56px,_1fr)_82px] gap-6 px-4 h-16">
+    <div class="grid items-center grid-cols-[64px_minmax(43px,_1fr)_103px] gap-6 px-4 h-16">
 
         <!-- Burger -->
         <button 
@@ -23,6 +23,7 @@
 
             <button
                 id="mobile-search-toggle"
+                class="border-none"
                 type="button"
                 aria-label="Search">
 
@@ -75,9 +76,9 @@
             </div>
 
              <!-- Cart -->
-        <div>
+        <div class="flex items-center">
             <a href="<?= $block->getUrl('checkout/cart') ?>"
-            class="mobile-cart-link">
+            class="mobile-cart-link relative">
 
             <svg xmlns="http://www.w3.org/2000/svg"
             class="xl:w-10 xl:h-10 w-10 h-10"
@@ -92,6 +93,12 @@
                 d="M5 8h14l-1 12H6L5 8zm4-3a3 3 0 016 0v3H9V5z"/>
 
             </svg>
+
+            <span class="mobile-cart-count"
+                data-role="mobile-cart-count"
+                style="display:none;">
+                0
+            </span>
 
             </a>
         </div>
@@ -146,6 +153,7 @@
 
             <button
                 id="desktop-search-toggle"
+                class="border-none"
                 type="button"
                 aria-label="Search">
 
@@ -224,3 +232,30 @@
     </div>
 
 </div>
+
+<script>
+require([
+    'jquery',
+    'Magento_Customer/js/customer-data'
+], function ($, customerData) {
+
+    var cart = customerData.get('cart');
+
+    function updateMobileCartCount(cartData) {
+        var count = parseInt(cartData.summary_count || 0, 10);
+        var badge = $('[data-role="mobile-cart-count"]');
+
+        if (count > 0) {
+            badge.text(count).show();
+        } else {
+            badge.text('0').hide();
+        }
+    }
+
+    updateMobileCartCount(cart());
+
+    cart.subscribe(function (updatedCart) {
+        updateMobileCartCount(updatedCart);
+    });
+});
+</script>

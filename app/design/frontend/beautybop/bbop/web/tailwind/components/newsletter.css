@@ -1,6 +1,13 @@
 /* =========================================
    BEAUTYBOP NEWSLETTER POPUP
 ========================================= */
+.um-popup-newsletter .modal-popup._show .modal-inner-wrap {
+    top: 0% !important;
+}
+
+.um-popup-newsletter .modal-popup .modal-inner-wrap {
+    margin-top: 0 !important;
+}
 
 .um-popup-newsletter .modal-inner-wrap {
     width: calc(100% - 40px) !important;

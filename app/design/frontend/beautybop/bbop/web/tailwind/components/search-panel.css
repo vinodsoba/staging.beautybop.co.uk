@@ -25,7 +25,7 @@
 }
 
 .bb-header-search-icon button {
-    @apply text-slate-700 hover:text-black border-none;
+    @apply text-slate-700 hover:text-black justify-between items-center;
 }
 
 /* header search form */

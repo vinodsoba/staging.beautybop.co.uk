@@ -1,0 +1,237 @@
+/* BeautyBop Contact Page */
+
+.bb-contact-page {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 10px 24px 70px;
+}
+
+.bb-contact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 70px;
+    align-items: start;
+}
+
+
+/* LEFT COLUMN */
+
+.bb-contact-info {
+    max-width: 560px;
+}
+
+.bb-contact-eyebrow {
+    margin: 0 0 10px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.bb-contact-info h2,
+.bb-contact-form-panel h2 {
+    margin: 0 0 18px;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+.bb-contact-lead {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.bb-contact-info > p {
+    margin-bottom: 16px;
+    line-height: 1.7;
+}
+
+
+/* SUPPORT ITEMS */
+
+.bb-contact-help {
+    margin-top: 36px;
+}
+
+.bb-contact-help__item {
+    padding: 22px 0;
+    border-top: 1px solid #e5e5e5;
+}
+
+.bb-contact-help__item:last-child {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.bb-contact-help__item h3 {
+    margin: 0 0 8px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.bb-contact-help__item p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+
+/* DIRECT EMAIL */
+
+.bb-contact-direct {
+    margin-top: 34px;
+    padding: 24px;
+    background: #f7f7f7;
+    border-radius: 14px;
+}
+
+.bb-contact-direct__label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.bb-contact-direct a {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.bb-contact-direct p {
+    margin: 0;
+}
+
+
+/* RIGHT FORM PANEL */
+
+.bb-contact-form-panel {
+    padding: 38px;
+    background: #f7f7f7;
+    border-radius: 18px;
+}
+
+.bb-contact-form-intro {
+    margin-bottom: 28px;
+    line-height: 1.6;
+}
+
+
+/* MAGENTO FORM */
+
+.bb-contact-form-wrapper .fieldset {
+    margin: 0;
+}
+
+.bb-contact-form-wrapper .field {
+    margin-bottom: 20px;
+}
+
+.bb-contact-form-wrapper .label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+}
+
+.bb-contact-form-wrapper input[type="text"],
+.bb-contact-form-wrapper input[type="email"],
+.bb-contact-form-wrapper input[type="tel"],
+.bb-contact-form-wrapper textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d6d6d6;
+    border-radius: 9px;
+    background: #fff;
+}
+
+.bb-contact-form-wrapper textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.bb-contact-form-wrapper input:focus,
+.bb-contact-form-wrapper textarea:focus {
+    outline: none;
+    border-color: #ec4899;
+}
+
+.bb-contact-form-wrapper .action.submit {
+    width: 100%;
+    padding: 15px 25px;
+    border: 0;
+    border-radius: 10px;
+    background: #111;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.bb-contact-form-wrapper .action.submit:hover {
+    background: #ec4899;
+    color: #111;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 767px) {
+
+    .bb-contact-page {
+        padding: 5px 18px 45px;
+    }
+
+    .bb-contact-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .bb-contact-info {
+        max-width: none;
+    }
+
+    .bb-contact-info h2,
+    .bb-contact-form-panel h2 {
+        font-size: 28px;
+    }
+
+    .bb-contact-form-panel {
+        padding: 28px 20px;
+    }
+}
+
+
+/* Contact form - labels above inputs */
+
+.bb-contact-form-wrapper .fieldset > .field {
+    display: block;
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.bb-contact-form-wrapper .fieldset > .field > .label {
+    display: block !important;
+    float: none !important;
+    width: 100% !important;
+    margin: 0 0 8px !important;
+    padding: 0 !important;
+    text-align: left !important;
+}
+
+.bb-contact-form-wrapper .fieldset > .field > .control {
+    display: block !important;
+    float: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+.bb-contact-form-wrapper input[type="text"],
+.bb-contact-form-wrapper input[type="email"],
+.bb-contact-form-wrapper input[type="tel"],
+.bb-contact-form-wrapper textarea {
+    width: 100% !important;
+}
+
+.bb-contact-form-wrapper form button span {
+    font-family: 'Poppins', sans-serif;
+}

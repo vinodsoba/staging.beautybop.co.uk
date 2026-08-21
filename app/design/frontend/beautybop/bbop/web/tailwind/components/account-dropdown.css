@@ -1,5 +1,5 @@
 .bb-header-account {
-    @apply mx-4;
+    @apply mx-4 flex justify-center items-center;
 }
 
 .account-menu {

@@ -1,0 +1,165 @@
+.bb-about {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 24px 70px;
+}
+
+.bb-about-intro {
+    max-width: 850px;
+    padding: 50px 0 70px;
+}
+
+.bb-about-eyebrow {
+    margin-bottom: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.bb-about h2 {
+    margin-bottom: 20px;
+    font-size: 36px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.bb-about p {
+    line-height: 1.8;
+}
+
+.bb-about-story {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+    align-items: center;
+    padding: 55px;
+    border-radius: 20px;
+    background: #f7f7f7;
+}
+
+.bb-about-story__stat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 220px;
+    padding: 40px;
+    text-align: center;
+    border-radius: 18px;
+    background: #fff;
+}
+
+.bb-about-story__stat strong {
+    display: block;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.bb-about-story__stat span {
+    margin-top: 8px;
+}
+
+.bb-about-values {
+    padding: 80px 0;
+}
+
+.bb-about-section-heading {
+    margin-bottom: 35px;
+}
+
+.bb-about-values__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.bb-about-value {
+    padding: 30px;
+    border: 1px solid #e7e7e7;
+    border-radius: 16px;
+}
+
+.bb-about-value__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background: #f3f3f3;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.bb-about-value h3 {
+    margin-bottom: 10px;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.bb-about-cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 45px 50px;
+    border-radius: 20px;
+    background: #111;
+    color: #fff;
+}
+
+.bb-about-cta h2 {
+    color: #fff;
+}
+
+.bb-about-cta__button {
+    flex-shrink: 0;
+    padding: 15px 28px;
+    border-radius: 10px;
+    background: #fff;
+    color: #111;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.bb-about-cta__button:hover {
+    background: #ec4899;
+    color: #111;
+    text-decoration: none;
+}
+
+@media (max-width: 767px) {
+
+    .bb-about {
+        padding: 10px 18px 45px;
+    }
+
+    .bb-about-intro {
+        padding: 30px 0 45px;
+    }
+
+    .bb-about h2 {
+        font-size: 28px;
+    }
+
+    .bb-about-story {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 30px 24px;
+    }
+
+    .bb-about-values {
+        padding: 55px 0;
+    }
+
+    .bb-about-values__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bb-about-cta {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 32px 25px;
+    }
+}
