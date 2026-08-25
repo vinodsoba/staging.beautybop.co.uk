@@ -6,7 +6,7 @@
 
     <body>
 
-        <referenceContainer name="sidebar.main" remove="true"/>
+       <referenceContainer name="sidebar.main" remove="true"/>
         <referenceBlock name="catalog.compare.sidebar" remove="true"/>
         <referenceBlock name="wishlist_sidebar" remove="true"/>
         <referenceBlock name="page.main.title" remove="true"/>

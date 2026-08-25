@@ -2,7 +2,16 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
 
+
+    <head>
+        <title>Makeup Shops UK, Affordable Beauty Products &amp; Makeup Online UK</title>
+        <meta name="description"
+            content="Beauty Bop UK is an online makeup shop in the UK. We offer an extensive range of quality makeup products online at affordable prices. Shop online for the best beauty products in the UK."/>
+    </head>
     <body>
+
+         <!-- Remove Magento's visible homepage title -->
+        <referenceBlock name="page.main.title" remove="true"/>
 
         <!-- REMOVE default CMS content -->
         <referenceBlock name="cms_page" remove="true"/>
