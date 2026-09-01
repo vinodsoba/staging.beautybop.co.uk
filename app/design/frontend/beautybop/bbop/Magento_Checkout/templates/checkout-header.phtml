@@ -3,8 +3,19 @@
 <div class="bb-checkout-header__inner">
 
     <div class="bb-checkout-logo">
-        <a class="logo xl:w-[270px] w-[100%] max-w-[158px] m-0" href="https://staging.beautybop.co.uk/" title="">
-            <img src="https://staging.beautybop.co.uk/media/logo/stores/1/logo-new-white.png" title="" alt="" width="170">
+        <a
+            class="logo xl:w-[270px] w-[100%] max-w-[158px] m-0"
+            href="<?= $escaper->escapeUrl($block->getBaseUrl()) ?>"
+            title=""
+        >
+            <img
+                src="<?= $escaper->escapeUrl(
+                    $block->getBaseUrl() . 'media/logo/stores/1/logo-new-white.png'
+                ) ?>"
+                title=""
+                alt="Beauty Bop"
+                width="170"
+            >
         </a>
     </div>
 

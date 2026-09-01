@@ -18,17 +18,41 @@
 
         <div class="bb-brand-collections__grid">
 
-            <a href="#" class="bb-brand-collection-card">
+            <a
+                href="<?= $escaper->escapeUrl(
+                    $block->getUrl(
+                        'catalogsearch/result',
+                        ['_query' => ['q' => 'Hugo Boss Boss Bottled']]
+                    )
+                ) ?>"
+                class="bb-brand-collection-card"
+            >
                 <h3>Boss Bottled</h3>
                 <span>Shop collection</span>
             </a>
 
-            <a href="#" class="bb-brand-collection-card">
+            <a
+                href="<?= $escaper->escapeUrl(
+                    $block->getUrl(
+                        'catalogsearch/result',
+                        ['_query' => ['q' => 'Hugo Boss The Scent']]
+                    )
+                ) ?>"
+                class="bb-brand-collection-card"
+            >
                 <h3>The Scent</h3>
                 <span>Shop collection</span>
             </a>
 
-            <a href="#" class="bb-brand-collection-card">
+            <a
+                href="<?= $escaper->escapeUrl(
+                    $block->getUrl(
+                        'catalogsearch/result',
+                        ['_query' => ['q' => 'Hugo Boss Hugo Man']]
+                    )
+                ) ?>"
+                class="bb-brand-collection-card"
+            >
                 <h3>Hugo Man</h3>
                 <span>Shop collection</span>
             </a>

@@ -92,30 +92,33 @@
 
                 </a>
 
-                <!-- New Arrivals -->
+                <!-- Shop Brands -->
 
-                <a href="/new-arrivals"
-                class="bb-category-card">
-
+                <a
+                    href="<?= $escaper->escapeUrl(
+                        $block->getUrl('brands.html')
+                    ) ?>"
+                    class="bb-category-card"
+                >
                     <img
                         src="<?= $block->getViewFileUrl('images/home/categories/fragrance-category-section-newin-bg.png') ?>"
-                        alt="New Arrivals"
-                        class="bb-category-image">
+                        alt="Shop Fragrance Brands"
+                        class="bb-category-image"
+                    >
 
                     <div class="bb-category-overlay"></div>
 
                     <div class="bb-category-content">
                         <h3 class="bb-category-title">
-                            NEW ARRIVALS
+                            SHOP BRANDS
                         </h3>
 
-                        <p>The latest launches from the worlds top fragrance brands.</p>
+                        <p>Discover fragrances from leading designer and luxury brands.</p>
 
                         <span class="bb-category-link btn-primary">
-                            SHOP NEW →
+                            VIEW BRANDS →
                         </span>
                     </div>
-
                 </a>
 
                  <!-- Luxury Cosmetics -->
