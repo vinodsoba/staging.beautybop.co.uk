@@ -109,8 +109,16 @@
     color: #fff;
 }
 
-.bb-about-cta h2 {
-    color: #fff;
+.bb-about-cta div h2 {
+    color: #fff !important;
+}
+
+.bb-about-cta p {
+    color: #d1d5db !important;
+}
+
+.bb-about-cta__accent {
+    color: #b81679;
 }
 
 .bb-about-cta__button {

@@ -9,64 +9,127 @@
             </div>
 
             <p class="text-md leading-8 text-gray-300">
-                At Beauty Bop UK, our mission is to provide a product to customers 
-                and get it to them in the shortest time possible, while maintaining 
-                a high level of customer service.
+                Discover fragrance, skincare, haircare and beauty from leading brands,
+                with great value and reliable UK delivery from Beauty Bop.
             </p>
         </div>
 
         <!-- Column 2 -->
         <div>
-            <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+            <h3 class="text-xl font-semibold mb-4">Shop</h3>
+
             <ul class="space-y-2 text-gray-300 text-md">
-                <li><a href="#" class="hover:text-white">Best Sellers</a></li>
-                <li><a href="#" class="hover:text-white">Trending Now</a></li>
-                <li><a href="/shops/gift-sets.html" class="hover:text-white">Gift Sets</a></li>
-                
+                <li>
+                    <a href="/shops.html" class="hover:text-white">
+                        Shop All
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/brands.html" class="hover:text-white">
+                        Shop by Brand
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/shops/gift-sets.html" class="hover:text-white">
+                        Gift Sets
+                    </a>
+                </li>
             </ul>
         </div>
 
         <!-- Column 3 -->
         <div>
-            <h3 class="text-xl font-semibold mb-4">Community</h3>
+            <h3 class="text-xl font-semibold mb-4">Discover</h3>
+
             <ul class="space-y-2 text-gray-300 text-md">
-                <li><a href="/blog" class="hover:text-white">Beauty Blog</a></li>
-               
-                <li><a href="#" class="hover:text-white">Reviews</a></li>
-                <li><a href="https://www.instagram.com/beautybopuk" class="hover:text-white">Join Our Instagram</a></li>
+                <li>
+                    <a href="/blog" class="hover:text-white">
+                        Beauty Blog
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/about.html" class="hover:text-white">
+                        About Beauty Bop
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.instagram.com/beautybopuk"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="hover:text-white">
+                        Follow us on Instagram
+                    </a>
+                </li>
             </ul>
         </div>
 
         <!-- Column 4 -->
         <div>
-            <h3 class="text-xl font-semibold mb-4">Support</h3>
+            <h3 class="text-xl font-semibold mb-4">Customer Care</h3>
+
             <ul class="space-y-2 text-gray-300 text-md">
-                <li><a href="/returns-exchanges-refunds" class="hover:text-white">Returns</a></li>
-                <li><a href="/customer/account">My Account</a></li>
+                <li>
+                    <a href="/returns-exchanges-refunds" class="hover:text-white">
+                        Returns & Refunds
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/contact.html" class="hover:text-white">
+                        Contact Us
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/customer/account" class="hover:text-white">
+                        My Account
+                    </a>
+                </li>
             </ul>
         </div>
 
-        <!-- Column 5 (Newsletter) -->
+        <!-- Column 5 -->
         <div>
-            <h3 class="text-lg font-semibold mb-4">
-                Join the glow squad 💖
-            </h3>
+            <form
+                class="form subscribe"
+                novalidate
+                action="<?= $block->escapeUrl($block->getUrl('newsletter/subscriber/new')) ?>"
+                method="post"
+                data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+            >
+                <h3 class="text-lg font-semibold mb-4">
+                    Join the glow squad 💖
+                </h3>
 
-            <p class="text-md text-gray-300 mb-4">
-                Get exclusive drops & beauty tips
-            </p>
+                <p class="text-md text-gray-300 mb-4">
+                    Get exclusive drops & beauty tips
+                </p>
 
-            <input type="email"
-                   placeholder="Your email address"
-                   class="w-full rounded-[5px] px-4 py-3 text-black mb-4 outline-none">
+                <input
+                    type="email"
+                    name="email"
+                    id="footer-newsletter-email"
+                    placeholder="Your email address"
+                    aria-label="Email address"
+                    class="w-full rounded-[5px] px-4 py-3 text-black mb-4 outline-none"
+                    data-validate="{required:true, 'validate-email':true}"
+                >
 
-            <button class="w-full bg-[#b81679] text-white py-3 rounded-[5px] font-semibold hover:bg-pink-600 hover:text-white border-none">
-                Subscribe
-            </button>
+                <button
+                    type="submit"
+                    class="w-full bg-[#b81679] text-white py-3 rounded-[5px] font-semibold hover:bg-pink-600 hover:text-white border-none"
+                >
+                    Subscribe
+                </button>
+            </form>
 
             <!-- Payments -->
-            <div class="flex gap-3 mt-6">
-                <div class="bg-white text-black px-2 py-1 text-xs rounded">stripe</div>
+            <div class="flex flex-wrap gap-3 mt-6">
+                <div class="bg-white text-black px-2 py-1 text-xs rounded">Stripe</div>
                 <div class="bg-white text-black px-2 py-1 text-xs rounded">PayPal</div>
                 <div class="bg-white text-black px-2 py-1 text-xs rounded">Mastercard</div>
                 <div class="bg-white text-black px-2 py-1 text-xs rounded">VISA</div>
@@ -78,17 +141,17 @@
     <!-- Bottom bar -->
     <div class="border-t border-gray-700 text-center py-6 text-sm text-gray-300">
 
-        <div>© <?= date('Y') ?> Beauty Bop — Glow responsibly 💖</div>
+        <div>
+            © <?= date('Y') ?> Beauty Bop — Glow responsibly 💖
+        </div>
 
-        <div class="mt-2 space-x-3">
-            <a href="/privacy-policy-cookie-restriction-mode" class="hover:text-white">Privacy Policy</a>
-            <span>|</span>
-            <a href="#" class="hover:text-white">Terms</a>
-            <span>|</span>
-            <a href="#" class="hover:text-white">Cookies</a>
+        <div class="mt-2">
+            <a href="/privacy-policy-cookie-restriction-mode"
+               class="hover:text-white">
+                Privacy Policy
+            </a>
         </div>
 
     </div>
 
 </footer>
-
