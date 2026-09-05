@@ -70,3 +70,6 @@ package.json.sample
 /app/etc/vendor_path.php
 
 app/etc/env.php
+
+# Local Mailchimp exports
+beautybop-mailchimp-clean-*.csv
