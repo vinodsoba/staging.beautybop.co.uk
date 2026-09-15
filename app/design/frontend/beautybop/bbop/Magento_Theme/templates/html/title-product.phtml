@@ -11,9 +11,14 @@
  */
 $cssClass = $block->getCssClass() ? ' ' . $block->getCssClass() : '';
 $title = '';
+
+echo '<!-- add_base_attribute = ' . $block->getAddBaseAttribute() . ' -->';
+
+
 if (trim($block->getPageHeading())) {
-    $title = '<span class="base" data-ui-id="page-title-wrapper" ' .  $block->getAddBaseAttribute() . '>'
-        . $block->escapeHtml($block->getPageHeading()) . '</span>';
+    $title = '<span class="base" itemprop="name" data-ui-id="page-title-wrapper">'
+    . $block->escapeHtml($block->getPageHeading())
+    . '</span>';
 }
 ?>
 <?php if ($title): ?>

@@ -33,7 +33,7 @@
 <block class="Magento\Catalog\Block\Breadcrumbs"/>
 
         <referenceContainer name="content">
-            <container name="product.info.main" htmlTag="div" htmlClass="product-info-main" before="-">
+            <container name="product.info.main" htmlTag="div" htmlClass="product-info-main" before="-">          
               <block class="Magento\Theme\Block\Html\Title" name="page.main.title" template="Magento_Theme::html/title-product.phtml"/>
           
                 <container name="product.info.price" label="Product info auxiliary container" htmlTag="div" htmlClass="product-info-price">
