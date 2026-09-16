@@ -4,10 +4,6 @@ use Magento\Framework\App\Action\Action;
 ?>
 
 <?php
-$helper = $this->helper(\BeautyBop\Base\Helper\Data::class);
-?>
-
-<?php
 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 $category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');
 
@@ -111,15 +107,6 @@ $position = ' style="left:' . $productImage->getWidth() . 'px;top:' . $productIm
 </a>
 
 </strong>
-
-<?php $rating = $helper->getProductRating($_product); ?>
-
-<div class="flex items-center gap-1 text-md mt-1">
-    <span class="text-yellow-500"><?= $rating['stars']; ?></span>
-    <span class="text-gray-500">
-        (<?= $rating['score']; ?> • <?= $rating['count']; ?> reviews)
-    </span>
-</div>
 
 <?= $block->getReviewsSummaryHtml($_product, $templateType) ?>
 <?= $block->getProductPrice($_product) ?>
