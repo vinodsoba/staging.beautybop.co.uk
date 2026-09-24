@@ -197,6 +197,10 @@
                 name="beautybop.product.stock.message"
                 template="Magento_Catalog::product/view/stock-message.phtml"
                 before="beautybop.product.at.a.glance" />
+            <block class="BeautyBop\Core\Block\Product\View\ExploreMore"
+                name="beautybop.product.explore.more"
+                template="Magento_Catalog::product/view/explore-more.phtml"
+                after="beautybop.product.at.a.glance" />
             <block class="Magento\Catalog\Block\ShortcutButtons\InCatalog"
                 name="addtocart.shortcut.buttons"/>
         </referenceBlock>

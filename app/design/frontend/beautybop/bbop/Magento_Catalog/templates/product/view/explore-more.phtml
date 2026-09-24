@@ -1,0 +1,32 @@
+<?php
+/**
+ * BeautyBop - Dynamic Explore More
+ *
+ * @var \BeautyBop\Core\Block\Product\View\ExploreMore $block
+ */
+
+$categories = $block->getExploreCategories();
+
+if (!$categories) {
+    return;
+}
+?>
+
+<section class="product-explore-more">
+    <div class="product-explore-more__inner">
+        <h2 class="product-explore-more__title">
+            <?= $block->escapeHtml(__('Explore More')) ?>
+        </h2>
+
+        <div class="product-explore-more__links">
+            <?php foreach ($categories as $category): ?>
+                <a
+                    class="product-explore-more__link"
+                    href="<?= $block->escapeUrl($category->getUrl()) ?>"
+                >
+                    <?= $block->escapeHtml($category->getName()) ?>
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
