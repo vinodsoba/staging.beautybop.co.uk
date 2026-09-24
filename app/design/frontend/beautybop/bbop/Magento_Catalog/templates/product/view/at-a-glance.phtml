@@ -19,7 +19,12 @@ $amountUntilFreeDelivery = max(0, $freeDeliveryThreshold - $price);
     <div class="bb-product-glance__items">
 
         <div class="bb-product-glance__item">
-            <span class="bb-product-glance__icon">✓</span>
+            <span class="bb-product-glance__icon">
+                <img
+                    src="<?= $block->getViewFileUrl('images/icons/product-detail/shield.svg') ?>"
+                    width="32"
+                />
+            </span>
 
             <div class="text-left">
                 <strong>100% Genuine Products</strong>
@@ -28,7 +33,12 @@ $amountUntilFreeDelivery = max(0, $freeDeliveryThreshold - $price);
         </div>
 
         <div class="bb-product-glance__item">
-            <span class="bb-product-glance__icon">🚚</span>
+            <span class="bb-product-glance__icon">
+                <img
+                    src="<?= $block->getViewFileUrl('images/icons/product-detail/truck.svg') ?>"
+                    width="32"
+                />
+            </span>
 
             <div class="text-left">
                 <?php if ($price >= $freeDeliveryThreshold): ?>
@@ -51,7 +61,11 @@ $amountUntilFreeDelivery = max(0, $freeDeliveryThreshold - $price);
         </div>
 
         <div class="bb-product-glance__item">
-            <span class="bb-product-glance__icon">📦</span>
+            <span class="bb-product-glance__icon">
+                <img src="<?= $block->getViewFileUrl('images/icons/product-detail/package.svg') ?>"
+                width="32"
+                />
+            </span>
 
             <div class="text-left">
                 <?php if ($isInStock): ?>
@@ -65,7 +79,11 @@ $amountUntilFreeDelivery = max(0, $freeDeliveryThreshold - $price);
         </div>
 
         <div class="bb-product-glance__item">
-            <span class="bb-product-glance__icon">🔒</span>
+            <span class="bb-product-glance__icon">
+                <img src="<?= $block->getViewFileUrl('images/icons/product-detail/lock.svg') ?>"
+                width="32"
+                />
+            </span>
 
             <div class="text-left">
                 <strong>Secure Checkout</strong>
