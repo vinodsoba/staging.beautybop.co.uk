@@ -249,3 +249,32 @@
 .stock.unavailable::before {
     background: #dc2626;
 }
+
+
+/*-----------------------------
+Adding category long description
+------------------------------*/
+.category-seo-content{
+    max-width:900px;
+    margin:70px auto;
+    padding:0 20px;
+}
+
+.category-seo-content h2 {
+    margin:0 0 24px;
+    font-size:3rem;
+}
+
+.category-seo-content p {
+    margin-bottom:24px;
+}
+
+.category-seo-content ul {
+    margin:24px 0;
+    padding-left:24px;
+}
+
+.category-seo-content li {
+    margin-bottom:12px;
+    list-style: initial;
+}

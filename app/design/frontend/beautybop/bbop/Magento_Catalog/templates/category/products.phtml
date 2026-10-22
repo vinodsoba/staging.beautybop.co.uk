@@ -1,0 +1,25 @@
+<?php
+/**
+ * Category view template
+ *
+ * @var $block \Magento\Catalog\Block\Category\View
+ */
+
+$category = $block->getCurrentCategory();
+?>
+
+<?php if (!$block->isContentMode() || $block->isMixedMode()) : ?>
+    <?= $block->getProductListHtml() ?>
+<?php endif; ?>
+
+<?php
+$longDescription = $category->getData('c001');
+?>
+
+<?php if (!empty($longDescription)) : ?>
+    <section class="category-seo-content">
+        <div class="container">
+            <?= /* @noEscape */ html_entity_decode($longDescription) ?>
+        </div>
+    </section>
+<?php endif; ?>
