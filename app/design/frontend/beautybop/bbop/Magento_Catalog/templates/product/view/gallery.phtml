@@ -12,6 +12,41 @@
  * @var $block \Magento\Catalog\Block\Product\View\Gallery
  */
 ?>
+<?php
+$productImages = $block->getGalleryImages();
+
+if ($productImages) {
+    foreach ($productImages as $image) {
+        $imageUrl = $image->getData('large_image_url');
+
+        if ($imageUrl && $block->isMainImage($image)) {
+            ?>
+            <meta itemprop="image"
+                  content="<?= $block->escapeUrl($imageUrl) ?>" />
+            <?php
+            break;
+        }
+    }
+}
+?>
+<?php
+$product = $block->getProduct();
+
+if ($product) {
+    $brand = $product->getAttributeText('brand');
+
+    if (is_string($brand) && trim($brand) !== ''):
+        ?>
+        <div itemprop="brand"
+             itemscope
+             itemtype="https://schema.org/Brand">
+            <meta itemprop="name"
+                  content="<?= $block->escapeHtmlAttr(trim($brand)) ?>" />
+        </div>
+        <?php
+    endif;
+}
+?>
 <div class="gallery-placeholder _block-content-loading" data-gallery-role="gallery-placeholder">
     <div data-role="loader" class="loading-mask">
         <div class="loader">
