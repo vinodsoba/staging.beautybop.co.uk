@@ -43,6 +43,88 @@
 }
 
 
+
+/* Halloween homepage promotion */
+
+.bb-home-hero-halloween {
+    position: relative;
+    min-height: 550px;
+    display: flex;
+    align-items: center;
+    background-image: url('../images/home/halloween-banner-2026.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bb-halloween-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    max-width: 560px;
+}
+
+.bb-halloween-content .bb-home-hero__eyebrow {
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.bb-halloween-content h2 {
+    color: #fff;
+    font-size: clamp(32px, 4vw, 58px);
+    line-height: 1.1;
+    font-weight: 700;
+    margin: 18px 0;
+}
+
+.bb-halloween-content p {
+    color: #f5d6c3;
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 28px;
+}
+
+.bb-halloween-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 12px 28px;
+    background: #e87924;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.bb-halloween-button:hover {
+    background: #c65d13;
+    color: #fff;
+}
+
+@media (max-width: 767px) {
+    .bb-home-hero-halloween {
+        background-position: center;
+    }
+
+    .bb-halloween-content {
+        max-width: 100%;
+        padding: 30px 20px;
+    }
+
+    .bb-halloween-content h2 {
+        font-size: 32px;
+    }
+
+    .bb-halloween-content p {
+        font-size: 16px;
+    }
+}
+
+
 .bb-home-hero__content {
     max-width: 1280px;
     margin: 0 auto;
@@ -105,6 +187,14 @@
         flex-direction: column;
     }
 
+     .bb-home-hero-halloween {
+        background-position: 100% 100%;
+        background-image: url('../images/home/mobile/hero-banner_mobile_slide-3.jpg');
+        background-repeat: no-repeat;
+        justify-content: start;
+        flex-direction: column;
+    }
+
     .bb-home-hero__eyebrow {
         margin-bottom: 46px;
         font-size: 12px;
@@ -141,4 +231,27 @@
         display: none !important;
     }
 
+}
+
+/* Halloween banner - mobile button */
+@media screen and (min-width: 299px) and (max-width: 767px) {
+    .bb-halloween-content .bb-home-hero__buttons {
+        display: flex;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .bb-halloween-content .bb-halloween-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        padding: 12px 16px;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 14px;
+    }
 }
