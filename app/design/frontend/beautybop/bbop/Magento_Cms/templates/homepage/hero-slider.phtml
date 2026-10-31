@@ -1,105 +1,121 @@
 <div class="bb-home-hero-wrapper">
 
+<?php
+$seasonalBannerHtml = $block->getLayout()
+    ->createBlock(\Magento\Cms\Block\Block::class)
+    ->setBlockId('homepage_seasonal_banner')
+    ->toHtml();
+?>
+
 <div class="swiper bb-home-carousel-slider-show">
 
         <div class="swiper-wrapper">
 
-        <div class="swiper-slide">
-            <section class="bb-home-hero" style="background-repeat: no-repeat;">
 
-                <div class="bb-home-hero__content">
+             <?php if (trim($seasonalBannerHtml) !== ''): ?>
+             <!-- Halloween Banner -->
+                <div class="swiper-slide">
+                <?= /* @noEscape */ $seasonalBannerHtml ?>
+                </div>
+            <?php endif; ?>
 
-                    <div class="bb-home-hero__left">
 
-                        <span class="bb-home-hero__eyebrow text-[#C9A227] font-semibold">
-                            DESIGNER FRAGRANCES
-                        </span>
+            <div class="swiper-slide">
+                <section class="bb-home-hero" style="background-repeat: no-repeat;">
 
-                        <h1 class="text-[68px] w-[693] h-[147]">
-                            Luxury Fragrances
-                            For Men & Women
-                        </h1>
+                    <div class="bb-home-hero__content">
 
-                        <p class="max-w-[520px] mt-[24px] text-[24px] font-[400px] leading-1">
-                            Discover genuine designer perfumes
-                            and aftershaves from leading brands
-                            including Hugo Boss, Prada and more.
-                        </p>
+                        <div class="bb-home-hero__left">
 
-                        <div class="bb-home-hero__buttons">
+                            <span class="bb-home-hero__eyebrow text-[#C9A227] font-semibold">
+                                DESIGNER FRAGRANCES
+                            </span>
 
-                            <a href="/shops/fragrances/mens.html"
-                            class="btn-primary bg-[#111827] rounded-[5px] text-white text-[12px] w-[220px] h-[40px] z-[2]  text-center py-4 ">
-                                Shop Men's Fragrances
-                            </a>
+                            <h1 class="text-[68px] w-[693] h-[147]">
+                                Luxury Fragrances
+                                For Men & Women
+                            </h1>
 
-                            <a href="/shops/fragrances/womens.html"
-                            class="btn-secondary bg-white text-black z-[2] text-[12px] text-center py-4  w-[220px] h-[40px] rounded-[5px] hover:bg-[#111827]">
-                                Shop Women's Fragrances
-                            </a>
+                            <p class="max-w-[520px] mt-[24px] text-[24px] font-[400px] leading-1">
+                                Discover genuine designer perfumes
+                                and aftershaves from leading brands
+                                including Hugo Boss, Prada and more.
+                            </p>
+
+                            <div class="bb-home-hero__buttons">
+
+                                <a href="/shops/fragrances/mens.html"
+                                class="btn-primary bg-[#111827] rounded-[5px] text-white text-[12px] w-[220px] h-[40px] z-[2]  text-center py-4 ">
+                                    Shop Men's Fragrances
+                                </a>
+
+                                <a href="/shops/fragrances/womens.html"
+                                class="btn-secondary bg-white text-black z-[2] text-[12px] text-center py-4  w-[220px] h-[40px] rounded-[5px] hover:bg-[#111827]">
+                                    Shop Women's Fragrances
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                        <div class="bb-home-hero__right flex">
+
 
                         </div>
 
                     </div>
 
-                    <div class="bb-home-hero__right flex">
+                </section>
+            </div>
+
+            <div class="swiper-slide">
+                <section class="bb-home-hero-slide-2" style="background-repeat: no-repeat;">
+
+                    <div class="bb-home-hero__content">
+
+                        <div class="bb-home-hero__left">
+
+                            <span class="bb-home-hero__eyebrow text-[#000000] font-semibold">
+                                THE WORLDS FINEST
+                            </span>
+
+                            <h1 class="text-[68px] w-[693] h-[147]">
+                                Fragrances by Georgio Armani
+                            </h1>
+
+                            <p class="max-w-[520px] mt-[24px] text-[24px] font-[400px] leading-1">
+                            Discover luxury perfumes & aftershaves from the world’s most iconic brands
+                            </p>
+
+                            <div class="bb-home-hero__buttons">
+
+                                <a href="/shops/fragrances/mens.html"
+                                class="btn-primary bg-[#111827] rounded-[5px] text-white text-[12px] w-[220px] h-[40px] z-[2]  text-center py-4 ">
+                                    SHOP FRAGRANCES
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                        <div class="bb-home-hero__right flex">
 
 
-                    </div>
 
-                </div>
-
-            </section>
-        </div>
-
-        <div class="swiper-slide">  
-             <section class="bb-home-hero-slide-2" style="background-repeat: no-repeat;">
-
-                <div class="bb-home-hero__content">
-
-                    <div class="bb-home-hero__left">
-
-                        <span class="bb-home-hero__eyebrow text-[#000000] font-semibold">
-                            THE WORLDS FINEST
-                        </span>
-
-                        <h1 class="text-[68px] w-[693] h-[147]">
-                            Fragrances by Georgio Armani
-                        </h1>
-
-                        <p class="max-w-[520px] mt-[24px] text-[24px] font-[400px] leading-1">
-                           Discover luxury perfumes & aftershaves from the world’s most iconic brands
-                        </p>
-
-                        <div class="bb-home-hero__buttons">
-
-                            <a href="/shops/fragrances/mens.html"
-                            class="btn-primary bg-[#111827] rounded-[5px] text-white text-[12px] w-[220px] h-[40px] z-[2]  text-center py-4 ">
-                                SHOP FRAGRANCES
-                            </a>
+                            <!--<img
+                                src="/media/home/boss-bottled.png"
+                                alt="Hugo Man"
+                                class="bottle bottle-2"
+                            >-->
 
                         </div>
 
                     </div>
 
-                    <div class="bb-home-hero__right flex">
+                </section>
+            </div>
 
-                      
-
-                        <!--<img
-                            src="/media/home/boss-bottled.png"
-                            alt="Hugo Man"
-                            class="bottle bottle-2"
-                        >-->
-
-                    </div>
-
-                </div>
-
-            </section>
         </div>
-        
-    </div>
 
      <div class="swiper-pagination"></div>
 
