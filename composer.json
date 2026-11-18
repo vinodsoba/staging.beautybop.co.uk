@@ -19,6 +19,7 @@
     "version": "2.4.6-p5",
     "require": {
         "fishpig/magento2-wordpress-integration": "^3.0",
+        "m2epro/magento2-extension": "1.101.3",
         "magento/composer-dependency-version-audit-plugin": "~0.1",
         "magento/composer-root-update-plugin": "~2.0",
         "magento/product-community-edition": "2.4.6-p5",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "334d137ec812775bf8693cccbaefd7b8",
+    "content-hash": "9f30dfdf8d031c65dad7aea25f32e3e9",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -5193,6 +5193,50 @@
                 }
             ],
             "time": "2026-07-09T11:49:27+00:00"
+        },
+        {
+            "name": "m2epro/magento2-extension",
+            "version": "1.101.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/m2epro/magento2-extension.git",
+                "reference": "5863fd59d187e66966264ceb1b42d419b22372d0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/m2epro/magento2-extension/zipball/5863fd59d187e66966264ceb1b42d419b22372d0",
+                "reference": "5863fd59d187e66966264ceb1b42d419b22372d0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Ess\\M2ePro\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "M2E Pro is a Magento trusted (TM), award-winning extension, which allows merchants of all sizes to fully integrate Magento based system(s) into eBay/Amazon/Walmart platforms.",
+            "homepage": "https://m2epro.com/",
+            "keywords": [
+                "amazon",
+                "ebay",
+                "magento",
+                "walmart"
+            ],
+            "support": {
+                "source": "https://github.com/m2epro/magento2-extension/tree/1.101.3"
+            },
+            "time": "2026-11-11T17:30:13+00:00",
+            "published-time": "2026-11-11T17:30:19+00:00"
         },
         {
             "name": "magento/adobe-stock-integration",
@@ -28344,5 +28388,5 @@
     "prefer-lowest": false,
     "platform": {},
     "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.11.0"
 }
