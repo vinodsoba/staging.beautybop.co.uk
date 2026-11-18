@@ -338,6 +338,7 @@ return [
         'BeautyBop_Qty' => 1,
         'Magecomp_Inventoryupdate' => 0,
         'CategoryDescription_CategoryLongDescription' => 1,
+        'Ess_M2ePro' => 1,
         'FME_Banners' => 1,
         'FishPig_WordPress' => 1,
         'BeautyFort_BeautyfortProductImport' => 1,
